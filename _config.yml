@@ -1,4 +1,5 @@
 description: akkinoc's website.
+locale: ja-JP
 plugins:
   - jekyll-feed
   - jekyll-include-cache
