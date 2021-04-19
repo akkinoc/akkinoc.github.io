@@ -1,5 +1,6 @@
 description: akkinoc's website.
 locale: ja-JP
+logo: /assets/images/icon-512x512.svg
 minimal_mistakes_skin: dark
 name: Akihiro Kondo
 plugins:
