@@ -1,6 +1,7 @@
 description: akkinoc's website.
 locale: ja-JP
 minimal_mistakes_skin: dark
+name: Akihiro Kondo
 plugins:
   - jekyll-feed
   - jekyll-include-cache
