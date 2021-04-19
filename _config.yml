@@ -1,6 +1,7 @@
 description: akkinoc's website.
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
+remote_theme: mmistakes/minimal-mistakes@4.22.0
 title: akkinoc.dev
-theme: minima
 url: https://akkinoc.dev
