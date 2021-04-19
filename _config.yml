@@ -1,5 +1,6 @@
 description: akkinoc's website.
 locale: ja-JP
+minimal_mistakes_skin: dark
 plugins:
   - jekyll-feed
   - jekyll-include-cache
