@@ -6,5 +6,6 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 remote_theme: mmistakes/minimal-mistakes@4.22.0
+repository: akkinoc/akkinoc.github.io
 title: akkinoc.dev
 url: https://akkinoc.dev
