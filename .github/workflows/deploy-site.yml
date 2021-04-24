@@ -1,0 +1,29 @@
+name: Deploy site
+on:
+  push:
+    branches:
+      - main
+env:
+  TZ: Asia/Tokyo
+jobs:
+  deploy-site:
+    name: Deploy site
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - name: Build site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Deploy site
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          cname: akkinoc.dev

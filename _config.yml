@@ -6,7 +6,9 @@ name: Akihiro Kondo
 plugins:
   - jekyll-feed
   - jekyll-include-cache
-remote_theme: mmistakes/minimal-mistakes@4.22.0
+  - jekyll-paginate
+  - jekyll-sitemap
 repository: akkinoc/akkinoc.github.io
+theme: minimal-mistakes-jekyll
 title: akkinoc.dev
 url: https://akkinoc.dev
