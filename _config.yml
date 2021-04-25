@@ -9,3 +9,7 @@ name: Akihiro Kondo
 description: akkinoc's website.
 url: https://akkinoc.dev
 logo: /assets/images/icon-nobg-512x512.svg
+
+# Reading Files
+exclude:
+  - README.md
