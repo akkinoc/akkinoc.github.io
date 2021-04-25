@@ -1,14 +1,11 @@
-description: akkinoc's website.
-locale: ja-JP
-logo: /assets/images/icon-nobg-512x512.svg
-minimal_mistakes_skin: dark
-name: Akihiro Kondo
-plugins:
-  - jekyll-feed
-  - jekyll-include-cache
-  - jekyll-paginate
-  - jekyll-sitemap
-repository: akkinoc/akkinoc.github.io
+# Theme
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: dark
+
+# Site
+locale: ja-JP
 title: akkinoc.dev
+name: Akihiro Kondo
+description: akkinoc's website.
 url: https://akkinoc.dev
+logo: /assets/images/icon-nobg-512x512.svg
