@@ -13,3 +13,4 @@ logo: /assets/images/icon-nobg-512x512.svg
 # Reading Files
 exclude:
   - README.md
+  - LICENSE.txt
