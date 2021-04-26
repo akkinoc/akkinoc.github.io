@@ -8,9 +8,23 @@
 [License Badge]: https://img.shields.io/badge/License-CC%20BY--SA-blue.svg
 [License]: LICENSE.txt
 
-My website: [akkinoc.dev]  
+The codebase for my personal website: [akkinoc.dev]  
 
 [akkinoc.dev]: https://akkinoc.dev
+
+## Building
+
+To build, run:  
+
+```console
+$ bundle
+$ bundle exec jekyll build
+```
+
+## Deploying
+
+To deploy, push to Git `main` branch.  
+It's automatically deployed by GitHub Actions.  
 
 ## License
 
