@@ -11,3 +11,9 @@
 My website: [akkinoc.dev]  
 
 [akkinoc.dev]: https://akkinoc.dev
+
+## License
+
+Licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License].  
+
+[Creative Commons Attribution-ShareAlike 4.0 International License]: LICENSE.txt
