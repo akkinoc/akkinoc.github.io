@@ -9,6 +9,11 @@
       "type": "image/svg+xml",
       "sizes": "512x512",
       "src": "/assets/images/icon-512x512.svg"
+    },
+    {
+      "type": "image/png",
+      "sizes": "512x512",
+      "src": "/assets/images/icon-512x512.png"
     }
   ],
   "display": "standalone",
