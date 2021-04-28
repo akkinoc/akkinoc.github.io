@@ -6,14 +6,29 @@
   "start_url": "/",
   "icons": [
     {
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "src": "/assets/images/icon-512x512.svg"
+    },
+    {
+      "type": "image/png",
+      "sizes": "512x512",
+      "src": "/assets/images/icon-512x512.png"
+    },
+    {
       "type": "image/png",
       "sizes": "192x192",
       "src": "/assets/images/icon-192x192.png"
     },
     {
       "type": "image/png",
-      "sizes": "512x512",
-      "src": "/assets/images/icon-512x512.png"
+      "sizes": "180x180",
+      "src": "/assets/images/icon-180x180.png"
+    },
+    {
+      "type": "image/vnd.microsoft.icon",
+      "sizes": "16x16 32x32 48x48",
+      "src": "/assets/images/icon-16x16+32x32+48x48.ico"
     }
   ],
   "display": "standalone",
