@@ -24,11 +24,6 @@
       "type": "image/png",
       "sizes": "180x180",
       "src": "/assets/images/icon-180x180.png"
-    },
-    {
-      "type": "image/vnd.microsoft.icon",
-      "sizes": "16x16 32x32 48x48",
-      "src": "/assets/images/icon-16x16+32x32+48x48.ico"
     }
   ],
   "display": "standalone",
