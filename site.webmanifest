@@ -11,9 +11,9 @@
       "src": "/assets/images/icon-192x192.png"
     },
     {
-      "type": "image/svg+xml",
+      "type": "image/png",
       "sizes": "512x512",
-      "src": "/assets/images/icon-512x512.svg"
+      "src": "/assets/images/icon-512x512.png"
     }
   ],
   "display": "standalone",
