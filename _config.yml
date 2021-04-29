@@ -22,10 +22,14 @@ defaults:
     values:
       layout: single
       show_date: true
+      toc: true
+      toc_sticky: true
   - scope:
       type: pages
     values:
       layout: single
+      toc: true
+      toc_sticky: true
 
 # Outputting
 timezone: Asia/Tokyo
