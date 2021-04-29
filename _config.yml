@@ -24,6 +24,7 @@ defaults:
       type: posts
     values:
       layout: single
+      show_date: true
   - scope:
       type: pages
     values:
