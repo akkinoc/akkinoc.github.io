@@ -32,4 +32,5 @@ defaults:
       toc_sticky: true
 
 # Outputting
+paginate: 10
 timezone: Asia/Tokyo

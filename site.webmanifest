@@ -5,7 +5,7 @@
   "name": {{ site.title | jsonify }},
   "short_name": {{ site.title | jsonify }},
   "description": {{ site.description | jsonify }},
-  "start_url": "{% link index.md %}",
+  "start_url": "{% link index.html %}",
   "icons": [
     {
       "type": "image/png",
