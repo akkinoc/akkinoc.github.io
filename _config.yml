@@ -1,4 +1,4 @@
-# Site
+# Site settings
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: dark
 locale: ja-JP
@@ -10,7 +10,7 @@ logo: /assets/images/icon-nobg-512x512.svg
 search: true
 search_full_content: true
 
-# Site Author
+# Site author
 author:
   name: Akihiro Kondo
   avatar: /assets/images/avatar-512x512.jpg
@@ -30,14 +30,14 @@ author:
       icon: fab fa-fw fa-github
       url: https://github.com/akkinoc
 
-# Reading Files
+# Reading files
 include:
   - _pages
 exclude:
   - README.md
   - LICENSE.txt
 
-# Front Matter Defaults
+# Front matter defaults
 defaults:
   - scope:
       path: _pages
