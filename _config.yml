@@ -31,12 +31,21 @@ author:
       url: https://github.com/akkinoc
 
 # Reading Files
+include:
+  - _pages
 exclude:
   - README.md
   - LICENSE.txt
 
 # Front Matter Defaults
 defaults:
+  - scope:
+      path: _pages
+      type: pages
+    values:
+      layout: single
+      toc: true
+      toc_sticky: true
   - scope:
       path: _posts
       type: posts
@@ -46,13 +55,6 @@ defaults:
       toc: true
       toc_sticky: true
       share: true
-  - scope:
-      path: _pages
-      type: pages
-    values:
-      layout: single
-      toc: true
-      toc_sticky: true
 
 # Outputting
 paginate: 10
