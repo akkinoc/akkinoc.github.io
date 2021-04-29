@@ -10,6 +10,26 @@ logo: /assets/images/icon-nobg-512x512.svg
 search: true
 search_full_content: true
 
+# Site Author
+author:
+  name: Akihiro Kondo
+  avatar: /assets/images/avatar-512x512.jpg
+  bio: Software Engineer. ♡ Kotlin, Java, Spring, AWS.
+  location: Tokyo, Japan
+  links:
+    - label: Email
+      icon: fas fa-fw fa-envelope-square
+      url: mailto:akkinoc@gmail.com
+    - label: Website
+      icon: fas fa-fw fa-link
+      url: https://akkinoc.dev
+    - label: Twitter
+      icon: fab fa-fw fa-twitter-square
+      url: https://twitter.com/akkinoc
+    - label: GitHub
+      icon: fab fa-fw fa-github
+      url: https://github.com/akkinoc
+
 # Reading Files
 exclude:
   - README.md
