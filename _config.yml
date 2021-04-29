@@ -17,3 +17,14 @@ exclude:
 
 # Outputting
 timezone: Asia/Tokyo
+
+# Defaults
+defaults:
+  - scope:
+      type: posts
+    values:
+      layout: single
+  - scope:
+      type: pages
+    values:
+      layout: single
