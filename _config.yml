@@ -14,3 +14,6 @@ logo: /assets/images/icon-nobg-512x512.svg
 exclude:
   - README.md
   - LICENSE.txt
+
+# Outputting
+timezone: Asia/Tokyo
