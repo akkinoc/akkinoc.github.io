@@ -24,6 +24,7 @@ defaults:
       show_date: true
       toc: true
       toc_sticky: true
+      share: true
   - scope:
       type: pages
     values:
