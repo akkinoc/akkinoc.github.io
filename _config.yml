@@ -45,7 +45,10 @@ exclude:
 # Front matter defaults
 defaults:
   - scope:
-      path: _posts
+      type: pages
+    values:
+      layout: single
+  - scope:
       type: posts
     values:
       layout: single
