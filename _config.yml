@@ -14,7 +14,9 @@ search_full_content: true
 author:
   name: Akihiro Kondo
   avatar: /assets/images/avatar-512x512.jpg
-  bio: Software Engineer. ♡ Kotlin, Java, Spring, AWS.
+  bio: |
+    Software Engineer.
+    ♡ Kotlin, Java, Spring, AWS.
   location: Tokyo, Japan
   links: &author_links
     - label: Website
