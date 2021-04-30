@@ -42,6 +42,10 @@ exclude:
   - README.md
   - LICENSE.txt
 
+# Conversion and Markdown processing
+kramdown:
+  hard_wrap: true
+
 # Front matter defaults
 defaults:
   - scope:
