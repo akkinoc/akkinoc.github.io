@@ -29,6 +29,9 @@ author:
     - label: GitHub
       icon: fab fa-fw fa-github-alt
       url: https://github.com/akkinoc
+    - label: Keybase
+      icon: fab fa-fw fa-keybase
+      url: https://keybase.io/akkinoc
 
 # Site footer
 footer:
