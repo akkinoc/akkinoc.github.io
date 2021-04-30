@@ -16,7 +16,7 @@ author:
   avatar: /assets/images/avatar-512x512.jpg
   bio: Software Engineer. ♡ Kotlin, Java, Spring, AWS.
   location: Tokyo, Japan
-  links:
+  links: &author_links
     - label: Email
       icon: fas fa-fw fa-envelope
       url: mailto:akkinoc@gmail.com
@@ -29,6 +29,10 @@ author:
     - label: GitHub
       icon: fab fa-fw fa-github-alt
       url: https://github.com/akkinoc
+
+# Site footer
+footer:
+  links: *author_links
 
 # Reading files
 include:
