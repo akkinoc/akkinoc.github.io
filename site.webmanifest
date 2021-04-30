@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 {
   "lang": {{ site.locale | jsonify }},
