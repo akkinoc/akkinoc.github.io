@@ -58,7 +58,6 @@ defaults:
       share: true
 
 # Outputting
-permalink: /posts/:categories/:year/:month/:day/:title/
+permalink: pretty
 paginate: 10
-paginate_path: /page:num/
 timezone: Asia/Tokyo
