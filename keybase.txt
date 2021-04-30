@@ -1,0 +1,50 @@
+I hereby claim:
+
+  * I am an admin of https://akkinoc.dev
+  * I am akkinoc (https://keybase.io/akkinoc) on keybase.
+  * I have a public key ASAHujqUxAjINY2JDmJZeW1nAnvUzBfvaDhNfDfKR39FRgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012007ba3a94c408c8358d890e6259796d67027bd4cc17ef68384d7c37ca477f45460a",
+      "host": "keybase.io",
+      "kid": "012007ba3a94c408c8358d890e6259796d67027bd4cc17ef68384d7c37ca477f45460a",
+      "uid": "e0d72cc0137265606352fe1c036e5619",
+      "username": "akkinoc"
+    },
+    "merkle_root": {
+      "ctime": 1619775827,
+      "hash": "940ea077bc97271974cfa3ed237ddde080451cedb3b3e805870e3d4f5fd80d593af89f650bb1bdf29eef92c11099e09372f2b71beb03685ce50a47e6c07cbb45",
+      "hash_meta": "16bb4c38abec82ef2874e9c27aa2ca7622f5f03148bf8f891d3111466817c89a",
+      "seqno": 19789533
+    },
+    "service": {
+      "entropy": "k1xnKiFtw00rhQ/DB3cZwZ05",
+      "hostname": "akkinoc.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.2"
+  },
+  "ctime": 1619775834,
+  "expire_in": 504576000,
+  "prev": "77aceec7df0f3a58e54f94456a91ff82928b72b1cfd176f92c71479639d0deec",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgB7o6lMQIyDWNiQ5iWXltZwJ71MwX72g4TXw3ykd/RUYKp3BheWxvYWTESpcCFsQgd6zux98POljlT5RFapH/gpKLcrHP0Xb5LHFHljnQ3uzEIBK1XyKrIH+N1mJZFlfsokZcCKPUD620e1rkuGgFtEkuAgHCo3NpZ8RAU+kucB7ap7UytvsOgoBlka0UwsCJYDdK74YrX0dtRT3GPekpi0Z3SvjosUgc5FyI3mMB4nLDGeeHi5043WKJB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEINceeaz/qo1C3lQrkkz8MWdIjFC/mJVh23JoDRYGfIZQo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/akkinoc
