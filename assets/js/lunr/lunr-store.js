@@ -1,17 +1,17 @@
 var store = [{
-        "title": "Categories",
+        "title": "Posts by Category",
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/archives/categories/",
         "teaser": null
       },{
-        "title": "Posts",
+        "title": "Posts by Year",
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/archives/posts/",
         "teaser": null
       },{
-        "title": "Tags",
+        "title": "Posts by Tag",
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/archives/tags/",
