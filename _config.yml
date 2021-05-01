@@ -69,6 +69,7 @@ defaults:
       classes: no-sidebar
       show_date: true
       toc: true
+      toc_icon: scroll
       toc_sticky: true
       share: true
   - scope:
