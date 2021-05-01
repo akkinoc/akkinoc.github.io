@@ -74,6 +74,7 @@ defaults:
       type: archives
     values:
       layout: single
+      classes: wide
       sidebar:
         nav: archives
 
