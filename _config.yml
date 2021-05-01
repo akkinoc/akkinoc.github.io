@@ -51,7 +51,7 @@ kramdown:
 collections:
   posts:
     output: true
-    permalink: /:collection/:categories/:year/:month/:day/:title/
+    permalink: /:collection/:year/:month/:day/:title/
   archives:
     output: true
     permalink: /:collection/:title/
