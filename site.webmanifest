@@ -2,6 +2,7 @@
 permalink: /site.webmanifest
 layout: null
 ---
+
 {
   "lang": {{ site.locale | jsonify }},
   "name": {{ site.title | jsonify }},
