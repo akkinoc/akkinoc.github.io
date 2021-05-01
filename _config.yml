@@ -47,6 +47,12 @@ exclude:
 kramdown:
   hard_wrap: true
 
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:categories/:year/:month/:day/:title/
+
 # Front matter defaults
 defaults:
   - scope:
