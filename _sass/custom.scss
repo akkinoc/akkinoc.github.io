@@ -1,0 +1,14 @@
+// Adding "classes: no-sidebar" to the front matter hides the sidebar and expands the content area.
+.no-sidebar {
+  .sidebar {
+    display: none;
+  }
+  .page {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
+}

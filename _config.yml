@@ -66,6 +66,7 @@ defaults:
       type: posts
     values:
       layout: single
+      classes: no-sidebar
       show_date: true
       toc: true
       toc_sticky: true
