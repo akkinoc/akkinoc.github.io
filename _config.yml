@@ -74,6 +74,8 @@ defaults:
       type: archives
     values:
       layout: single
+      sidebar:
+        nav: archives
 
 # Outputting
 permalink: pretty
