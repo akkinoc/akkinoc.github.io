@@ -52,6 +52,9 @@ collections:
   posts:
     output: true
     permalink: /:collection/:categories/:year/:month/:day/:title/
+  archives:
+    output: true
+    permalink: /:collection/:title/
 
 # Front matter defaults
 defaults:
@@ -67,8 +70,20 @@ defaults:
       toc: true
       toc_sticky: true
       share: true
+  - scope:
+      type: archives
+    values:
+      layout: single
 
 # Outputting
 permalink: pretty
 paginate: 10
 timezone: Asia/Tokyo
+
+# Archive
+category_archive:
+  type: liquid
+  path: /archives/categories/
+tag_archive:
+  type: liquid
+  path: /archives/tags/
