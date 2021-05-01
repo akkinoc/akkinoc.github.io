@@ -76,7 +76,7 @@ defaults:
       layout: single
       classes: wide
       sidebar:
-        nav: archives
+        - nav: archives
 
 # Outputting
 permalink: pretty
