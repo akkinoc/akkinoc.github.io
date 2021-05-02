@@ -13,10 +13,20 @@
   }
 }
 
+// Font Awesome icons
+.fa-hatena-bookmark {
+  &:before {
+      font-family: Verdana, sans-serif;
+      font-weight: bold;
+      content: "B!";
+  }
+}
+
 // Brand buttons
 .btn {
   @each $brand, $color in (
     (pocket, $pocket-color),
+    (hatena-bookmark, $hatena-bookmark-color),
   ) {
     &--#{$brand} {
       @include yiq-contrasted($color);
