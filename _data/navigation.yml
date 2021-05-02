@@ -4,9 +4,9 @@ main:
 archives:
   - title: Archives
     children:
-      - title: <i class="fas fa-fw fa-calendar"></i> Posts by Year
+      - title: <i class="fas fa-fw fa-calendar" aria-hidden="true"></i> Posts by Year
         url: /archives/posts/
-      - title: <i class="fas fa-fw fa-folder"></i> Posts by Category
+      - title: <i class="fas fa-fw fa-folder" aria-hidden="true"></i> Posts by Category
         url: /archives/categories/
-      - title: <i class="fas fa-fw fa-tag"></i> Posts by Tag
+      - title: <i class="fas fa-fw fa-tag" aria-hidden="true"></i> Posts by Tag
         url: /archives/tags/
