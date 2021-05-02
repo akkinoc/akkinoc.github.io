@@ -1,4 +1,4 @@
-// Adding "classes: no-sidebar" to the front matter hides the sidebar and expands the content area.
+// Layout options
 .no-sidebar {
   .sidebar {
     display: none;
@@ -9,6 +9,23 @@
     }
     @include breakpoint($x-large) {
       width: 100%;
+    }
+  }
+}
+
+// Brand buttons
+.btn {
+  @each $brand, $color in (
+    (pocket, $pocket-color),
+  ) {
+    &--#{$brand} {
+      @include yiq-contrasted($color);
+      &:visited {
+        @include yiq-contrasted($color);
+      }
+      &:hover {
+        @include yiq-contrasted(mix(#000, $color, 20%));
+      }
     }
   }
 }
