@@ -8,7 +8,7 @@
 [License Badge]: https://img.shields.io/badge/License-CC%20BY--SA-blue.svg
 [License]: LICENSE.txt
 
-The codebase for my personal website: [akkinoc.dev]  
+The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]  
 
 [akkinoc.dev]: https://akkinoc.dev
 
@@ -23,8 +23,8 @@ $ bundle exec jekyll build
 
 ## Deploying
 
-To deploy, push to Git `main` branch.  
-It's automatically deployed by GitHub Actions.  
+To deploy, push to the GitHub `main` branch.  
+It will be automatically deployed to GitHub Pages via GitHub Actions.  
 
 ## License
 
