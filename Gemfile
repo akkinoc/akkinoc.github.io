@@ -6,5 +6,6 @@ group :jekyll_plugins do
   gem "jekyll-include-cache", "~> 0.2"
   gem "jekyll-paginate", "~> 1.1"
   gem "jekyll-sitemap", "~> 1.4"
+  gem "jekyll-target-blank", "~> 2.0"
   gem "jemoji", "~> 0.12"
 end
