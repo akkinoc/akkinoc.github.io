@@ -1,3 +1,28 @@
+// Font Awesome icons
+.fa-hatena-bookmark {
+  &:before {
+      font-family: Verdana, sans-serif;
+      font-weight: bold;
+      content: "B!";
+  }
+}
+
+// Brand buttons
+@each $brand, $color in (
+  (pocket, $pocket-color),
+  (hatena-bookmark, $hatena-bookmark-color),
+) {
+  .btn--#{$brand} {
+    @include yiq-contrasted($color);
+    &:visited {
+      @include yiq-contrasted($color);
+    }
+    &:hover {
+      @include yiq-contrasted(mix(#000, $color, 20%));
+    }
+  }
+}
+
 // Layout options
 .no-sidebar {
   .sidebar {
@@ -9,33 +34,6 @@
     }
     @include breakpoint($x-large) {
       width: 100%;
-    }
-  }
-}
-
-// Font Awesome icons
-.fa-hatena-bookmark {
-  &:before {
-      font-family: Verdana, sans-serif;
-      font-weight: bold;
-      content: "B!";
-  }
-}
-
-// Brand buttons
-.btn {
-  @each $brand, $color in (
-    (pocket, $pocket-color),
-    (hatena-bookmark, $hatena-bookmark-color),
-  ) {
-    &--#{$brand} {
-      @include yiq-contrasted($color);
-      &:visited {
-        @include yiq-contrasted($color);
-      }
-      &:hover {
-        @include yiq-contrasted(mix(#000, $color, 20%));
-      }
     }
   }
 }
