@@ -1693,10 +1693,18 @@ body { display: -webkit-box; display: -ms-flexbox; display: flex; min-height: 10
 
 @media (min-width: 80em) { .no-sidebar .page { width: 100%; } }
 
+.fa-hatena-bookmark:before { font-family: Verdana, sans-serif; font-weight: bold; content: "B!"; }
+
 .btn--pocket { background-color: #ee4055; color: #fff; }
 
 .btn--pocket:visited { background-color: #ee4055; color: #fff; }
 
 .btn--pocket:hover { background-color: #be3344; color: #fff; }
+
+.btn--hatena-bookmark { background-color: #00a4de; color: #fff; }
+
+.btn--hatena-bookmark:visited { background-color: #00a4de; color: #fff; }
+
+.btn--hatena-bookmark:hover { background-color: #0083b2; color: #fff; }
 
 /*# sourceMappingURL=main.css.map */
