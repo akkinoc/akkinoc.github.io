@@ -3,6 +3,7 @@ theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: dark
 locale: ja-JP
 title: 🚧 akkinoc.dev
+name: Akihiro Kondo
 description: akkinoc's personal website.
 url: https://akkinoc.dev
 logo: /assets/images/icon-nobg-512x512.svg
