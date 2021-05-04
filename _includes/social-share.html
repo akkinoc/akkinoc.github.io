@@ -2,33 +2,24 @@
   <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }}</h4>
   {% assign share_encoded_title = page.title | url_encode %}
   {% assign share_encoded_url = page.url | absolute_url | url_encode %}
-  <a
-    href="https://twitter.com/intent/tweet?text={{ share_encoded_title }}+{{ share_encoded_url }}"
-    class="btn btn--twitter">
+  {% capture share_encoded_message %}{{ share_encoded_title }}+{{ share_encoded_url }}{% endcapture %}
+  <a href="https://twitter.com/intent/tweet?text={{ share_encoded_message }}" class="btn btn--twitter">
     <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
     <span>Twitter</span>
   </a>
-  <a
-    href="https://www.facebook.com/sharer/sharer.php?u={{ share_encoded_url }}"
-    class="btn btn--facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ share_encoded_url }}" class="btn btn--facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i>
     <span>Facebook</span>
   </a>
-  <a
-    href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_encoded_url }}"
-    class="btn btn--linkedin">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ share_encoded_url }}" class="btn btn--linkedin">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
     <span>LinkedIn</span>
   </a>
-  <a
-    href="https://getpocket.com/edit?url={{ share_encoded_url }}"
-    class="btn btn--pocket">
+  <a href="https://getpocket.com/edit?url={{ share_encoded_url }}" class="btn btn--pocket">
     <i class="fab fa-fw fa-get-pocket" aria-hidden="true"></i>
     <span>Pocket</span>
   </a>
-  <a
-    href="https://b.hatena.ne.jp/entry/{{ share_encoded_url }}"
-    class="btn btn--hatena-bookmark">
+  <a href="https://b.hatena.ne.jp/entry/{{ share_encoded_url }}" class="btn btn--hatena-bookmark">
     <i class="fab fa-fw fa-hatena-bookmark" aria-hidden="true"></i>
     <span>Hatena</span>
   </a>
