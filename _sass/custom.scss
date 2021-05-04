@@ -1,3 +1,17 @@
+// Base
+html {
+  font-size: $base-font-size-small;
+  @include breakpoint($medium) {
+    font-size: $base-font-size-medium;
+  }
+  @include breakpoint($large) {
+    font-size: $base-font-size-large;
+  }
+  @include breakpoint($x-large) {
+    font-size: $base-font-size-x-large;
+  }
+}
+
 // Layout options
 .no-sidebar {
   .sidebar {
