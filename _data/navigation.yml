@@ -1,14 +1,17 @@
+# Main
 main:
   - title: Home
     url: /
-  - title: Archives
-    url: /archives/posts/
-archives:
-  - title: Archives
+  - title: Archive
+    url: /archive/posts/
+
+# Archive
+archive:
+  - title: Archive
     children:
       - title: <i class="fas fa-fw fa-calendar" aria-hidden="true"></i> Posts by Year
-        url: /archives/posts/
+        url: /archive/posts/
       - title: <i class="fas fa-fw fa-folder" aria-hidden="true"></i> Posts by Category
-        url: /archives/categories/
+        url: /archive/categories/
       - title: <i class="fas fa-fw fa-tag" aria-hidden="true"></i> Posts by Tag
-        url: /archives/tags/
+        url: /archive/tags/

@@ -53,7 +53,7 @@ collections:
   posts:
     output: true
     permalink: /:collection/:year/:month/:day/:title/
-  archives:
+  archive:
     output: true
     permalink: /:collection/:title/
 
@@ -74,12 +74,12 @@ defaults:
       toc_sticky: true
       share: true
   - scope:
-      type: archives
+      type: archive
     values:
       layout: single
       classes: wide
       sidebar:
-        - nav: archives
+        - nav: archive
 
 # Outputting
 permalink: pretty
@@ -89,10 +89,10 @@ timezone: Asia/Tokyo
 # Archive
 category_archive:
   type: liquid
-  path: /archives/categories/
+  path: /archive/categories/
 tag_archive:
   type: liquid
-  path: /archives/tags/
+  path: /archive/tags/
 
 # jekyll-target-blank
 target-blank:
