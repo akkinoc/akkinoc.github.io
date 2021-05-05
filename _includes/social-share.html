@@ -1,8 +1,8 @@
 <section class="page__share">
   <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }}</h4>
-  {% assign share_encoded_title = page.title | url_encode %}
-  {% assign share_encoded_url = page.url | absolute_url | url_encode %}
-  {% capture share_encoded_message %}{{ share_encoded_title }}+{{ share_encoded_url }}{% endcapture %}
+  {% capture share_encoded_url %}{{ page.url | absolute_url | url_encode }}{% endcapture %}
+  {% capture share_message %}{{ page.title }} {{ page.url | absolute_url }}{% endcapture %}
+  {% capture share_encoded_message %}{{ share_message | url_encode }}{% endcapture %}
   <a href="https://twitter.com/intent/tweet?text={{ share_encoded_message }}" class="btn btn--twitter">
     <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
     <span>Twitter</span>
