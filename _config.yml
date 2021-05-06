@@ -60,10 +60,6 @@ collections:
 # Front matter defaults
 defaults:
   - scope:
-      type: pages
-    values:
-      layout: single
-  - scope:
       type: posts
     values:
       layout: single
@@ -82,7 +78,6 @@ defaults:
         - nav: archive
 
 # Outputting
-permalink: pretty
 paginate: 8
 timezone: Asia/Tokyo
 
