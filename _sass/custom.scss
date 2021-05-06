@@ -27,6 +27,11 @@ html {
   }
 }
 
+// Page
+.page__hero-caption {
+  font-size: $type-size-8;
+}
+
 // Buttons
 @each $name, $color in (
   (pocket, $pocket-color),
