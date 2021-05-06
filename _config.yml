@@ -64,6 +64,9 @@ defaults:
     values:
       layout: single
       classes: no-sidebar
+      header:
+        overlay_filter: 0.5
+        show_overlay_excerpt: false
       show_date: true
       toc: true
       toc_icon: scroll
