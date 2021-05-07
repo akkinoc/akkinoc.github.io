@@ -92,7 +92,7 @@ tag_archive:
   type: liquid
   path: /archive/tags/
 
-# jekyll-target-blank
+# Target Blank
 target-blank:
   noopener: true
   noreferrer: true
