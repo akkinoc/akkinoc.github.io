@@ -31,6 +31,9 @@ html {
 .page__hero-caption {
   font-size: $type-size-8;
 }
+.page__date {
+  display: none;
+}
 
 // Buttons
 @each $name, $color in (
