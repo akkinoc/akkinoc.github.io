@@ -6,9 +6,14 @@ title: akkinoc.dev
 name: Akihiro Kondo
 description: akkinoc's personal website.
 url: https://akkinoc.dev
+footer_scripts:
+  - /assets/js/main.min.js
+  - /assets/js/custom.js
 logo: /assets/images/icon-nobg-512x512.svg
 search: true
 search_full_content: true
+twitter:
+  username: akkinoc
 
 # Site author
 author:
@@ -98,3 +103,8 @@ target-blank:
   noopener: true
   noreferrer: true
   rel: nofollow
+
+# Plugin: jekyll-minifier
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
