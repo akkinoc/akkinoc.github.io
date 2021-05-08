@@ -9,9 +9,9 @@ main:
 archive:
   - title: Archive
     children:
-      - title: <i class="fas fa-fw fa-calendar" aria-hidden="true"></i> Posts by Year
+      - title: <i aria-hidden="true" class="fas fa-fw fa-calendar"></i> Posts by Year
         url: /archive/posts/
-      - title: <i class="fas fa-fw fa-folder" aria-hidden="true"></i> Posts by Category
+      - title: <i aria-hidden="true" class="fas fa-fw fa-folder"></i> Posts by Category
         url: /archive/categories/
-      - title: <i class="fas fa-fw fa-tag" aria-hidden="true"></i> Posts by Tag
+      - title: <i aria-hidden="true" class="fas fa-fw fa-tag"></i> Posts by Tag
         url: /archive/tags/

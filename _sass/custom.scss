@@ -61,8 +61,8 @@ html {
 // Font Awesome
 .fa-hatena-bookmark {
   &:before {
-      font-family: Verdana, sans-serif;
-      font-weight: bold;
-      content: "B!";
+    content: "B!";
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
   }
 }

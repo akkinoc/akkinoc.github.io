@@ -3,33 +3,33 @@
   {% assign social_share_url = page.url | absolute_url | url_encode %}
   {% assign social_share_title = page.title | markdownify | strip_html | strip_newlines | url_encode %}
   <a
-    href="https://twitter.com/intent/tweet?url={{ social_share_url }}&amp;text={{ social_share_title }}"
-    class="btn btn--twitter">
-    <i class="fab fa-fw fa-twitter" aria-hidden="true"></i>
+    class="btn btn--twitter"
+    href="https://twitter.com/intent/tweet?url={{ social_share_url }}&amp;text={{ social_share_title }}">
+    <i aria-hidden="true" class="fab fa-fw fa-twitter"></i>
     <span>Twitter</span>
   </a>
   <a
-    href="https://www.facebook.com/sharer/sharer.php?u={{ social_share_url }}"
-    class="btn btn--facebook">
-    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i>
+    class="btn btn--facebook"
+    href="https://www.facebook.com/sharer/sharer.php?u={{ social_share_url }}">
+    <i aria-hidden="true" class="fab fa-fw fa-facebook"></i>
     <span>Facebook</span>
   </a>
   <a
-    href="https://www.linkedin.com/sharing/share-offsite?url={{ social_share_url }}"
-    class="btn btn--linkedin">
-    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+    class="btn btn--linkedin"
+    href="https://www.linkedin.com/sharing/share-offsite?url={{ social_share_url }}">
+    <i aria-hidden="true" class="fab fa-fw fa-linkedin"></i>
     <span>LinkedIn</span>
   </a>
   <a
-    href="https://getpocket.com/save?url={{ social_share_url }}"
-    class="btn btn--pocket">
-    <i class="fab fa-fw fa-get-pocket" aria-hidden="true"></i>
+    class="btn btn--pocket"
+    href="https://getpocket.com/save?url={{ social_share_url }}">
+    <i aria-hidden="true" class="fab fa-fw fa-get-pocket"></i>
     <span>Pocket</span>
   </a>
   <a
-    href="https://b.hatena.ne.jp/entry/{{ social_share_url }}"
-    class="btn btn--hatena-bookmark">
-    <i class="fab fa-fw fa-hatena-bookmark" aria-hidden="true"></i>
+    class="btn btn--hatena-bookmark"
+    href="https://b.hatena.ne.jp/entry/{{ social_share_url }}">
+    <i aria-hidden="true" class="fab fa-fw fa-hatena-bookmark"></i>
     <span>Hatena</span>
   </a>
 </section>
