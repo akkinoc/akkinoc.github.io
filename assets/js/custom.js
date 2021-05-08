@@ -1,0 +1,1 @@
+document.querySelectorAll(".page__share a.btn").forEach(e=>{e.addEventListener("click",n=>{const t=e.href,i=e.target,r=600,o=480,w=`left=${window.screenX+window.innerWidth/2-r/2},top=${window.screenY+window.innerHeight/2-o/2},width=${r},height=${o}`;window.open(t,i,w),n.preventDefault()})});

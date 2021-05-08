@@ -7,4 +7,4 @@
  * http://benalman.com/about/license/
  */
 // Copyright (c) 2010 "Cowboy" Ben Alman,
-!function(t,g){var u,n=t.jQuery||t.Cowboy||(t.Cowboy={});n.throttle=u=function(i,r,a,c){function t(){function t(){d=+new Date,a.apply(o,e)}function n(){f=g}var o=this,u=+new Date-d,e=arguments;c&&!f&&t(),f&&clearTimeout(f),c===g&&i<u?t():!0!==r&&(f=setTimeout(c?n:t,c===g?i-u:i))}var f,d=0;return"boolean"!=typeof r&&(c=a,a=r,r=g),n.guid&&(t.guid=a.guid=a.guid||n.guid++),t},n.debounce=function(t,n,o){return o===g?u(t,n,!1):u(t,o,!1!==n)}}(this);
+!function(n,t){"$:nomunge";var o,u=n.jQuery||n.Cowboy||(n.Cowboy={});u.throttle=o=function(n,o,e,i){function r(){function u(){c=+new Date,e.apply(f,g)}function r(){a=t}var f=this,d=+new Date-c,g=arguments;i&&!a&&u(),a&&clearTimeout(a),i===t&&d>n?u():!0!==o&&(a=setTimeout(i?r:u,i===t?n-d:n))}var a,c=0;return"boolean"!=typeof o&&(i=e,e=o,o=t),u.guid&&(r.guid=e.guid=e.guid||u.guid++),r},u.debounce=function(n,u,e){return e===t?o(n,u,!1):o(n,e,!1!==u)}}(this);
