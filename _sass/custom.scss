@@ -27,6 +27,13 @@ html {
   }
 }
 
+// Search
+.search-content {
+  .archive__item-teaser {
+    display: none;
+  }
+}
+
 // Page
 .page__hero-caption {
   font-size: $type-size-8;
