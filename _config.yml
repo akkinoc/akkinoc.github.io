@@ -59,14 +59,16 @@ collections:
 
 # Front matter defaults
 defaults:
+  - values:
+      layout: single
+      header:
+        teaser: /assets/images/teaser-1200x630.png
+        overlay_filter: 0.5
+        show_overlay_excerpt: false
   - scope:
       type: posts
     values:
-      layout: single
       classes: no-sidebar
-      header:
-        overlay_filter: 0.5
-        show_overlay_excerpt: false
       show_date: true
       toc: true
       toc_icon: scroll
@@ -75,7 +77,6 @@ defaults:
   - scope:
       type: archive
     values:
-      layout: single
       classes: wide
       sidebar:
         - nav: archive
