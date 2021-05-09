@@ -59,6 +59,7 @@ html {
     }
   }
   > iframe {
+    display: block;
     margin: 0 0 $indent-var;
   }
 }
