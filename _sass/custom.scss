@@ -58,6 +58,9 @@ html {
       border-radius: $border-radius;
     }
   }
+  > iframe {
+    margin: 0 0 $indent-var;
+  }
 }
 
 // Buttons
