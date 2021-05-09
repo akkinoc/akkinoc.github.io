@@ -25,6 +25,14 @@ html {
       width: 100%;
     }
   }
+  .page__related {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
 }
 .no-footer-meta {
   footer.page__meta {

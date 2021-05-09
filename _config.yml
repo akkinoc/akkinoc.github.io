@@ -79,6 +79,7 @@ defaults:
       toc_icon: scroll
       toc_sticky: true
       share: true
+      related: true
   - scope:
       type: archive
     values:
