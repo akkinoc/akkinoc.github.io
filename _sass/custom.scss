@@ -26,6 +26,11 @@ html {
     }
   }
 }
+.no-footer-meta {
+  footer.page__meta {
+    display: none;
+  }
+}
 
 // Search
 .search-content {
@@ -37,9 +42,6 @@ html {
 // Page
 .page__hero-caption {
   font-size: $type-size-8;
-}
-.page__date {
-  display: none;
 }
 
 // Buttons
