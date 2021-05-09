@@ -53,6 +53,7 @@ exclude:
 excerpt_separator: <!--more-->
 kramdown:
   hard_wrap: true
+lsi: true
 
 # Collections
 collections:

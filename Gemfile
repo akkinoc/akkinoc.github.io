@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+gem "classifier-reborn", "~> 2.2"
 gem "jekyll", "~> 4.2"
 gem "minimal-mistakes-jekyll", "~> 4.22"
 group :jekyll_plugins do
