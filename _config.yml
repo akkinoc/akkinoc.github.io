@@ -50,6 +50,7 @@ exclude:
   - LICENSE.txt
 
 # Conversion and Markdown processing
+excerpt_separator: <!--more-->
 kramdown:
   hard_wrap: true
 
