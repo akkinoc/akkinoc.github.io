@@ -51,6 +51,14 @@ html {
 .page__hero-caption {
   font-size: $type-size-8;
 }
+.page__content {
+  p {
+    img {
+      border: 1px solid mix(#000, $border-color, 25%);
+      border-radius: $border-radius;
+    }
+  }
+}
 
 // Buttons
 @each $name, $color in (
