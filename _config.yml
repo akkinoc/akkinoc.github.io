@@ -14,6 +14,10 @@ search: true
 search_full_content: true
 twitter:
   username: akkinoc
+analytics:
+  provider: google-gtag
+  google:
+    tracking_id: G-K5NCWPBMSX
 
 # Site author
 author:
