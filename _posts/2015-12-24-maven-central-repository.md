@@ -4,8 +4,6 @@ categories: tech
 tags: maven java
 header:
   teaser: /assets/posts/2015-12-24-maven-central-repository-800x300.jpg
-  overlay_image: /assets/posts/2015-12-24-maven-central-repository-800x300.jpg
-  caption: Photo by [すしぱく](https://www.pakutaso.com/20141215356post-4973.html)
 ---
 
 Maven Central Repository への公開方法を知っておきたくて、

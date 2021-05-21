@@ -4,8 +4,6 @@ categories: tech
 tags: javascript jquery
 header:
   teaser: /assets/posts/2014-05-08-ext-link-js-800x400.jpg
-  overlay_image: /assets/posts/2014-05-08-ext-link-js-800x400.jpg
-  caption: Photo by [susi-paku](http://www.pakutaso.com/20110951254post-623.html)
 ---
 
 外部リンクは軒並み `target="_blank"` にして別窓で開きたいことがある。

@@ -4,7 +4,6 @@ categories: tech
 tags: java spring-boot spring-framework log4j slf4j logback
 header:
   teaser: /assets/posts/2014-12-09-spring-boot-log4j2-800x200.png
-  overlay_image: /assets/posts/2014-12-09-spring-boot-log4j2-800x200.png
 ---
 
 Spring Boot (1.1.9) のデフォルトのログ出力実装には [Logback] が使われてる。

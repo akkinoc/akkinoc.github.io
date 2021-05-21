@@ -4,8 +4,6 @@ categories: tech
 tags: amazon-vpc aws yamaha rtx1200 ipsec
 header:
   teaser: /assets/posts/2014-06-09-amazon-vpc-from-yamaha-rtx1200-800x154.jpg
-  overlay_image: /assets/posts/2014-06-09-amazon-vpc-from-yamaha-rtx1200-800x154.jpg
-  caption: Photo by [YAMAHA](http://jp.yamaha.com/products/network/downloads/tools)
 ---
 
 サーバを手軽に立てたいなー。

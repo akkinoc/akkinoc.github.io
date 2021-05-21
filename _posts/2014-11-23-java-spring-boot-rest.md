@@ -4,8 +4,6 @@ categories: tech
 tags: java spring-boot spring-framework rest maven lombok
 header:
   teaser: /assets/posts/2014-11-23-java-spring-boot-rest-800x369.png
-  overlay_image: /assets/posts/2014-11-23-java-spring-boot-rest-800x369.png
-  caption: Photo by [spring.io](https://spring.io/blog/2013/08/06/spring-boot-simplifying-spring-for-everyone)
 ---
 
 Spring Boot が熱そうなので試してみた。

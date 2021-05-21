@@ -4,8 +4,6 @@ categories: tech
 tags: centos java shell bash chef
 header:
   teaser: /assets/posts/2014-07-17-curl-download-jdk-800x266.png
-  overlay_image: /assets/posts/2014-07-17-curl-download-jdk-800x266.png
-  caption: Photo by [Project Kenai](https://duke.kenai.com/models)
 ---
 
 毎回ブラウザから Oracle JDK をダウンロードするのが面倒だったのでコマンド化した。

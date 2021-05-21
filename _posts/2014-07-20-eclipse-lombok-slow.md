@@ -4,8 +4,6 @@ categories: tech
 tags: eclipse lombok java
 header:
   teaser: /assets/posts/2014-07-20-eclipse-lombok-slow-800x170.png
-  overlay_image: /assets/posts/2014-07-20-eclipse-lombok-slow-800x170.png
-  caption: Photo by [Project Lombok](http://projectlombok.org)
 ---
 
 Java で Getter/Setter 等の冗長コードがすっきり書ける lombok。

@@ -4,8 +4,6 @@ categories: tech
 tags: circleci mysql amazon-rds aws
 header:
   teaser: /assets/posts/2015-10-21-mysql56-in-circleci-800x300.jpg
-  overlay_image: /assets/posts/2015-10-21-mysql56-in-circleci-800x300.jpg
-  caption: Photo by [すしぱく](https://www.pakutaso.com/20110533134post-110.html)
 ---
 
 CircleCI に MySQL 5.6.23 をインストールする方法をまとめました。

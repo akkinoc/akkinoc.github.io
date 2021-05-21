@@ -4,8 +4,6 @@ categories: tech
 tags: java git
 header:
   teaser: /assets/posts/2014-07-23-git-diff-java-properties-800x200.jpg
-  overlay_image: /assets/posts/2014-07-23-git-diff-java-properties-800x200.jpg
-  caption: Photo by [すしぱく](http://www.pakutaso.com/20130343074post-2542.html)
 ---
 
 Java のプロパティファイルは、マルチバイト文字が Unicode 表記 (¥uXXXX) になってる。

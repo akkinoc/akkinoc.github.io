@@ -74,8 +74,6 @@ defaults:
       layout: single
       header:
         teaser: /assets/images/teaser-1200x630.png
-        overlay_filter: 0.5
-        show_overlay_excerpt: false
   - scope:
       type: posts
     values:

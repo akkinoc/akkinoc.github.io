@@ -4,8 +4,6 @@ categories: tech
 tags: spring-boot spring-framework java jackson jaxb jpa thymeleaf
 header:
   teaser: /assets/posts/2015-12-04-springboot-with-java8time-800x280.jpg
-  overlay_image: /assets/posts/2015-12-04-springboot-with-java8time-800x280.jpg
-  caption: Photo by [しおしお](https://www.pakutaso.com/20111109308post-846.html)
 ---
 
 これは [Java Advent Calendar 2015] 4日目の記事です。

@@ -4,8 +4,6 @@ categories: tech
 tags: glassfish java jax-rs jersey rest maven chef
 header:
   teaser: /assets/posts/2014-08-27-glassfish-jaxrs-env-800x225.jpg
-  overlay_image: /assets/posts/2014-08-27-glassfish-jaxrs-env-800x225.jpg
-  caption: Photo by [GlassFish](https://glassfish.java.net)
 ---
 
 参考になる記事や書籍が少ないなーと思いつつ、

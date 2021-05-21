@@ -4,8 +4,6 @@ categories: tech
 tags: chrome javascript
 header:
   teaser: /assets/posts/2014-04-27-chrome-extension-xa-800x400.jpg
-  overlay_image: /assets/posts/2014-04-27-chrome-extension-xa-800x400.jpg
-  caption: Photo by [shiosio](http://www.pakutaso.com/20120735206post-1755.html)
 ---
 
 自分好みの Chrome 拡張をさくっと作れたら便利そうだなぁ...

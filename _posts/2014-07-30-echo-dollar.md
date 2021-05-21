@@ -4,8 +4,6 @@ categories: tech
 tags: shell bash
 header:
   teaser: /assets/posts/2014-07-30-echo-dollar-800x200.jpg
-  overlay_image: /assets/posts/2014-07-30-echo-dollar-800x200.jpg
-  # caption: Photo by [Adam Kirkham](http://free-illustrations.gatag.net/2013/10/22/110000.html)
 ---
 
 あるプログラムを Linux でサービス起動させたくて、

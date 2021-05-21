@@ -4,7 +4,6 @@ categories: tech
 tags: blog website github-pages jekyll hugo hatena-blog
 header:
   teaser: /assets/posts/2021-05-15-moved-my-blog-1200x630.png
-  overlay_image: /assets/posts/2021-05-15-moved-my-blog-1200x630.png
 ---
 
 今まではてなブログで記事を書いてましたが、

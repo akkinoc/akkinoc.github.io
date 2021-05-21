@@ -4,8 +4,6 @@ categories: tech
 tags: spring-boot spring-framework logback-access logback maven java
 header:
   teaser: /assets/posts/2015-12-25-spring-boot-ext-logback-access-800x300.jpg
-  overlay_image: /assets/posts/2015-12-25-spring-boot-ext-logback-access-800x300.jpg
-  caption: Photo by [すしぱく](https://www.pakutaso.com/20141215356post-4973.html)
 ---
 
 [Logback-access] を Spring Boot の組込み Tomcat or Jetty で

@@ -4,8 +4,6 @@ categories: tech
 tags: circleci docker mysql
 header:
   teaser: /assets/posts/2016-03-15-mysql-in-circleci-800x300.jpg
-  overlay_image: /assets/posts/2016-03-15-mysql-in-circleci-800x300.jpg
-  caption: Photo by [すしぱく](https://www.pakutaso.com/20110533134post-110.html)
 ---
 
 CircleCI に入ってる MySQLは 5.5 です。古いです。

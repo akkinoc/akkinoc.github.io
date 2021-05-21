@@ -4,8 +4,6 @@ categories: tech
 tags: javascript regex
 header:
   teaser: /assets/posts/2014-06-07-js-heredoc-regex-800x300.jpg
-  overlay_image: /assets/posts/2014-06-07-js-heredoc-regex-800x300.jpg
-  caption: Photo by [susi-paku](http://www.pakutaso.com/20131053298post-3419.html)
 ---
 
 JavaScript でヒアドキュメントするページで見つけた、

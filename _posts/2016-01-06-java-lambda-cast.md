@@ -4,7 +4,6 @@ categories: tech
 tags: java
 header:
   teaser: /assets/posts/2016-01-06-java-lambda-cast-800x150.png
-  overlay_image: /assets/posts/2016-01-06-java-lambda-cast-800x150.png
 ---
 
 ラムダ式の交差型キャストというものを初めて知りました。

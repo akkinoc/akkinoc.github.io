@@ -4,8 +4,6 @@ categories: tech
 tags: perl oracle
 header:
   teaser: /assets/posts/2014-05-15-perl-dbi-utf8-825x312.png
-  overlay_image: /assets/posts/2014-05-15-perl-dbi-utf8-825x312.png
-  caption: Photo by [Qiita](https://help.qiita.com/ja/articles/others-brand-guideline)
 ---
 
 ＊この記事は [Qiita](http://qiita.com/akihyro/items/8ac372ff6ce188e372be) から移行した内容です。

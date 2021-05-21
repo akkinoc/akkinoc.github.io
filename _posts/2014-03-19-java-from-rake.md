@@ -4,8 +4,6 @@ categories: tech
 tags: ruby java
 header:
   teaser: /assets/posts/2014-03-19-java-from-rake-800x300.png
-  overlay_image: /assets/posts/2014-03-19-java-from-rake-800x300.png
-  # caption: Photo by [Andy](http://free-illustrations.gatag.net/2013/09/14/120000.html)
 ---
 
 ちょっとした make 的なことをしたくて rake を使ってみました。

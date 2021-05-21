@@ -4,7 +4,6 @@ categories: tech
 tags: blog website
 header:
   teaser: /assets/posts/2014-03-02-rakugakibox-800x260.png
-  overlay_image: /assets/posts/2014-03-02-rakugakibox-800x260.png
 ---
 
 ブログを始めてみようと思う。
