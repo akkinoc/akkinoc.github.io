@@ -40,6 +40,18 @@ html {
   }
 }
 
+// Archive
+.grid__item {
+  .archive__item-teaser {
+    @include breakpoint($small) {
+      max-height: none;
+    }
+    @include breakpoint($medium) {
+      max-height: none;
+    }
+  }
+}
+
 // Search
 .search-content {
   .archive__item-teaser {
