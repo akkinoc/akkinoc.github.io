@@ -4,6 +4,7 @@ categories: tech
 tags: spring-boot spring-framework hsts java
 header:
   teaser: /assets/posts/2016-04-22-spring-boot-hsts-800x132.png
+  og_image: /assets/posts/2016-04-22-spring-boot-hsts-800x132.png
 ---
 
 Spring Boot & Spring Security ベースの Web アプリケーションを

@@ -4,6 +4,7 @@ categories: tech
 tags: checkstyle java eclipse pleiades maven
 header:
   teaser: /assets/posts/2014-11-28-checkstyle-for-java8-800x200.jpg
+  og_image: /assets/posts/2014-11-28-checkstyle-for-java8-800x200.jpg
 ---
 
 Java 8 のシンタックス (ラムダとか！) を使ってるコードに CheckStyle したら、

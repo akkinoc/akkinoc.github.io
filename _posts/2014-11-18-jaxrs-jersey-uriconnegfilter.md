@@ -4,6 +4,7 @@ categories: tech
 tags: jax-rs jersey java glassfish
 header:
   teaser: /assets/posts/2014-11-18-jaxrs-jersey-uriconnegfilter-800x200.png
+  og_image: /assets/posts/2014-11-18-jaxrs-jersey-uriconnegfilter-800x200.png
 ---
 
 複数のフォーマット (XML とか JSON とか) で返せる REST-API を作る場合、

@@ -4,6 +4,7 @@ categories: tech
 tags: java spring-boot spring-framework amazon-s3 aws
 header:
   teaser: /assets/posts/2015-07-28-spring-boot-with-s3-800x300.png
+  og_image: /assets/posts/2015-07-28-spring-boot-with-s3-800x300.png
 ---
 
 Spring Boot アプリケーションから、 Amazon S3 上のファイルを読み書きしたメモです。

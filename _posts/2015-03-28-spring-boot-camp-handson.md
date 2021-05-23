@@ -4,6 +4,7 @@ categories: tech
 tags: spring-boot spring-framework opencv jms stomp web-socket web-rtc java jjug
 header:
   teaser: /assets/posts/2015-03-28-spring-boot-camp-handson-799x265.png
+  og_image: /assets/posts/2015-03-28-spring-boot-camp-handson-799x265.png
 ---
 
 こちらのイベントに参加してきました。

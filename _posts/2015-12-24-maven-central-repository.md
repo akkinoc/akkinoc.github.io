@@ -4,6 +4,7 @@ categories: tech
 tags: maven java
 header:
   teaser: /assets/posts/2015-12-24-maven-central-repository-800x300.jpg
+  og_image: /assets/posts/2015-12-24-maven-central-repository-800x300.jpg
 ---
 
 Maven Central Repository への公開方法を知っておきたくて、

@@ -4,6 +4,7 @@ categories: tech
 tags: shell bash
 header:
   teaser: /assets/posts/2015-04-28-shell-function-retryable-800x400.jpg
+  og_image: /assets/posts/2015-04-28-shell-function-retryable-800x400.jpg
 ---
 
 標準コマンドにありそうでなかったので作った。

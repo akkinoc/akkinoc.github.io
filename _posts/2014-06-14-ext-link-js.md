@@ -4,6 +4,7 @@ categories: tech
 tags: javascript jquery
 header:
   teaser: /assets/posts/2014-06-14-ext-link-js-800x400.jpg
+  og_image: /assets/posts/2014-06-14-ext-link-js-800x400.jpg
 ---
 
 jQuery の delegate/live というものを今更ながら知った。

@@ -4,6 +4,7 @@ categories: tech
 tags: glassfish java jax-rs jersey rest maven lombok
 header:
   teaser: /assets/posts/2014-10-28-glassfish-jaxrs-java-800x225.jpg
+  og_image: /assets/posts/2014-10-28-glassfish-jaxrs-java-800x225.jpg
 ---
 
 前回の記事の続き。

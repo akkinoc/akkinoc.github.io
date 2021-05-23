@@ -4,6 +4,7 @@ categories: tech
 tags: ruby excel roo
 header:
   teaser: /assets/posts/2014-05-19-excel-cell-addr-str-to-num-825x312.png
+  og_image: /assets/posts/2014-05-19-excel-cell-addr-str-to-num-825x312.png
 ---
 
 ＊この記事は [Qiita](http://qiita.com/akihyro/items/432f63ad9dc90f415e2d) から移行した内容です。

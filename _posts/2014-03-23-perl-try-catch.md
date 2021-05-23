@@ -4,6 +4,7 @@ categories: tech
 tags: perl
 header:
   teaser: /assets/posts/2014-03-23-perl-try-catch-800x300.png
+  og_image: /assets/posts/2014-03-23-perl-try-catch-800x300.png
 ---
 
 最近は Perl スクリプトが割と使われている環境に居ます。

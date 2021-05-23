@@ -4,6 +4,7 @@ categories: tech
 tags: sublime-text git
 header:
   teaser: /assets/posts/2014-11-16-sublime-git-800x200.jpg
+  og_image: /assets/posts/2014-11-16-sublime-git-800x200.jpg
 ---
 
 複数の PC で Sublime Text 3 を同じように使いたくて、

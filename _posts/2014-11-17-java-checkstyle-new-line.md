@@ -4,6 +4,7 @@ categories: tech
 tags: checkstyle java regex
 header:
   teaser: /assets/posts/2014-11-17-java-checkstyle-new-line-800x200.jpg
+  og_image: /assets/posts/2014-11-17-java-checkstyle-new-line-800x200.jpg
 ---
 
 CheckStyle で改行コードが LF で統一されてることをチェックしたい。

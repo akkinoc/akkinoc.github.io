@@ -4,6 +4,7 @@ categories: tech
 tags: ruby java
 header:
   teaser: /assets/posts/2014-03-19-java-from-rake-800x300.png
+  og_image: /assets/posts/2014-03-19-java-from-rake-800x300.png
 ---
 
 ちょっとした make 的なことをしたくて rake を使ってみました。

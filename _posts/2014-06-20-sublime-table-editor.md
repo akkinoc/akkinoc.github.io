@@ -4,6 +4,7 @@ categories: tech
 tags: sublime-text markdown
 header:
   teaser: /assets/posts/2014-06-20-sublime-table-editor-800x400.jpg
+  og_image: /assets/posts/2014-06-20-sublime-table-editor-800x400.jpg
 ---
 
 Markdown で表を組むとき、

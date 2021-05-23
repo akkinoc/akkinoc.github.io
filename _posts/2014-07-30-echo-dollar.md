@@ -4,6 +4,7 @@ categories: tech
 tags: shell bash
 header:
   teaser: /assets/posts/2014-07-30-echo-dollar-800x200.jpg
+  og_image: /assets/posts/2014-07-30-echo-dollar-800x200.jpg
 ---
 
 あるプログラムを Linux でサービス起動させたくて、

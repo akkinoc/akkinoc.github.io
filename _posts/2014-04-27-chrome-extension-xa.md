@@ -4,6 +4,7 @@ categories: tech
 tags: chrome javascript
 header:
   teaser: /assets/posts/2014-04-27-chrome-extension-xa-800x400.jpg
+  og_image: /assets/posts/2014-04-27-chrome-extension-xa-800x400.jpg
 ---
 
 自分好みの Chrome 拡張をさくっと作れたら便利そうだなぁ...

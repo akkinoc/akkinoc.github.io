@@ -4,6 +4,7 @@ categories: tech
 tags: aws-iam aws
 header:
   teaser: /assets/posts/2016-04-18-aws-iam-readonly-user-800x200.png
+  og_image: /assets/posts/2016-04-18-aws-iam-readonly-user-800x200.png
 ---
 
 読取り専用だけど、自分のパスワードやアクセスキー,

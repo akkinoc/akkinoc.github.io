@@ -4,6 +4,7 @@ categories: tech
 tags: terminal bash shell centos putty
 header:
   teaser: /assets/posts/2015-03-17-ps1-exit-code-800x280.png
+  og_image: /assets/posts/2015-03-17-ps1-exit-code-800x280.png
 ---
 
 CUI でコマンドを叩いてると、終了コードが気になることが多いんだけど。

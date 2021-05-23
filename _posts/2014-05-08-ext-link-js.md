@@ -4,6 +4,7 @@ categories: tech
 tags: javascript jquery
 header:
   teaser: /assets/posts/2014-05-08-ext-link-js-800x400.jpg
+  og_image: /assets/posts/2014-05-08-ext-link-js-800x400.jpg
 ---
 
 外部リンクは軒並み `target="_blank"` にして別窓で開きたいことがある。

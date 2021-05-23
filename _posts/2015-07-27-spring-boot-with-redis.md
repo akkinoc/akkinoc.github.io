@@ -4,6 +4,7 @@ categories: tech
 tags: java spring-boot spring-framework redis amazon-elasticache aws
 header:
   teaser: /assets/posts/2015-07-27-spring-boot-with-redis-800x300.png
+  og_image: /assets/posts/2015-07-27-spring-boot-with-redis-800x300.png
 ---
 
 バックエンドに Redis を置いた、 Spring Boot アプリケーションを作りました。

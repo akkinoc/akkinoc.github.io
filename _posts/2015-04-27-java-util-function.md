@@ -4,6 +4,7 @@ categories: tech
 tags: java
 header:
   teaser: /assets/posts/2015-04-27-java-util-function-800x277.png
+  og_image: /assets/posts/2015-04-27-java-util-function-800x277.png
 ---
 
 `java.util.function` の関数型インターフェイスたちを自分の整理用に落書きしました。
