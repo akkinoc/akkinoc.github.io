@@ -4,6 +4,7 @@ categories: tech
 tags: kotlin java spring-boot spring-framework
 header:
   teaser: /assets/posts/2021-05-23-java-to-kotlin-1200x630.png
+  og_image: /assets/posts/2021-05-23-java-to-kotlin-1200x630.png
 ---
 
 Kotlin というと Android 開発で使われることが多いと思いますが、
