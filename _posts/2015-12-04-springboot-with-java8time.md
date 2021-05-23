@@ -7,14 +7,10 @@ header:
 ---
 
 これは [Java Advent Calendar 2015] 4日目の記事です。
-昨日は [@susumuis] さんの
-「[Windows で Java な人に捧げる素敵なスクリプティングツール jrunscript の使い方]」
-でした。
-明日は [@megascus] さんです。
+昨日は [@susumuis] さんでした。明日は [@megascus] さんです。
 
 [Java Advent Calendar 2015]: http://qiita.com/advent-calendar/2015/java
 [@susumuis]: https://twitter.com/susumuis
-[Windows で Java な人に捧げる素敵なスクリプティングツール jrunscript の使い方]: http://www.susumuis.info/entry/2015/java_advent3
 [@megascus]: https://twitter.com/megascus
 
 <!--more-->
