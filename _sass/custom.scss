@@ -12,34 +12,6 @@ html {
   }
 }
 
-// Layout classes
-.no-sidebar {
-  .sidebar {
-    display: none;
-  }
-  .page {
-    @include breakpoint($large) {
-      width: 100%;
-    }
-    @include breakpoint($x-large) {
-      width: 100%;
-    }
-  }
-  .page__related {
-    @include breakpoint($large) {
-      width: 100%;
-    }
-    @include breakpoint($x-large) {
-      width: 100%;
-    }
-  }
-}
-.no-footer-meta {
-  footer.page__meta {
-    display: none;
-  }
-}
-
 // Archive
 .grid__item {
   .archive__item-teaser {
@@ -98,5 +70,33 @@ html {
     content: "B!";
     font-family: Verdana, sans-serif;
     font-weight: bold;
+  }
+}
+
+// Layout classes
+.no-sidebar {
+  .sidebar {
+    display: none;
+  }
+  .page {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
+  .page__related {
+    @include breakpoint($large) {
+      width: 100%;
+    }
+    @include breakpoint($x-large) {
+      width: 100%;
+    }
+  }
+}
+.no-footer-meta {
+  footer.page__meta {
+    display: none;
   }
 }
