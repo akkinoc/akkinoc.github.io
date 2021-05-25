@@ -92,7 +92,7 @@ defaults:
         - nav: archive
 
 # Outputting
-paginate: 8
+paginate: 6
 timezone: Asia/Tokyo
 
 # Archive
