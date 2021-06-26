@@ -37,9 +37,6 @@ author:
     - label: GitHub
       icon: fab fa-fw fa-github-alt
       url: https://github.com/akkinoc
-    - label: SpeakerDeck
-      icon: fab fa-fw fa-speaker-deck
-      url: https://speakerdeck.com/akkinoc
     - label: Keybase
       icon: fab fa-fw fa-keybase
       url: https://keybase.io/akkinoc
