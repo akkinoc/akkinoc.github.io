@@ -6,6 +6,7 @@ feature_row_logback_access_spring_boot_starter:
     excerpt: |
       Java フレームワーク Spring Boot の拡張ライブラリです。
       Logback-access (Java サーブレットの HTTP アクセスロギングライブラリ) を自動で組み込み、使いやすくします。
+      Spring Boot アプリケーションプロパティや、 Logback-access 設定ファイルで、動作を設定できます。
     btn_label: <i aria-hidden="true" class="fab fa-fw fa-github-alt"></i> GitHub
     btn_class: btn--primary
     url: https://github.com/akkinoc/logback-access-spring-boot-starter
@@ -15,6 +16,7 @@ feature_row_orika_spring_boot_starter:
     excerpt: |
       Java フレームワーク Spring Boot の拡張ライブラリです。
       Orika (Java Bean マッピングライブラリ) を自動で組み込み、使いやすくします。
+      Spring Boot アプリケーションプロパティや、ユーザ実装の設定クラスで、動作を設定できます。
     btn_label: <i aria-hidden="true" class="fab fa-fw fa-github-alt"></i> GitHub
     btn_class: btn--primary
     url: https://github.com/akkinoc/orika-spring-boot-starter
