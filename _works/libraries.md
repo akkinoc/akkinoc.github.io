@@ -31,6 +31,8 @@ feature_row_yaml_resource_bundle:
     url: https://github.com/akkinoc/yaml-resource-bundle
 ---
 
+個人開発しているプログラミングライブラリです。
+
 - - -
 
 {% include feature_row id="feature_row_logback_access_spring_boot_starter" type="left" %}
