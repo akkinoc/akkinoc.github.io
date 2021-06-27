@@ -27,7 +27,8 @@ html {
   }
 }
 .feature__wrapper {
-  .feature__item--left, .feature__item--right {
+  .feature__item--left,
+  .feature__item--right {
     .archive__item-title {
       margin-top: 0;
     }
@@ -110,7 +111,8 @@ html {
         clear: both;
         margin-left: 0;
       }
-      &:nth-child(3n + 2), &:nth-child(3n + 3) {
+      &:nth-child(3n + 2),
+      &:nth-child(3n + 3) {
         clear: none;
         margin-left: gutter(1 of 12);
       }
