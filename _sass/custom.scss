@@ -26,6 +26,13 @@ html {
     display: block;
   }
 }
+.feature__wrapper {
+  .feature__item--left, .feature__item--right {
+    .archive__item-title {
+      margin-top: 0;
+    }
+  }
+}
 
 // Search
 .search-content {
