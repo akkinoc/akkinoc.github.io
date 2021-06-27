@@ -64,6 +64,9 @@ collections:
   posts:
     output: true
     permalink: /:collection/:year/:month/:day/:title/
+  works:
+    output: true
+    permalink: /:collection/:title/
   archive:
     output: true
     permalink: /:collection/:title/
@@ -84,6 +87,12 @@ defaults:
       toc_sticky: true
       share: true
       related: true
+  - scope:
+      type: works
+    values:
+      classes: wide
+      sidebar:
+        - nav: works
   - scope:
       type: archive
     values:
