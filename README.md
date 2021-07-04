@@ -1,12 +1,12 @@
 # akkinoc.github.io
 
-[![Deploy][Deploy Badge]][Deploy]
-[![License][License Badge]][License]
+[![deploy][deploy badge]][deploy]
+[![license][license badge]][license]
 
-[Deploy Badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml/badge.svg
-[Deploy]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml
-[License Badge]: https://img.shields.io/badge/License-CC%20BY--SA-blue.svg
-[License]: LICENSE.txt
+[deploy badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml/badge.svg
+[deploy]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml
+[license badge]: https://img.shields.io/badge/license-CC%20BY--SA-blue
+[license]: LICENSE.txt
 
 The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]  
 
