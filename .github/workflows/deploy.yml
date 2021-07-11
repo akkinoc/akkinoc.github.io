@@ -5,11 +5,11 @@ on:
 env:
   TZ: Asia/Tokyo
 jobs:
-  deploy-site:
-    name: Deploy site
+  deploy:
+    name: Deploy
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout repository
+      - name: Checkout Git repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -18,11 +18,11 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
-      - name: Build site
+      - name: Build
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      - name: Deploy site
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
