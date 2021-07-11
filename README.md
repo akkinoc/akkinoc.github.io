@@ -1,10 +1,10 @@
 # akkinoc.github.io
 
-[![deploy][deploy badge]][deploy]
+[![build][build badge]][build]
 [![license][license badge]][license]
 
-[deploy badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml/badge.svg
-[deploy]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/deploy.yml
+[build badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml/badge.svg
+[build]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml
 [license badge]: https://img.shields.io/badge/license-CC%20BY--SA-blue
 [license]: LICENSE.txt
 
