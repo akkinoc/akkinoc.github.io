@@ -7,7 +7,7 @@ jobs:
     name: Build
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout Git repository
+      - name: Checkout the Git repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -16,11 +16,11 @@ jobs:
         with:
           ruby-version: 2.6
           bundler-cache: true
-      - name: Build
+      - name: Build the site
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      - name: Deploy
+      - name: Deploy the site
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
