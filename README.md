@@ -17,7 +17,9 @@ The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]
 To build, run:  
 
 ```console
-$ bundle
+$ git clone git@github.com:akkinoc/akkinoc.github.io.git
+$ cd akkinoc.github.io
+$ bundle install
 $ bundle exec jekyll build
 ```
 
