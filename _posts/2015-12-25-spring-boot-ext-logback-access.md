@@ -1,7 +1,7 @@
 ---
 title: Spring Boot - Logback-access が使いやすくなる自動設定を作って公開した
 categories: tech
-tags: spring-boot spring-framework logback-access logback maven java
+tags: logback-access-spring-boot-starter spring-boot-starter spring-boot spring-framework logback-access logback java maven
 header:
   teaser: /assets/posts/2015-12-25-spring-boot-ext-logback-access-800x300.jpg
   og_image: /assets/posts/2015-12-25-spring-boot-ext-logback-access-800x300.jpg
