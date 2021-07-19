@@ -1,6 +1,6 @@
 ---
 title: Programing Libraries
-feature_row_logback_access_spring_boot_starter:
+feature_row.logback-access-spring-boot-starter:
   - title: logback-access-spring-boot-starter
     image_path: /assets/works/libraries-logback-access-spring-boot-starter-1200x600.png
     excerpt: |
@@ -10,7 +10,7 @@ feature_row_logback_access_spring_boot_starter:
     btn_label: <i aria-hidden="true" class="fab fa-fw fa-github-alt"></i> GitHub
     btn_class: btn--primary
     url: https://github.com/akkinoc/logback-access-spring-boot-starter
-feature_row_orika_spring_boot_starter:
+feature_row.orika-spring-boot-starter:
   - title: orika-spring-boot-starter
     image_path: /assets/works/libraries-orika-spring-boot-starter-1200x600.png
     excerpt: |
@@ -20,7 +20,7 @@ feature_row_orika_spring_boot_starter:
     btn_label: <i aria-hidden="true" class="fab fa-fw fa-github-alt"></i> GitHub
     btn_class: btn--primary
     url: https://github.com/akkinoc/orika-spring-boot-starter
-feature_row_yaml_resource_bundle:
+feature_row.yaml-resource-bundle:
   - title: yaml-resource-bundle
     image_path: /assets/works/libraries-yaml-resource-bundle-1200x600.png
     excerpt: |
@@ -35,6 +35,6 @@ feature_row_yaml_resource_bundle:
 
 - - -
 
-{% include feature_row id="feature_row_logback_access_spring_boot_starter" type="left" %}
-{% include feature_row id="feature_row_orika_spring_boot_starter" type="left" %}
-{% include feature_row id="feature_row_yaml_resource_bundle" type="left" %}
+{% include feature_row id="feature_row.logback-access-spring-boot-starter" type="left" %}
+{% include feature_row id="feature_row.orika-spring-boot-starter" type="left" %}
+{% include feature_row id="feature_row.yaml-resource-bundle" type="left" %}
