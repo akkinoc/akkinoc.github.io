@@ -31,13 +31,13 @@ html {
     display: block;
   }
 }
-.feature__wrapper {
-  margin-bottom: 1em;
-  .feature__item--left,
-  .feature__item--right {
-    .archive__item-title {
-      margin-top: 0;
-    }
+.feature__item--left,
+.feature__item--right {
+  .archive__item-teaser {
+    margin-bottom: 0.5em;
+  }
+  .archive__item-title {
+    margin-top: 0;
   }
 }
 
