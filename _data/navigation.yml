@@ -22,7 +22,7 @@ archive:
     children:
       - title: <i aria-hidden="true" class="far fa-fw fa-calendar-alt"></i> Posts by Year
         url: /archive/posts/
-      - title: <i aria-hidden="true" class="far fa-fw fa-folder"></i> Posts by Category
+      - title: <i aria-hidden="true" class="far fa-fw fa-folder-open"></i> Posts by Category
         url: /archive/categories/
       - title: <i aria-hidden="true" class="fas fa-fw fa-tag"></i> Posts by Tag
         url: /archive/tags/
