@@ -13,6 +13,8 @@ works:
     children:
       - title: <i aria-hidden="true" class="fas fa-fw fa-tools"></i> Programing Libraries
         url: /works/libraries/
+      - title: <i aria-hidden="true" class="fas fa-fw fa-images"></i> Presentation Slides
+        url: /works/slides/
 
 # Archive
 archive:
