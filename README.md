@@ -1,35 +1,48 @@
 # akkinoc.github.io
 
-[![build][build badge]][build]
-[![license][license badge]][license]
+[![build badge]][build]
+[![license badge]][license]
 
-[build badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml/badge.svg
 [build]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml
-[license badge]: https://img.shields.io/badge/license-CC%20BY--SA-blue
+[build badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml/badge.svg
 [license]: LICENSE.txt
+[license badge]: https://img.shields.io/github/license/akkinoc/akkinoc.github.io?color=blue
 
 The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]  
 
 [akkinoc.dev]: https://akkinoc.dev
+
+## Setup
+
+To setup, run:  
+
+```console
+$ git clone git@github.com:akkinoc/akkinoc.github.io.git
+$ cd akkinoc.github.io
+$ bundle install
+```
 
 ## Building
 
 To build, run:  
 
 ```console
-$ git clone git@github.com:akkinoc/akkinoc.github.io.git
-$ cd akkinoc.github.io
-$ bundle install
 $ bundle exec jekyll build
+```
+
+## Running
+
+To run on localhost, run:  
+
+```console
+$ bundle exec jekyll serve --drafts --future
 ```
 
 ## Deploying
 
 To deploy, push to the GitHub `main` branch.  
-It will be automatically deployed to GitHub Pages via GitHub Actions.  
+It will be automatically deployed to [GitHub Pages][akkinoc.dev] via [GitHub Actions][build].  
 
 ## License
 
-Licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License].  
-
-[Creative Commons Attribution-ShareAlike 4.0 International License]: LICENSE.txt
+Licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License][license].  
