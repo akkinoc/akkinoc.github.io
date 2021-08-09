@@ -36,6 +36,11 @@ html {
   .archive__item-teaser {
     margin-bottom: 0.5em;
   }
+  @include breakpoint($small) {
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+  }
   .archive__item-title {
     margin-top: 0;
   }
