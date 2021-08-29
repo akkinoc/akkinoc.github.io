@@ -1,7 +1,7 @@
 ---
 title: yaml-resource-bundle を Kotlin で書き直した
 categories: tech
-tags: yaml-resource-bundle kotlin java yaml maven github-actions
+tags: yaml-resource-bundle kotlin java yaml maven kotest github-actions
 header:
   teaser: /assets/posts/2021-07-17-rewrote-yaml-resource-bundle-in-kotlin-1200x630.png
   og_image: /assets/posts/2021-07-17-rewrote-yaml-resource-bundle-in-kotlin-1200x630.png
@@ -52,5 +52,5 @@ System.out.println(bundle.getString("key"));
 * `---` で区切られた複数の YAML ドキュメントに対応
 * `&`, `*` 記号による YAML アンカー, エイリアスに対応
 * YAML エイリアスで再帰的な無限ループ (ex: `&A [ *A ]`) が入力されたときのハングアップ回避
-* Kotlin らしくテストに kotest を導入
+* Kotlin らしくテストに Kotest を導入
 * CI を CircleCI から GitHub Actions へ移行
