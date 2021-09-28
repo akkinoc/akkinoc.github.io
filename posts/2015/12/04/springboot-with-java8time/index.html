@@ -11,7 +11,7 @@
   <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-jsr310<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div> <p>2) <code class="language-plaintext highlighter-rouge">application.yml</code> 等で Jackson のオプションをセット。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div> <p>2) <code class="language-plaintext highlighter-rouge">application.yml</code> 等で Jackson のオプションをセット。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS</span><span class="pi">:</span> <span class="no">false</span>
 </code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">@JsonFormat</code> を添えれば、フィールドごとにフォーマット変更もいけました。</p> <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@JsonFormat</span><span class="o">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">"y年M月d日"</span><span class="o">)</span>
 <span class="kd">private</span> <span class="nc">LocalDate</span> <span class="n">customDate</span><span class="o">;</span>
 <span class="nd">@JsonFormat</span><span class="o">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">"H時m分s秒"</span><span class="o">)</span>

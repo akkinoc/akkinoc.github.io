@@ -11,7 +11,7 @@
   <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-redis<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div> <h2 id="接続設定">接続設定</h2> <p>Redis サーバへ接続するための設定です。</p> <p>ここでは <code class="language-plaintext highlighter-rouge">application.yml</code> に書きました。<br> <code class="language-plaintext highlighter-rouge">.properties</code> にするとか、 Java 実行パラメータ (<code class="language-plaintext highlighter-rouge">-D</code>) で渡すとかはお好みで。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">spring.redis</span><span class="pi">:</span>
+</code></pre></div></div> <h2 id="接続設定">接続設定</h2> <p>Redis サーバへ接続するための設定です。</p> <p>ここでは <code class="language-plaintext highlighter-rouge">application.yml</code> に書きました。<br> <code class="language-plaintext highlighter-rouge">.properties</code> にするとか、 Java 実行パラメータ (<code class="language-plaintext highlighter-rouge">-D</code>) で渡すとかはお好みで。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring.redis</span><span class="pi">:</span>
   <span class="na">host</span><span class="pi">:</span> <span class="s">localhost</span>
   <span class="na">port</span><span class="pi">:</span> <span class="m">6379</span>
   <span class="na">password</span><span class="pi">:</span> <span class="no">null</span>

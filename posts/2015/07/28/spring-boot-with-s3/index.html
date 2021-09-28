@@ -16,7 +16,7 @@
   <span class="nt">&lt;artifactId&gt;</span>spring-cloud-aws-autoconfigure<span class="nt">&lt;/artifactId&gt;</span>
   <span class="nt">&lt;version&gt;</span>1.0.2.RELEASE<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div> <h2 id="spring-cloud-aws-設定">Spring Cloud AWS 設定</h2> <p>AWS アクセスキーとリージョンは、環境変数を使うように設定します。<br> ここでは <code class="language-plaintext highlighter-rouge">application.yml</code> に書きました。<br> <code class="language-plaintext highlighter-rouge">.properties</code> にするなり、 Java 実行パラメータ (<code class="language-plaintext highlighter-rouge">-D</code>) で渡すなりはお好みで。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">cloud.aws</span><span class="pi">:</span>
+</code></pre></div></div> <h2 id="spring-cloud-aws-設定">Spring Cloud AWS 設定</h2> <p>AWS アクセスキーとリージョンは、環境変数を使うように設定します。<br> ここでは <code class="language-plaintext highlighter-rouge">application.yml</code> に書きました。<br> <code class="language-plaintext highlighter-rouge">.properties</code> にするなり、 Java 実行パラメータ (<code class="language-plaintext highlighter-rouge">-D</code>) で渡すなりはお好みで。</p> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cloud.aws</span><span class="pi">:</span>
   <span class="na">credentials</span><span class="pi">:</span>
     <span class="na">accessKey</span><span class="pi">:</span> <span class="s">${AWS_ACCESS_KEY_ID}</span>
     <span class="na">secretKey</span><span class="pi">:</span> <span class="s">${AWS_SECRET_ACCESS_KEY}</span>
