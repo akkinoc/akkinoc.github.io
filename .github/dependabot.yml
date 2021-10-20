@@ -5,10 +5,10 @@ updates:
     schedule:
       interval: daily
     labels:
-      - type:enhancement
+      - type:dependencies
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
     labels:
-      - type:enhancement
+      - type:dependencies
