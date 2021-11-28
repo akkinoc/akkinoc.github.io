@@ -161,10 +161,10 @@ GitHub に置いてます。
 
 ```console
 $ aws cloudformation deploy \
-    --template-file store.yml \
-    --capabilities CAPABILITY_NAMED_IAM \
-    --stack-name cflogs-store \        # stack-name と、
-    --parameter-overrides Name=cflogs  # Name パラメータを切り替えれば、複数構築できます
+  --template-file store.yml \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --stack-name cflogs-store \        # stack-name と、
+  --parameter-overrides Name=cflogs  # Name パラメータを切り替えれば、複数構築できます
 ```
 
 ざっくり次のリソースが出来上がります。
