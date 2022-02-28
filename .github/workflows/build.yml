@@ -14,7 +14,6 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.99.0
         with:
-          ruby-version: 2.6
           bundler-cache: true
       - name: Build the site
         run: bundle exec jekyll build
