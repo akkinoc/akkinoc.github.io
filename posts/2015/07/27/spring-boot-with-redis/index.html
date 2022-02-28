@@ -62,9 +62,9 @@
 
 <span class="o">}</span>
 </code></pre></div></div> <p>実行すると。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-X</span> PUT <span class="s1">'http://localhost:8080/hoge-string'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type:application/json'</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-</span><span class="go">    "string": "hoge",
+<span class="go">  -H 'Content-Type:application/json' \
+  -d '{
+    "string": "hoge",
     "list": [
       "hoge",
       "fuga"
@@ -127,9 +127,9 @@
 
 <span class="o">}</span>
 </code></pre></div></div> <p>実行すると。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-X</span> PUT <span class="s1">'http://localhost:8080/hoge-serial'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type:application/json'</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-</span><span class="go">    "string": "hoge",
+<span class="go">  -H 'Content-Type:application/json' \
+  -d '{
+    "string": "hoge",
     "list": [
       "hoge",
       "fuga"
@@ -181,9 +181,9 @@
 
 <span class="o">}</span>
 </code></pre></div></div> <p>実行すると。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-X</span> PUT <span class="s1">'http://localhost:8080/hoge-json'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'Content-Type:application/json'</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-</span><span class="go">    "string": "hoge",
+<span class="go">  -H 'Content-Type:application/json' \
+  -d '{
+    "string": "hoge",
     "list": [
       "hoge",
       "fuga"

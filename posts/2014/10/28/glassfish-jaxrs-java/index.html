@@ -120,11 +120,11 @@
 <span class="o">}</span>
 </code></pre></div></div> <h2 id="コンパイル-パッケージ作成-デプロイ">コンパイル, パッケージ作成, デプロイ</h2> <p>ここまで出来たらコンパイル＆デプロイ。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mvn compile package glassfish:redeploy
 </code></pre></div></div> <h2 id="動作確認">動作確認</h2> <p>まずは POST で適当なデータを登録してみる。<br> レスポンスは JSON で。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"integer=1"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"string=aaa"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"strings=AAA1"</span> <span class="nt">-d</span> <span class="s2">"strings=AAA2"</span> <span class="nt">-d</span> <span class="s2">"strings=AAA3"</span> <span class="se">\</span>
+<span class="go">  -d "integer=1" \
+  -d "string=aaa" \
+  -d "strings=AAA1" -d "strings=AAA2" -d "strings=AAA3" \
   http://your-host:8080/try-rest/hoges
-<span class="go">
+
 HTTP/1.1 201 Created
 Server: GlassFish Server Open Source Edition  4.1
 X-Powered-By: Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)
@@ -135,11 +135,11 @@ Content-Length: 61
 
 {"integer":1,"string":"aaa","strings":["AAA1","AAA2","AAA3"]}
 </span></code></pre></div></div> <p>次はレスポンスを XML にしてみる。<br> リクエストヘッダの <code class="language-plaintext highlighter-rouge">Accept</code> でコントロール。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/xml"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"integer=2"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"string=bbb"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s2">"strings=BBB1"</span> <span class="nt">-d</span> <span class="s2">"strings=BBB2"</span> <span class="nt">-d</span> <span class="s2">"strings=BBB3"</span> <span class="se">\</span>
+<span class="go">  -d "integer=2" \
+  -d "string=bbb" \
+  -d "strings=BBB1" -d "strings=BBB2" -d "strings=BBB3" \
   http://your-host:8080/try-rest/hoges
-<span class="go">
+
 HTTP/1.1 201 Created
 Server: GlassFish Server Open Source Edition  4.1
 X-Powered-By: Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)
@@ -150,8 +150,8 @@ Content-Length: 185
 
 </span><span class="gp">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>&lt;hogeData&gt;&lt;integer&gt;2&lt;/integer&gt;&lt;string&gt;bbb&lt;/string&gt;&lt;strings&gt;BBB1&lt;/strings&gt;&lt;strings&gt;BBB2&lt;/strings&gt;&lt;strings&gt;BBB3&lt;/strings&gt;&lt;/hogeData&gt;
 </code></pre></div></div> <p>今度はデータのリストを JSON で GET してみる。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-  http://your-host:8080/try-rest/hoges
-<span class="go">
+<span class="go">  http://your-host:8080/try-rest/hoges
+
 HTTP/1.1 200 OK
 Server: GlassFish Server Open Source Edition  4.1
 X-Powered-By: Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)
@@ -161,8 +161,8 @@ Content-Length: 125
 
 [{"integer":1,"string":"aaa","strings":["AAA1","AAA2","AAA3"]},{"integer":2,"string":"bbb","strings":["BBB1","BBB2","BBB3"]}]
 </span></code></pre></div></div> <p>単一のデータも GET してみる。 id=2 のデータを XML で。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/xml"</span> <span class="se">\</span>
-  http://your-host:8080/try-rest/hoges/2
-<span class="go">
+<span class="go">  http://your-host:8080/try-rest/hoges/2
+
 HTTP/1.1 200 OK
 Server: GlassFish Server Open Source Edition  4.1
 X-Powered-By: Servlet/3.1 JSP/2.3 (GlassFish Server Open Source Edition  4.1  Java/Oracle Corporation/1.8)

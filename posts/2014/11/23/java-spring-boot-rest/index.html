@@ -118,11 +118,11 @@
 </code></pre></div></div> <p>他、細かいとこを説明すると…</p> <ul> <li> <code class="language-plaintext highlighter-rouge">@ModelAttribute</code> でリクエストパラメータを引数で受け取ってる。 <ul> <li>デフォルトではフィールド名がパラメータ名として使われる。</li> <li>JAX-RS の <code class="language-plaintext highlighter-rouge">@QueryParam</code>/<code class="language-plaintext highlighter-rouge">@FormParam</code> と違って、パラメータ名を省略出来ていい！</li> </ul> </li> <li>POST の返却値は、 <code class="language-plaintext highlighter-rouge">Location</code> ヘッダも返したくて <code class="language-plaintext highlighter-rouge">ResponseEntity</code> にしてる。 <ul> <li> <code class="language-plaintext highlighter-rouge">Location</code> ヘッダを付けないなら、 <code class="language-plaintext highlighter-rouge">HogeData</code> をそのまま返しても大丈夫。</li> </ul> </li> <li> <code class="language-plaintext highlighter-rouge">UriComponentsBuilder</code> は、 <code class="language-plaintext highlighter-rouge">Location</code> ヘッダ用にアプリのルート URL を取得したくて使ってる。</li> </ul> <h2 id="動かしてみる">動かしてみる</h2> <p>以上のソースで動かせた。<br> JAR を作って <code class="language-plaintext highlighter-rouge">java</code> コマンドで起動する。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mvn package
 <span class="gp">$</span><span class="w"> </span>java <span class="nt">-jar</span> target/try-spring-boot-1.0-SNAPSHOT.jar
 </code></pre></div></div> <p>前の記事と同じようにデータを POST で登録してみる。<br> XML/JSON 両方試す。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"integer=1"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"string=aaa"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"strings=AAA1"</span> <span class="nt">-d</span> <span class="s2">"strings=AAA2"</span> <span class="nt">-d</span> <span class="s2">"strings=AAA3"</span> <span class="se">\</span>
+<span class="go">       -d "integer=1" \
+       -d "string=aaa" \
+       -d "strings=AAA1" -d "strings=AAA2" -d "strings=AAA3" \
        http://localhost:8080/hoges
-<span class="go">HTTP/1.1 201 Created
+HTTP/1.1 201 Created
 Server: Apache-Coyote/1.1
 Location: http://localhost:8080/hoges/1
 </span><span class="gp">Content-Type: application/json;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
@@ -132,11 +132,11 @@ Date: Sat, 22 Nov 2014 20:39:34 GMT
 {"integer":1,"string":"aaa","strings":["AAA1","AAA2","AAA3"]}
 
 </span><span class="gp">$</span><span class="w"> </span>curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/xml"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"integer=2"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"string=bbb"</span> <span class="se">\</span>
-       <span class="nt">-d</span> <span class="s2">"strings=BBB1"</span> <span class="nt">-d</span> <span class="s2">"strings=BBB2"</span> <span class="nt">-d</span> <span class="s2">"strings=BBB3"</span> <span class="se">\</span>
+<span class="go">       -d "integer=2" \
+       -d "string=bbb" \
+       -d "strings=BBB1" -d "strings=BBB2" -d "strings=BBB3" \
        http://localhost:8080/hoges
-<span class="go">HTTP/1.1 201 Created
+HTTP/1.1 201 Created
 Server: Apache-Coyote/1.1
 Location: http://localhost:8080/hoges/2
 Content-Type: application/xml
