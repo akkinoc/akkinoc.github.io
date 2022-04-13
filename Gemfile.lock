@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.2.2)
+    activesupport (7.0.2.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -11,7 +11,7 @@ GEM
     classifier-reborn (2.2.0)
       fast-stemmer (~> 1.0)
     colorator (1.1.0)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     cssminify2 (2.0.1)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -46,7 +46,7 @@ GEM
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
     gsl (2.1.0.3)
-    html-pipeline (2.14.0)
+    html-pipeline (2.14.1)
       activesupport (>= 2)
       nokogiri (>= 1.4)
     htmlcompressor (0.4.0)
@@ -100,7 +100,7 @@ GEM
     json (2.6.1)
     json-minify (0.0.3)
       json (> 0)
-    kramdown (2.3.1)
+    kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -128,7 +128,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     posix-spawn (0.3.15)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     racc (1.6.0)
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
