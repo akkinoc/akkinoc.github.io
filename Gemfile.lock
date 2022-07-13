@@ -8,8 +8,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    classifier-reborn (2.2.0)
+    classifier-reborn (2.3.0)
       fast-stemmer (~> 1.0)
+      matrix (~> 0.4)
     colorator (1.1.0)
     concurrent-ruby (1.1.10)
     cssminify2 (2.0.1)
@@ -108,6 +109,7 @@ GEM
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    matrix (0.4.2)
     mercenary (0.4.0)
     mini_portile2 (2.8.0)
     minimal-mistakes-jekyll (4.24.0)
@@ -154,7 +156,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  classifier-reborn (~> 2.2)
+  classifier-reborn (~> 2.3)
   gsl (~> 2.1)
   jekyll (~> 4.2)
   jekyll-feed (~> 0.16)
