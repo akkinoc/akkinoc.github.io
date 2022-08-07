@@ -2,11 +2,14 @@
 
 [![build badge]][build]
 [![license badge]][license]
+[![sponsor badge]][sponsor]
 
 [build]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml
 [build badge]: https://github.com/akkinoc/akkinoc.github.io/actions/workflows/build.yml/badge.svg
 [license]: LICENSE.txt
 [license badge]: https://img.shields.io/github/license/akkinoc/akkinoc.github.io?color=blue
+[sponsor]: https://github.com/sponsors/akkinoc
+[sponsor badge]: https://img.shields.io/static/v1?logo=github&label=sponsor&message=%E2%9D%A4&color=db61a2
 
 The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]
 
