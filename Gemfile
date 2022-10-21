@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 gem "classifier-reborn", "~> 2.3"
 gem "gsl", "~> 2.1"
-gem "jekyll", "~> 4.2"
+gem "jekyll", "~> 4.3"
 gem "minimal-mistakes-jekyll", "~> 4.24"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
