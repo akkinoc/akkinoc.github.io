@@ -9,7 +9,7 @@ group :jekyll_plugins do
   gem "jekyll-last-modified-at", "~> 1.3"
   gem "jekyll-minifier", "~> 0.1"
   gem "jekyll-paginate", "~> 1.1"
-  gem "jekyll-sass-converter", "~> 2.2"
+  gem "jekyll-sass-converter", "~> 3.0"
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-target-blank", "~> 2.0"
   gem "jemoji", "~> 0.13"
