@@ -15,8 +15,6 @@ Spring Boot 3 へのアップデートに必要だった変更をまとめまし
 
 <!--more-->
 
-<iframe src="https://github.com/sponsors/akkinoc/card" title="Sponsor akkinoc" height="225" width="600" style="border: 0;"></iframe>
-
 ## logback-access-spring-boot-starter とは
 
 前に投稿した記事をご参照ください:
