@@ -10,6 +10,7 @@ footer_scripts:
   - /assets/js/main.min.js
   - /assets/js/custom.js
 logo: /assets/images/icon-nobg-512x512.svg
+enable_copy_code_button: true
 search: true
 search_full_content: true
 twitter:
