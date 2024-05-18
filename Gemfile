@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 gem "classifier-reborn", "~> 2.3"
-gem "numo-linalg", "~> 0.1"
-gem "numo-narray", "~> 0.9"
 gem "jekyll", "~> 4.3"
 gem "minimal-mistakes-jekyll", "~> 4.26"
+gem "numo-linalg", "~> 0.1"
+gem "numo-narray", "~> 0.9"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-include-cache", "~> 0.2"
