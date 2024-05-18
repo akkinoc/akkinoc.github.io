@@ -13,8 +13,6 @@ logo: /assets/images/icon-nobg-512x512.svg
 enable_copy_code_button: true
 search: true
 search_full_content: true
-twitter:
-  username: akkinoc
 analytics:
   provider: google-gtag
   google:
@@ -79,6 +77,7 @@ defaults:
       header:
         teaser: /assets/images/teaser-1200x630.png
   - scope:
+      path: ""
       type: posts
     values:
       classes: no-sidebar
@@ -89,12 +88,14 @@ defaults:
       share: true
       related: true
   - scope:
+      path: ""
       type: works
     values:
       classes: wide
       sidebar:
         - nav: works
   - scope:
+      path: ""
       type: archive
     values:
       classes: wide
