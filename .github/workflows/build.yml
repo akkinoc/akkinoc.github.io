@@ -11,6 +11,10 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
+      - name: Install APT Packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install liblapacke-dev libopenblas-dev # for classifier-reborn
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.176.0
         with:
