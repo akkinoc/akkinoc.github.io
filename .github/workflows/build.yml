@@ -5,16 +5,14 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: macos-14
     steps:
       - name: Checkout the Git repository
         uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
-      - name: Install APT Packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install liblapacke-dev libopenblas-dev # for classifier-reborn
+      - name: Install Homebrew Packages
+        run: brew install lapack openblas # for classifier-reborn
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.176.0
         with:
