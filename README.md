@@ -20,13 +20,16 @@ The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]
 To setup, run:
 
 ```console
-$ brew install lapack openblas
+$ git clone git@github.com:akkinoc/akkinoc.github.io.git
+$ cd akkinoc.github.io
+$ brew install lapack openblas # for classifier-reborn
 $ bundle config --global build.numo-linalg \
     --with-lapack-lib="$(brew --prefix lapack)/lib" \
     --with-openblas-dir="$(brew --prefix openblas)" \
     # for classifier-reborn
-$ git clone git@github.com:akkinoc/akkinoc.github.io.git
-$ cd akkinoc.github.io
+$ bundle config --global build.posix-spawn \
+    --with-cflags="-Wno-incompatible-function-pointer-types" \
+    # for jekyll-last-modified-at
 $ bundle install
 ```
 
