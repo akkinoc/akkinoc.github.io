@@ -23,13 +23,6 @@ To setup, run:
 $ git clone git@github.com:akkinoc/akkinoc.github.io.git
 $ cd akkinoc.github.io
 $ brew install lapack openblas # for classifier-reborn
-$ bundle config --global build.numo-linalg \
-    --with-lapack-lib="$(brew --prefix lapack)/lib" \
-    --with-openblas-dir="$(brew --prefix openblas)" \
-    # for classifier-reborn
-$ bundle config --global build.posix-spawn \
-    --with-cflags="-Wno-incompatible-function-pointer-types" \
-    # for jekyll-last-modified-at
 $ bundle install
 ```
 
