@@ -229,8 +229,7 @@ In Gemfile:
 > Note: The gsl gem is currently incompatible with Ruby 3.
 > It is recommended to use Numo instead with Ruby 3.
 >
-> <footer><cite><a href="https://jekyll.github.io/classifier-reborn/#install-gsl-gem">Install GSL Gem
- - Classifier Reborn</a></cite></footer>
+> <footer><cite><a href="https://jekyll.github.io/classifier-reborn/#install-gsl-gem">Install GSL Gem - Classifier Reborn</a></cite></footer>
 
 [Numo]: https://ruby-numo.github.io/narray/
 
