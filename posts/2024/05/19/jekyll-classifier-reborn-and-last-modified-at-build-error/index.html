@@ -1,0 +1,232 @@
+<!doctype html> <html lang="ja" class="no-js"> <head> <meta charset="utf-8"> <title>Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した - akkinoc.dev</title> <meta name="description" content="この Blog (Jekyll) を久々にビルドしたところ、 依存ライブラリ classifier-reborn (gsl), jekyll-last-modified-at (posix-spawn) の インストールに失敗したので解消しました。"> <meta name="author" content="Akihiro Kondo"> <meta property="article:author" content="Akihiro Kondo"> <meta property="og:type" content="article"> <meta property="og:locale" content="ja_JP"> <meta property="og:site_name" content="akkinoc.dev"> <meta property="og:title" content="Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した"> <meta property="og:url" content="https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error/"> <meta property="og:description" content="この Blog (Jekyll) を久々にビルドしたところ、 依存ライブラリ classifier-reborn (gsl), jekyll-last-modified-at (posix-spawn) の インストールに失敗したので解消しました。"> <meta property="og:image" content="https://akkinoc.dev/assets/posts/2024-05-19-jekyll-classifier-reborn-and-last-modified-at-build-error-1200x630.png"> <meta property="article:published_time" content="2024-05-19T00:00:00+09:00"> <meta property="article:modified_time" content="2024-05-19T14:35:09+09:00"> <link rel="canonical" href="https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error/"> <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="akkinoc.dev Feed"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <script type="text/javascript">document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/g,"")+" js ",window.enable_copy_code_button=!0;</script> <link rel="stylesheet" href="/assets/css/main.css"> <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript> <link href="/site.webmanifest" rel="manifest"> <link href="/assets/images/icon-180x180.png" rel="apple-touch-icon"> </head> <body class="layout--single no-sidebar"> <nav class="skip-links"> <ul> <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li> <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li> <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li> </ul> </nav> <div class="masthead"> <div class="masthead__inner-wrap"> <div class="masthead__menu"> <nav id="site-nav" class="greedy-nav"> <a class="site-logo" href="/"><img src="/assets/images/icon-nobg-512x512.svg" alt="akkinoc.dev"></a> <a class="site-title" href="/"> akkinoc.dev </a> <ul class="visible-links"> <li class="masthead__menu-item"> <a href="/">Home</a> </li> <li class="masthead__menu-item"> <a href="/works/libraries/">Works</a> </li> <li class="masthead__menu-item"> <a href="/archive/posts/">Archive</a> </li> </ul> <button class="search__toggle" type="button"> <span class="visually-hidden">Toggle search</span> <i class="fas fa-search"></i> </button> <button class="greedy-nav__toggle hidden" type="button"> <span class="visually-hidden">Toggle menu</span> <div class="navicon"></div> </button> <ul class="hidden-links hidden"></ul> </nav> </div> </div> </div> <div class="initial-content"> <div id="main" role="main"> <article class="page" itemscope itemtype="https://schema.org/CreativeWork"> <meta itemprop="headline" content="Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した"> <meta itemprop="description" content="この Blog (Jekyll) を久々にビルドしたところ、依存ライブラリ classifier-reborn (gsl), jekyll-last-modified-at (posix-spawn) のインストールに失敗したので解消しました。"> <meta itemprop="datePublished" content="2024-05-19T00:00:00+09:00"> <meta itemprop="dateModified" content="2024-05-19T14:35:09+09:00"> <div class="page__inner-wrap"> <header> <h1 id="page-title" class="page__title" itemprop="headline"> <a href="https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error/" itemprop="url">Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した </a> </h1> <p class="page__meta"> <span class="page__meta-date"> <i class="far fa-calendar-alt" aria-hidden="true"></i> <time datetime="2024-05-19T00:00:00+09:00">May 19, 2024</time> </span> </p> </header> <section class="page__content" itemprop="text"> <aside class="sidebar__right sticky"> <nav class="toc"> <header><h4 class="nav__title"> <i class="fas fa-scroll"></i> On this page</h4></header> <ul class="toc__menu"> <li><a href="#%E5%89%8D%E6%8F%90">前提</a></li> <li> <a href="#classifier-reborn-gsl">classifier-reborn (gsl)</a><ul> <li><a href="#classifier-reborn-%E3%81%A8%E3%81%AF">classifier-reborn とは</a></li> <li><a href="#%E3%83%93%E3%83%AB%E3%83%89%E3%82%A8%E3%83%A9%E3%83%BC">ビルドエラー</a></li> <li><a href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95">解決方法</a></li> </ul> </li> <li> <a href="#jekyll-last-modified-at-posix-spawn">jekyll-last-modified-at (posix-spawn)</a><ul> <li><a href="#jekyll-last-modified-at-%E3%81%A8%E3%81%AF">jekyll-last-modified-at とは</a></li> <li><a href="#%E3%83%93%E3%83%AB%E3%83%89%E3%82%A8%E3%83%A9%E3%83%BC-1">ビルドエラー</a></li> <li><a href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-1">解決方法</a></li> </ul> </li> </ul> </nav> </aside> <p>この Blog (<a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer nofollow">Jekyll</a>) を久々にビルドしたところ、<br> 依存ライブラリ <a href="https://jekyll.github.io/classifier-reborn/" target="_blank" rel="noopener noreferrer nofollow">classifier-reborn</a> (<a href="https://rubygems.org/gems/gsl" target="_blank" rel="noopener noreferrer nofollow">gsl</a>), <a href="https://github.com/gjtorikian/jekyll-last-modified-at" target="_blank" rel="noopener noreferrer nofollow">jekyll-last-modified-at</a> (<a href="https://rubygems.org/gems/posix-spawn" target="_blank" rel="noopener noreferrer nofollow">posix-spawn</a>) の<br> インストールに失敗したので解消しました。</p> <h2 id="前提">前提</h2> <p>この Blog はこんな Gemfile で依存ライブラリを管理しています。</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+gem "jekyll", "~&gt; 4.3"
+gem "classifier-reborn", "~&gt; 2.3"
+gem "gsl", "~&gt; 2.1"
+# ... (中略)
+group :jekyll_plugins do
+  gem "jekyll-last-modified-at", "~&gt; 1.3"
+  # ... (中略)
+end
+</code></pre></div></div> <p>公開する静的コンテンツは、次のコマンドでビルドしています。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">$</span><span class="w"> </span>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div></div> <p>ビルド環境は次の通りです。</p> <ul> <li>macOS Sonoma 14.4.1 (M1)</li> <li>Ruby 3.3.1</li> <li>Bundler 2.5.9</li> </ul> <h2 id="classifier-reborn-gsl">classifier-reborn (gsl)</h2> <h3 id="classifier-reborn-とは">classifier-reborn とは</h3> <p><a href="https://jekyll.github.io/classifier-reborn/" target="_blank" rel="noopener noreferrer nofollow">classifier-reborn</a> は、 <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer nofollow">Jekyll</a> で関連記事 (各記事ページの下部に表示しているリンク) の<br> リストを作るために必要な依存ライブラリです。<br> <a href="https://jekyllrb.com/docs/configuration/options/#build-command-options" target="_blank" rel="noopener noreferrer nofollow">Jekyll Build Command Options</a> の <code class="language-plaintext highlighter-rouge">lsi</code> を有効にする場合に必要となります。<br> また、これ単体だとコンテンツのビルドが非常に遅く、<br> 高速化のため <a href="https://rubygems.org/gems/gsl" target="_blank" rel="noopener noreferrer nofollow">gsl</a> も組み合わせて使っていました。</p> <h3 id="ビルドエラー">ビルドエラー</h3> <p>これを <code class="language-plaintext highlighter-rouge">bundle install</code> したところ、次のエラーが出ました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">#</span><span class="w"> </span>... <span class="o">(</span>中略<span class="o">)</span>
+<span class="go">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+/Users/username/.rbenv/versions/3.3.1/bin/ruby extconf.rb
+checking gsl version... 2.7.1
+checking gsl cflags... -I/opt/homebrew/Cellar/gsl/2.7.1/include
+checking gsl libs... -L/opt/homebrew/Cellar/gsl/2.7.1/lib -lgsl -lgslcblas
+checking for round()... yes
+checking for alf/alf.h... no
+checking for qrngextra/qrngextra.h... no
+checking for rngextra/rngextra.h... no
+checking for tensor/tensor.h... no
+checking for gsl/gsl_multimin_fsdf.h... no
+checking for gsl/gsl_cqp.h... no
+checking for jacobi.h... no
+checking for ndlinear/gsl_multifit_ndlinear.h... no
+checking for ool/ool_version.h... no
+checking for gsl_eigen_francis() in -lgsl... yes
+checking for gsl_eigen_francis()... yes
+checking for gsl_poly_solve_quartic() in -lgsl... no
+checking for graph... no
+checking for tamu_anova/tamu_anova.h... no
+checking for gsl_multifit_fdfsolver.J in gsl/gsl_multifit_nlin.h... no
+checking for gsl_sf_mathieu_a_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_b_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_ce_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_se_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_Mc_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_Ms_e() in gsl/gsl_sf_mathieu.h... yes
+creating gsl_config.h
+creating Makefile
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-orrbex sitelibdir\=./.gem.20240519-75606-orrbex clean
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-orrbex sitelibdir\=./.gem.20240519-75606-orrbex
+compiling alf.c
+compiling array.c
+In file included from array.c:12:
+In file included from ./include/rb_gsl_common.h:20:
+/opt/homebrew/Cellar/gsl/2.7.1/include/gsl/gsl_version.h:18:9: warning: 'GSL_VERSION' macro redefined [-Wmacro-redefined]
+</span><span class="gp">#</span>define GSL_VERSION <span class="s2">"2.7.1"</span>
+<span class="go">        ^
+</span><span class="gp">&lt;command line&gt;</span>:1:9: note: previous definition is here
+<span class="gp">#</span>define GSL_VERSION 2.7.1
+<span class="go">        ^
+In file included from array.c:12:
+./include/rb_gsl_common.h:29:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN ID rb_gsl_id_beg, rb_gsl_id_end, rb_gsl_id_excl, rb_gsl_id_to_a;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_common.h:29:10: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN ID rb_gsl_id_beg, rb_gsl_id_end, rb_gsl_id_excl, rb_gsl_id_to_a;</span><span class="w">
+</span><span class="go">         ^
+</span><span class="gp">         ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_common.h:352:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cGSL_Object;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_common.h:352:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cGSL_Object;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">In file included from array.c:13:
+./include/rb_gsl_array.h:39:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block, cgsl_block_int;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:39:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block, cgsl_block_int;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:40:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block_uchar;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:40:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block_uchar;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:41:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block_complex;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:41:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block_complex;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:42:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector, cgsl_vector_complex;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:42:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector, cgsl_vector_complex;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:43:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_col;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:43:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_col;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:44:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_col_view;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:44:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_col_view;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:45:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:45:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:46:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col_view;</span><span class="w">
+</span><span class="go">^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.
+make: *** [array.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3 for inspection.
+Results logged to /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/extensions/arm64-darwin-23/3.3.0/gsl-2.1.0.3/gem_make.out
+
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:125:in `run'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:51:in `block in make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/ext_conf_builder.rb:42:in `build'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:193:in `build_extension'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:227:in `block in build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/installer.rb:852:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:76:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:28:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/source/rubygems.rb:205:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:54:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:16:in `install_from_spec'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:132:in `do_install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:123:in `block in worker_pool'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:62:in `apply_func'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:57:in `block in process_queue'
+</span><span class="gp">  &lt;internal:kernel&gt;</span>:187:in <span class="sb">`</span>loop<span class="s1">'
+</span><span class="go">  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:54:in `process_queue'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:90:in `block (2 levels) in create_threads'
+
+An error occurred while installing gsl (2.1.0.3), and Bundler cannot continue.
+
+In Gemfile:
+  gsl
+</span></code></pre></div></div> <h3 id="解決方法">解決方法</h3> <p><a href="https://jekyll.github.io/classifier-reborn/" target="_blank" rel="noopener noreferrer nofollow">classifier-reborn</a> の Dependencies 記載を読むと、<br> <a href="https://rubygems.org/gems/gsl" target="_blank" rel="noopener noreferrer nofollow">gsl</a> は長いことメンテされておらず、 Ruby 3 にも追いついてないようです。<br> 代わりに <a href="https://ruby-numo.github.io/narray/" target="_blank" rel="noopener noreferrer nofollow">Numo</a> という方が推奨されていたので、そちらに切り替えました。</p> <blockquote> <p>Note: The gsl gem is currently incompatible with Ruby 3.<br> It is recommended to use Numo instead with Ruby 3.</p> <footer><cite><a href="https://jekyll.github.io/classifier-reborn/#install-gsl-gem" target="_blank" rel="noopener noreferrer nofollow">Install GSL Gem - Classifier Reborn</a></cite></footer> </blockquote> <p>手順としては、 <a href="https://jekyll.github.io/classifier-reborn/" target="_blank" rel="noopener noreferrer nofollow">classifier-reborn</a> の Dependencies 記載に従って、<br> <a href="https://rubygems.org/gems/gsl" target="_blank" rel="noopener noreferrer nofollow">gsl</a> の代わりに <a href="https://ruby-numo.github.io/narray/" target="_blank" rel="noopener noreferrer nofollow">Numo</a> をインストールすれば OK です。<br> なお macOS の場合は、 <a href="https://ruby-numo.github.io/narray/" target="_blank" rel="noopener noreferrer nofollow">Numo</a> のビルド時に lapack, openblas の<br> インストール先パスを <code class="language-plaintext highlighter-rouge">build.numo-linalg</code> 等で教えてやる必要があるようです。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle remove gsl
+<span class="gp">$</span><span class="w"> </span>brew uninstall gsl
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>brew <span class="nb">install </span>lapack openblas
+<span class="gp">$</span><span class="w"> </span>bundle config <span class="nt">--local</span> build.numo-linalg <span class="se">\</span>
+<span class="gp">    --with-lapack-lib="$</span><span class="o">(</span>brew <span class="nt">--prefix</span> lapack<span class="o">)</span>/lib<span class="s2">" </span><span class="se">\</span><span class="s2">
+</span><span class="gp">    --with-openblas-dir=$</span><span class="s2">(brew --prefix openblas)
+</span><span class="gp">$</span><span class="w"> </span><span class="s2">bundle add numo-linalg numo-narray
+</span></code></pre></div></div> <h2 id="jekyll-last-modified-at-posix-spawn">jekyll-last-modified-at (posix-spawn)</h2> <h3 id="jekyll-last-modified-at-とは">jekyll-last-modified-at とは</h3> <p><a href="https://github.com/gjtorikian/jekyll-last-modified-at" target="_blank" rel="noopener noreferrer nofollow">jekyll-last-modified-at</a> は、 <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer nofollow">Jekyll</a> で記事の最終更新日時 (<code class="language-plaintext highlighter-rouge">page.last_modified_at</code>) を<br> Git コミットログから自動で設定してくれる依存ライブラリです。<br> 内部で <a href="https://rubygems.org/gems/posix-spawn" target="_blank" rel="noopener noreferrer nofollow">posix-spawn</a> というライブラリに更に依存しているようです。</p> <h3 id="ビルドエラー-1">ビルドエラー</h3> <p>これを <code class="language-plaintext highlighter-rouge">bundle install</code> したところ、次のエラーが出ました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">#</span><span class="w"> </span>... <span class="o">(</span>中略<span class="o">)</span>
+<span class="go">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+/Users/username/.rbenv/versions/3.3.1/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-7wjjb1 sitelibdir\=./.gem.20240519-75606-7wjjb1 clean
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-7wjjb1 sitelibdir\=./.gem.20240519-75606-7wjjb1
+compiling posix-spawn.c
+posix-spawn.c:226:27: error: incompatible function pointer types passing 'int (VALUE, VALUE, posix_spawn_file_actions_t *)' (aka 'int (unsigned long, unsigned long, void **)')
+to parameter of type 'int (*)(VALUE, VALUE, VALUE)' (aka 'int (*)(unsigned long, unsigned long, unsigned long)') [-Wincompatible-function-pointer-types]
+</span><span class="gp">        rb_hash_foreach(options, posixspawn_file_actions_operations_iter, (VALUE)fops);</span><span class="w">
+</span><span class="go">                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/username/.rbenv/versions/3.3.1/include/ruby-3.3.0/ruby/internal/intern/hash.h:83:40: note: passing argument to parameter 'func' here
+</span><span class="gp">void rb_hash_foreach(VALUE hash, int (*func)(VALUE key, VALUE val, VALUE arg), VALUE arg);</span><span class="w">
+</span><span class="go">                                       ^
+1 error generated.
+make: *** [posix-spawn.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15 for inspection.
+Results logged to /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/extensions/arm64-darwin-23/3.3.0/posix-spawn-0.3.15/gem_make.out
+
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:125:in `run'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:51:in `block in make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/ext_conf_builder.rb:42:in `build'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:193:in `build_extension'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:227:in `block in build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/installer.rb:852:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:76:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:28:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/source/rubygems.rb:205:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:54:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:16:in `install_from_spec'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:132:in `do_install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:123:in `block in worker_pool'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:62:in `apply_func'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:57:in `block in process_queue'
+</span><span class="gp">  &lt;internal:kernel&gt;</span>:187:in <span class="sb">`</span>loop<span class="s1">'
+</span><span class="go">  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:54:in `process_queue'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:90:in `block (2 levels) in create_threads'
+
+An error occurred while installing posix-spawn (0.3.15), and Bundler cannot continue.
+
+In Gemfile:
+  jekyll-last-modified-at was resolved to 1.3.0, which depends on
+    posix-spawn
+</span></code></pre></div></div> <h3 id="解決方法-1">解決方法</h3> <p><a href="https://rubygems.org/gems/posix-spawn" target="_blank" rel="noopener noreferrer nofollow">posix-spawn</a> も長いことメンテされてないようですが、<br> <a href="https://github.com/rtomayko/posix-spawn/issues/92#issuecomment-1993049841" target="_blank" rel="noopener noreferrer nofollow">posix-spawn Issue #92 Comment</a> に回避方法がありました。</p> <p>次のビルドオプションを加えることで回避できました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle config <span class="nt">--local</span> build.posix-spawn <span class="se">\</span>
+<span class="go">    --with-cflags="-Wno-incompatible-function-pointer-types"
+</span></code></pre></div></div> </section> <footer class="page__meta"> <p class="page__taxonomy"> <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong> <span itemprop="keywords"> <a href="/archive/tags/#blog" class="page__taxonomy-item p-category" rel="tag">blog</a><span class="sep">, </span> <a href="/archive/tags/#jekyll" class="page__taxonomy-item p-category" rel="tag">jekyll</a><span class="sep">, </span> <a href="/archive/tags/#ruby" class="page__taxonomy-item p-category" rel="tag">ruby</a><span class="sep">, </span> <a href="/archive/tags/#website" class="page__taxonomy-item p-category" rel="tag">website</a> </span> </p> <p class="page__taxonomy"> <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong> <span itemprop="keywords"> <a href="/archive/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a> </span> </p> <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-19">May 19, 2024</time></p> </footer> <section class="page__share"> <h4 class="page__share-title">Share on</h4> <a class="btn btn--twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fakkinoc.dev%2Fposts%2F2024%2F05%2F19%2Fjekyll-classifier-reborn-and-last-modified-at-build-error%2F&amp;text=Blog+%28Jekyll%29+%E3%82%92%E4%B9%85%E3%80%85%E3%81%AB%E3%83%93%E3%83%AB%E3%83%89%E3%81%97%E3%81%9F%E3%82%89+classifier-reborn%2C+jekyll-last-modified-at+%E3%81%8C%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E8%A7%A3%E6%B6%88%E3%81%97%E3%81%9F" target="_blank" rel="noopener noreferrer nofollow"> <i aria-hidden="true" class="fab fa-fw fa-twitter"></i> Twitter </a> <a class="btn btn--facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fakkinoc.dev%2Fposts%2F2024%2F05%2F19%2Fjekyll-classifier-reborn-and-last-modified-at-build-error%2F" target="_blank" rel="noopener noreferrer nofollow"> <i aria-hidden="true" class="fab fa-fw fa-facebook"></i> Facebook </a> <a class="btn btn--linkedin" href="https://www.linkedin.com/sharing/share-offsite?url=https%3A%2F%2Fakkinoc.dev%2Fposts%2F2024%2F05%2F19%2Fjekyll-classifier-reborn-and-last-modified-at-build-error%2F" target="_blank" rel="noopener noreferrer nofollow"> <i aria-hidden="true" class="fab fa-fw fa-linkedin"></i> LinkedIn </a> <a class="btn btn--pocket" href="https://getpocket.com/save?url=https%3A%2F%2Fakkinoc.dev%2Fposts%2F2024%2F05%2F19%2Fjekyll-classifier-reborn-and-last-modified-at-build-error%2F" target="_blank" rel="noopener noreferrer nofollow"> <i aria-hidden="true" class="fab fa-fw fa-get-pocket"></i> Pocket </a> <a class="btn btn--hatena-bookmark" href="https://b.hatena.ne.jp/entry/https%3A%2F%2Fakkinoc.dev%2Fposts%2F2024%2F05%2F19%2Fjekyll-classifier-reborn-and-last-modified-at-build-error%2F" target="_blank" rel="noopener noreferrer nofollow"> <i aria-hidden="true" class="fab fa-fw fa-hatena-bookmark"></i> Hatena </a> </section> <nav class="pagination"> <a href="/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3/" class="pagination--pager" title="logback-access-spring-boot-starter - Spring Boot 3 をサポートしました ">Previous</a> <a href="#" class="pagination--pager disabled">Next</a> </nav> </div> </article> <div class="page__related"> <h2 class="page__related-title">You May Also Enjoy</h2> <div class="grid__wrapper"> <div class="grid__item"> <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"> <div class="archive__item-teaser"> <img src="/assets/posts/2021-08-01-maven-central-repository-1200x630.png" alt=""> </div> <h2 class="archive__item-title no_toc" itemprop="headline"> <a href="/posts/2021/08/01/maven-central-repository/" rel="permalink">Maven Central Repository 公開手順 (2021, Maven, Java/Kotlin) </a> </h2> <p class="page__meta"> <span class="page__meta-date"> <i class="far fa-calendar-alt" aria-hidden="true"></i> <time datetime="2021-08-01T00:00:00+09:00">August 1, 2021</time> </span> </p> <p class="archive__item-excerpt" itemprop="description">Maven Central Repository への公開をアカウント登録とリポジトリ登録申請からやり直しました。 公開までの手順や設定が前とは少しだけ変わっていたので、改めてメモとして残しておきます。 </p> </article> </div> <div class="grid__item"> <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"> <div class="archive__item-teaser"> <img src="/assets/posts/2014-08-27-glassfish-jaxrs-env-800x225.jpg" alt=""> </div> <h2 class="archive__item-title no_toc" itemprop="headline"> <a href="/posts/2014/08/27/glassfish-jaxrs-env/" rel="permalink">GlassFish + JAX-RS (Jersey) で REST なアプリを作ってみる (環境構築) </a> </h2> <p class="page__meta"> <span class="page__meta-date"> <i class="far fa-calendar-alt" aria-hidden="true"></i> <time datetime="2014-08-27T00:00:00+09:00">August 27, 2014</time> </span> </p> <p class="archive__item-excerpt" itemprop="description">参考になる記事や書籍が少ないなーと思いつつ、 GlassFish + JAX-RS (Jersey) で REST なアプリを作ってみたのでメモ。 この記事では環境のインストールと設定までをまとめてみた。 </p> </article> </div> <div class="grid__item"> <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"> <div class="archive__item-teaser"> <img src="/assets/posts/2014-03-19-java-from-rake-800x300.png" alt=""> </div> <h2 class="archive__item-title no_toc" itemprop="headline"> <a href="/posts/2014/03/19/java-from-rake/" rel="permalink">rake から system32 直下の java が呼び出せなくてはまった </a> </h2> <p class="page__meta"> <span class="page__meta-date"> <i class="far fa-calendar-alt" aria-hidden="true"></i> <time datetime="2014-03-19T00:00:00+09:00">March 19, 2014</time> </span> </p> <p class="archive__item-excerpt" itemprop="description">ちょっとした make 的なことをしたくて rake を使ってみました。 そこから java を呼び出そうとしたときに java コマンドがないという罠にはまったのでメモ。 </p> </article> </div> <div class="grid__item"> <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"> <div class="archive__item-teaser"> <img src="/assets/posts/2015-04-06-log4j2-yaml-800x300.jpg" alt=""> </div> <h2 class="archive__item-title no_toc" itemprop="headline"> <a href="/posts/2015/04/06/log4j2-yaml/" rel="permalink">Log4j2 の設定を YAML で書く, Spring Boot でも使ってみる </a> </h2> <p class="page__meta"> <span class="page__meta-date"> <i class="far fa-calendar-alt" aria-hidden="true"></i> <time datetime="2015-04-06T00:00:00+09:00">April 6, 2015</time> </span> </p> <p class="archive__item-excerpt" itemprop="description">設定ファイル関係を書くなら、 個人的には properties や XML や JSON より YAML が好きです。 ここでは Log4j2 の設定ファイルを YAML で書いてみました。 </p> </article> </div> </div> </div> </div> </div> <div class="search-content"> <div class="search-content__inner-wrap"> <form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search"> <label class="sr-only" for="search"> Enter your search term... </label> <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..."> </form> <div id="results" class="results"></div> </div> </div> <div id="footer" class="page__footer"> <footer> <div class="page__footer-follow"> <ul class="social-icons"> <li><a href="https://akkinoc.dev" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-home" aria-hidden="true"></i> Website</a></li> <li><a href="https://twitter.com/akkinoc" rel="nofollow noopener noreferrer noopener noreferrer nofollow" target="_blank"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li> <li><a href="https://github.com/akkinoc" rel="nofollow noopener noreferrer noopener noreferrer nofollow" target="_blank"><i class="fab fa-fw fa-github-alt" aria-hidden="true"></i> GitHub</a></li> <li><a href="https://keybase.io/akkinoc" rel="nofollow noopener noreferrer noopener noreferrer nofollow" target="_blank"><i class="fab fa-fw fa-keybase" aria-hidden="true"></i> Keybase</a></li> <li><a href="mailto:akkinoc@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li> <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> </ul> </div> <div class="page__footer-copyright">© 2024 <a href="https://akkinoc.dev">akkinoc.dev</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow noopener noreferrer nofollow" target="_blank">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow noopener noreferrer nofollow" target="_blank">Minimal Mistakes</a>.</div> </footer> </div> <script src="/assets/js/main.min.js"></script> <script src="/assets/js/custom.js"></script> <script src="/assets/js/lunr/lunr.min.js"></script> <script src="/assets/js/lunr/lunr-store.js"></script> <script src="/assets/js/lunr/lunr-en.js"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5NCWPBMSX"></script> <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-K5NCWPBMSX",{anonymize_ip:!1});</script> </body> </html>

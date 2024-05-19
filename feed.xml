@@ -1,4 +1,235 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://akkinoc.dev/feed.xml" rel="self" type="application/atom+xml"/><link href="https://akkinoc.dev/" rel="alternate" type="text/html"/><updated>2024-05-19T12:06:28+09:00</updated><id>https://akkinoc.dev/feed.xml</id><title type="html">akkinoc.dev</title><subtitle>akkinoc&apos;s personal website.</subtitle><author><name>Akihiro Kondo</name></author><entry><title type="html">logback-access-spring-boot-starter - Spring Boot 3 をサポートしました</title><link href="https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3/" rel="alternate" type="text/html" title="logback-access-spring-boot-starter - Spring Boot 3 をサポートしました"/><published>2023-05-05T00:00:00+09:00</published><updated>2023-05-05T15:25:37+09:00</updated><id>https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3</id><content type="html" xml:base="https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3/"><![CDATA[<p>Spring Boot 3 へのアップデートに必要だった変更をまとめました。</p> <p>今回の変更は殆ど Pull Request でいただきました。感謝です。<br/> リリース直後には初めて GitHub Sponsor までいただけました。<br/> とても嬉しいし励みになります。ありがとうございます。</p> <h2 id="logback-access-spring-boot-starter-とは">logback-access-spring-boot-starter とは</h2> <p>前に投稿した記事をご参照ください:<br/> <a href="/posts/2021/10/30/rewrote-logback-access-spring-boot-starter-in-kotlin/">logback-access-spring-boot-starter を Kotlin で書き直した</a></p> <p>GitHub リポジトリはこちら:<br/> <a href="https://github.com/akkinoc/logback-access-spring-boot-starter"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-repo-500x250.png" alt="Image: logback-access-spring-boot-starter"/></a></p> <h2 id="spring-boot-3-へのアップデートに必要だった変更内容">Spring Boot 3 へのアップデートに必要だった変更内容</h2> <h3 id="java-17-未満のサポート廃止">Java 17 未満のサポート廃止</h3> <p>Java 17 以上が必須となったため、 Java 8 と 11 のサポートは廃止しました。</p> <h3 id="constructorbinding-の廃止">@ConstructorBinding の廃止</h3> <p>Immutable な <code class="language-plaintext highlighter-rouge">@ConfigurationProperties</code> クラスにおいて、<br/> <code class="language-plaintext highlighter-rouge">@ConstructorBinding</code> の付与が不要になったので削除しました。</p> <h3 id="auto-configuration-ファイルの変更">Auto-configuration ファイルの変更</h3> <p><code class="language-plaintext highlighter-rouge">META-INF/spring.factories</code> にクラス名を記載しておくと<br/> そのモジュールを使う時に自動的に <code class="language-plaintext highlighter-rouge">@Configuration</code> を走らせてくれる、<br/> というライブラリ向けの機能がありました。</p> <p>このファイルのパスとフォーマットが変わったので、新しい形に変更しました。</p> <ul> <li>旧) <code class="language-plaintext highlighter-rouge">META-INF/spring.factories</code></li> <li>新) <code class="language-plaintext highlighter-rouge">META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports</code></li> </ul> <h3 id="servlet-api-の変更-java-ee--jakarta-ee">Servlet API の変更 (Java EE → Jakarta EE)</h3> <p>Servlet API のバージョンが v4 → v6 に更新され、 Java EE は Jakarta EE になりました。<br/> これに伴い、 <code class="language-plaintext highlighter-rouge">javax.*</code> パッケージの <code class="language-plaintext highlighter-rouge">import</code> を <code class="language-plaintext highlighter-rouge">jakarta.*</code> に変更しました。</p> <p>バージョンが一気に 2 つ上がってますが、<br/> v5 は Jakarta EE 移管によるパッケージの変更のみのようです。<br/> v6 は機能が増えてるようですが影響ありませんでした。</p> <p>注意点として、 Spring Boot Starter の Jetty 11 では Servlet API 6.0 に対応していません。<br/> (Tomcat 10, Undertow 2 では対応しています。)<br/> そのため、 <code class="language-plaintext highlighter-rouge">spring-boot-starter-jetty</code> を使う場合は、<br/> <code class="language-plaintext highlighter-rouge">jakarta.servlet-api</code> のバージョンを <code class="language-plaintext highlighter-rouge">5.0.0</code> に落とす必要がありました。</p> <p>📝 背景:<br/> 本ライブラリは Tomcat, Jetty, Undertow をサポートしており、<br/> どの Web サーバが使われているか判別して実装を切り替えてます。</p> <h3 id="logback-joran-の変更">Logback Joran の変更</h3> <p>Logback のバージョンが v1.2 → v1.4 に更新され、 Joran の作りが大きく変わりました。<br/> これに伴い、新しい Joran のインターフェイスに合わせ実装を変更しました。</p> <p>📝 Joran とは:<br/> Logback の設定ファイルパース部分のフレームワークを <a href="https://logback.qos.ch/manual/onJoran.html">Joran</a> と呼ぶようです。</p> <p>📝 背景:<br/> Spring Boot 本体の Logback ロギングの内部実装では、<br/> Joran に踏み込んで <code class="language-plaintext highlighter-rouge">&lt;springProfile&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;springProperty&gt;</code> タグを拡張していました。<br/> それを参考に、本ライブラリでも Joran に踏み込んで同タグをサポートしています。</p> <h3 id="logback-access-の変更">Logback Access の変更</h3> <p>Logback のバージョンアップで、 <a href="https://logback.qos.ch/manual/configuration.html#sequenceNumberGenerator">SequenceNumberGenerator</a> という機能が増えました。<br/> ロギングイベントにシーケンス番号を付与できるようです。<br/> イベントインターフェイス (<code class="language-plaintext highlighter-rouge">IAccessEvent</code>) にこの関数が増えているため、実装を追加しました。</p> <h3 id="deprecated-関数の置き換え">Deprecated 関数の置き換え</h3> <p>Deprecated となった関数があったので置き換えました。<br/> 本ライブラリでは次の関数が対象でした。</p> <ul> <li><code class="language-plaintext highlighter-rouge">org.springframework.http.ResponseEntity#getStatusCodeValue()</code></li> <li><code class="language-plaintext highlighter-rouge">org.springframework.util.SerializationUtils#deserialize(byte[])</code></li> </ul> <h2 id="関連リンク">関連リンク</h2> <h3 id="release">Release</h3> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/releases/tag/v4.0.0"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-release-500x250.png" alt="Image: Release v4.0.0"/></a></p> <h3 id="pull-requests">Pull Requests</h3> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/pull/280"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-pr280-500x250.png" alt="Image: Pull Request #280 Upgrade to support Spring boot 3 by Pirayya"/></a></p> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/pull/336"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-pr336-500x250.png" alt="Image: Pull Request #336 Release version 4 to support Spring Boot 3 by akkinoc"/></a></p> <h3 id="参考">参考</h3> <ul> <li><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide">Spring Boot 3.0 Migration Guide - spring-projects/spring-boot</a></li> <li><a href="https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x">Upgrading to Spring Framework 6.x - spring-projects/spring-framework</a></li> <li><a href="https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/">Spring Boot Reference Documentation</a></li> </ul>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="logback-access-spring-boot-starter"/><category term="spring-boot"/><category term="spring-framework"/><category term="logback-access"/><category term="logback"/><summary type="html"><![CDATA[Spring Boot 3 へのアップデートに必要だった変更をまとめました。 今回の変更は殆ど Pull Request でいただきました。感謝です。 リリース直後には初めて GitHub Sponsor までいただけました。 とても嬉しいし励みになります。ありがとうございます。]]></summary></entry><entry><title type="html">Spring Boot ログの出力先とフォーマットを環境によって切り替える</title><link href="https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env/" rel="alternate" type="text/html" title="Spring Boot ログの出力先とフォーマットを環境によって切り替える"/><published>2023-03-26T00:00:00+09:00</published><updated>2023-03-26T16:56:54+09:00</updated><id>https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env</id><content type="html" xml:base="https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env/"><![CDATA[<p>Spring Boot アプリケーションでログの出力先やフォーマットを<br/> 環境によって切り替えたいことがよくあります。</p> <p>自分の場合は、</p> <ul> <li>ローカル開発時は標準出力にテキスト出力</li> <li>本番実行時は標準出力に JSON フォーマットで出力</li> </ul> <p>とすることが多いです。</p> <p>(ローカル開発時まで JSON 出力するのは読みにくいため)</p> <h2 id="環境">環境</h2> <ul> <li>Java バージョン: 17</li> <li>Spring Boot バージョン: 3.0 (2.x でも OK)</li> <li>ビルドツール: Maven</li> </ul> <h2 id="方針">方針</h2> <ul> <li>ここではローカル開発時, 本番実行時の 2 環境の切り替えを想定します</li> <li>ローカル開発時以外の環境では Spring Profile に環境名を与えます (下表 A) <ul> <li>📝 環境を増やしたい場合は、この値の種類を増やします</li> </ul> </li> <li><code class="language-plaintext highlighter-rouge">application(-{環境名}).yml</code> に Spring Property <code class="language-plaintext highlighter-rouge">app.log.appender</code> を定義します (下表 B) <ul> <li>📝 出力先/フォーマットを増やしたい場合は、この値の種類を増やします</li> </ul> </li> <li>Spring Property <code class="language-plaintext highlighter-rouge">app.log.appender</code> によって出力先/フォーマットを切り替えます (下表 C) <ul> <li>📝 Spring Property 経由なので、環境変数 <code class="language-plaintext highlighter-rouge">APP_LOG_APPENDER</code> でも柔軟に切り替え可能です</li> <li>📝 標準出力のみ扱ってますが、実際はファイル出力やログサーバ送信等も想定できます</li> </ul> </li> </ul> <table> <thead> <tr> <th>環境</th> <th>Spring Profile (A)</th> <th>Spring Property (B)</th> <th>出力先 (C)</th> <th>フォーマット (C)</th> </tr> </thead> <tbody> <tr> <td>ローカル開発時</td> <td>なし</td> <td><code class="language-plaintext highlighter-rouge">console-text</code></td> <td>標準出力</td> <td>テキスト</td> </tr> <tr> <td>本番実行時</td> <td><code class="language-plaintext highlighter-rouge">prod</code></td> <td><code class="language-plaintext highlighter-rouge">console-json</code></td> <td>標準出力</td> <td>JSON</td> </tr> </tbody> </table> <h2 id="実装方法">実装方法</h2> <h3 id="依存関係の追加">依存関係の追加</h3> <p>JSON 出力する場合は <a href="https://github.com/logfellow/logstash-logback-encoder">logstash-logback-encoder</a> を使うのが楽なので、依存関係に追加します。</p> <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- pom.xml --&gt;</span>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://akkinoc.dev/feed.xml" rel="self" type="application/atom+xml"/><link href="https://akkinoc.dev/" rel="alternate" type="text/html"/><updated>2024-05-19T14:36:41+09:00</updated><id>https://akkinoc.dev/feed.xml</id><title type="html">akkinoc.dev</title><subtitle>akkinoc&apos;s personal website.</subtitle><author><name>Akihiro Kondo</name></author><entry><title type="html">Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した</title><link href="https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error/" rel="alternate" type="text/html" title="Blog (Jekyll) を久々にビルドしたら classifier-reborn, jekyll-last-modified-at がエラーになったので解消した"/><published>2024-05-19T00:00:00+09:00</published><updated>2024-05-19T14:35:09+09:00</updated><id>https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error</id><content type="html" xml:base="https://akkinoc.dev/posts/2024/05/19/jekyll-classifier-reborn-and-last-modified-at-build-error/"><![CDATA[<p>この Blog (<a href="https://jekyllrb.com/">Jekyll</a>) を久々にビルドしたところ、<br/> 依存ライブラリ <a href="https://jekyll.github.io/classifier-reborn/">classifier-reborn</a> (<a href="https://rubygems.org/gems/gsl">gsl</a>), <a href="https://github.com/gjtorikian/jekyll-last-modified-at">jekyll-last-modified-at</a> (<a href="https://rubygems.org/gems/posix-spawn">posix-spawn</a>) の<br/> インストールに失敗したので解消しました。</p> <h2 id="前提">前提</h2> <p>この Blog はこんな Gemfile で依存ライブラリを管理しています。</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+gem "jekyll", "~&gt; 4.3"
+gem "classifier-reborn", "~&gt; 2.3"
+gem "gsl", "~&gt; 2.1"
+# ... (中略)
+group :jekyll_plugins do
+  gem "jekyll-last-modified-at", "~&gt; 1.3"
+  # ... (中略)
+end
+</code></pre></div></div> <p>公開する静的コンテンツは、次のコマンドでビルドしています。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">$</span><span class="w"> </span>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div></div> <p>ビルド環境は次の通りです。</p> <ul> <li>macOS Sonoma 14.4.1 (M1)</li> <li>Ruby 3.3.1</li> <li>Bundler 2.5.9</li> </ul> <h2 id="classifier-reborn-gsl">classifier-reborn (gsl)</h2> <h3 id="classifier-reborn-とは">classifier-reborn とは</h3> <p><a href="https://jekyll.github.io/classifier-reborn/">classifier-reborn</a> は、 <a href="https://jekyllrb.com/">Jekyll</a> で関連記事 (各記事ページの下部に表示しているリンク) の<br/> リストを作るために必要な依存ライブラリです。<br/> <a href="https://jekyllrb.com/docs/configuration/options/#build-command-options">Jekyll Build Command Options</a> の <code class="language-plaintext highlighter-rouge">lsi</code> を有効にする場合に必要となります。<br/> また、これ単体だとコンテンツのビルドが非常に遅く、<br/> 高速化のため <a href="https://rubygems.org/gems/gsl">gsl</a> も組み合わせて使っていました。</p> <h3 id="ビルドエラー">ビルドエラー</h3> <p>これを <code class="language-plaintext highlighter-rouge">bundle install</code> したところ、次のエラーが出ました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">#</span><span class="w"> </span>... <span class="o">(</span>中略<span class="o">)</span>
+<span class="go">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+/Users/username/.rbenv/versions/3.3.1/bin/ruby extconf.rb
+checking gsl version... 2.7.1
+checking gsl cflags... -I/opt/homebrew/Cellar/gsl/2.7.1/include
+checking gsl libs... -L/opt/homebrew/Cellar/gsl/2.7.1/lib -lgsl -lgslcblas
+checking for round()... yes
+checking for alf/alf.h... no
+checking for qrngextra/qrngextra.h... no
+checking for rngextra/rngextra.h... no
+checking for tensor/tensor.h... no
+checking for gsl/gsl_multimin_fsdf.h... no
+checking for gsl/gsl_cqp.h... no
+checking for jacobi.h... no
+checking for ndlinear/gsl_multifit_ndlinear.h... no
+checking for ool/ool_version.h... no
+checking for gsl_eigen_francis() in -lgsl... yes
+checking for gsl_eigen_francis()... yes
+checking for gsl_poly_solve_quartic() in -lgsl... no
+checking for graph... no
+checking for tamu_anova/tamu_anova.h... no
+checking for gsl_multifit_fdfsolver.J in gsl/gsl_multifit_nlin.h... no
+checking for gsl_sf_mathieu_a_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_b_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_ce_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_se_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_Mc_e() in gsl/gsl_sf_mathieu.h... yes
+checking for gsl_sf_mathieu_Ms_e() in gsl/gsl_sf_mathieu.h... yes
+creating gsl_config.h
+creating Makefile
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-orrbex sitelibdir\=./.gem.20240519-75606-orrbex clean
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3/ext/gsl_native
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-orrbex sitelibdir\=./.gem.20240519-75606-orrbex
+compiling alf.c
+compiling array.c
+In file included from array.c:12:
+In file included from ./include/rb_gsl_common.h:20:
+/opt/homebrew/Cellar/gsl/2.7.1/include/gsl/gsl_version.h:18:9: warning: 'GSL_VERSION' macro redefined [-Wmacro-redefined]
+</span><span class="gp">#</span>define GSL_VERSION <span class="s2">"2.7.1"</span>
+<span class="go">        ^
+</span><span class="gp">&lt;command line&gt;</span>:1:9: note: previous definition is here
+<span class="gp">#</span>define GSL_VERSION 2.7.1
+<span class="go">        ^
+In file included from array.c:12:
+./include/rb_gsl_common.h:29:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN ID rb_gsl_id_beg, rb_gsl_id_end, rb_gsl_id_excl, rb_gsl_id_to_a;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_common.h:29:10: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN ID rb_gsl_id_beg, rb_gsl_id_end, rb_gsl_id_excl, rb_gsl_id_to_a;</span><span class="w">
+</span><span class="go">         ^
+</span><span class="gp">         ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_common.h:352:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cGSL_Object;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_common.h:352:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cGSL_Object;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">In file included from array.c:13:
+./include/rb_gsl_array.h:39:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block, cgsl_block_int;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:39:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block, cgsl_block_int;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:40:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block_uchar;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:40:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block_uchar;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:41:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_block_complex;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:41:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_block_complex;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:42:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector, cgsl_vector_complex;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:42:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector, cgsl_vector_complex;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:43:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_col;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:43:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_col;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:44:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_col_view;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:44:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_col_view;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:45:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col;</span><span class="w">
+</span><span class="go">^
+</span><span class="gp">./include/rb_gsl_array.h:45:13: error: expected ';</span><span class="s1">' after top level declarator
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col;</span><span class="w">
+</span><span class="go">            ^
+</span><span class="gp">            ;</span><span class="w">
+</span><span class="go">./include/rb_gsl_array.h:46:1: error: unknown type name 'EXTERN'
+</span><span class="gp">EXTERN VALUE cgsl_vector_complex_col_view;</span><span class="w">
+</span><span class="go">^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+1 warning and 20 errors generated.
+make: *** [array.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/gsl-2.1.0.3 for inspection.
+Results logged to /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/extensions/arm64-darwin-23/3.3.0/gsl-2.1.0.3/gem_make.out
+
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:125:in `run'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:51:in `block in make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/ext_conf_builder.rb:42:in `build'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:193:in `build_extension'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:227:in `block in build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/installer.rb:852:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:76:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:28:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/source/rubygems.rb:205:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:54:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:16:in `install_from_spec'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:132:in `do_install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:123:in `block in worker_pool'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:62:in `apply_func'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:57:in `block in process_queue'
+</span><span class="gp">  &lt;internal:kernel&gt;</span>:187:in <span class="sb">`</span>loop<span class="s1">'
+</span><span class="go">  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:54:in `process_queue'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:90:in `block (2 levels) in create_threads'
+
+An error occurred while installing gsl (2.1.0.3), and Bundler cannot continue.
+
+In Gemfile:
+  gsl
+</span></code></pre></div></div> <h3 id="解決方法">解決方法</h3> <p><a href="https://jekyll.github.io/classifier-reborn/">classifier-reborn</a> の Dependencies 記載を読むと、<br/> <a href="https://rubygems.org/gems/gsl">gsl</a> は長いことメンテされておらず、 Ruby 3 にも追いついてないようです。<br/> 代わりに <a href="https://ruby-numo.github.io/narray/">Numo</a> という方が推奨されていたので、そちらに切り替えました。</p> <blockquote> <p>Note: The gsl gem is currently incompatible with Ruby 3.<br/> It is recommended to use Numo instead with Ruby 3.</p> <footer><cite><a href="https://jekyll.github.io/classifier-reborn/#install-gsl-gem">Install GSL Gem - Classifier Reborn</a></cite></footer> </blockquote> <p>手順としては、 <a href="https://jekyll.github.io/classifier-reborn/">classifier-reborn</a> の Dependencies 記載に従って、<br/> <a href="https://rubygems.org/gems/gsl">gsl</a> の代わりに <a href="https://ruby-numo.github.io/narray/">Numo</a> をインストールすれば OK です。<br/> なお macOS の場合は、 <a href="https://ruby-numo.github.io/narray/">Numo</a> のビルド時に lapack, openblas の<br/> インストール先パスを <code class="language-plaintext highlighter-rouge">build.numo-linalg</code> 等で教えてやる必要があるようです。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle remove gsl
+<span class="gp">$</span><span class="w"> </span>brew uninstall gsl
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>brew <span class="nb">install </span>lapack openblas
+<span class="gp">$</span><span class="w"> </span>bundle config <span class="nt">--local</span> build.numo-linalg <span class="se">\</span>
+<span class="gp">    --with-lapack-lib="$</span><span class="o">(</span>brew <span class="nt">--prefix</span> lapack<span class="o">)</span>/lib<span class="s2">" </span><span class="se">\</span><span class="s2">
+</span><span class="gp">    --with-openblas-dir=$</span><span class="s2">(brew --prefix openblas)
+</span><span class="gp">$</span><span class="w"> </span><span class="s2">bundle add numo-linalg numo-narray
+</span></code></pre></div></div> <h2 id="jekyll-last-modified-at-posix-spawn">jekyll-last-modified-at (posix-spawn)</h2> <h3 id="jekyll-last-modified-at-とは">jekyll-last-modified-at とは</h3> <p><a href="https://github.com/gjtorikian/jekyll-last-modified-at">jekyll-last-modified-at</a> は、 <a href="https://jekyllrb.com/">Jekyll</a> で記事の最終更新日時 (<code class="language-plaintext highlighter-rouge">page.last_modified_at</code>) を<br/> Git コミットログから自動で設定してくれる依存ライブラリです。<br/> 内部で <a href="https://rubygems.org/gems/posix-spawn">posix-spawn</a> というライブラリに更に依存しているようです。</p> <h3 id="ビルドエラー-1">ビルドエラー</h3> <p>これを <code class="language-plaintext highlighter-rouge">bundle install</code> したところ、次のエラーが出ました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+<span class="gp">#</span><span class="w"> </span>... <span class="o">(</span>中略<span class="o">)</span>
+<span class="go">Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+/Users/username/.rbenv/versions/3.3.1/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-7wjjb1 sitelibdir\=./.gem.20240519-75606-7wjjb1 clean
+
+current directory: /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15/ext
+make DESTDIR\= sitearchdir\=./.gem.20240519-75606-7wjjb1 sitelibdir\=./.gem.20240519-75606-7wjjb1
+compiling posix-spawn.c
+posix-spawn.c:226:27: error: incompatible function pointer types passing 'int (VALUE, VALUE, posix_spawn_file_actions_t *)' (aka 'int (unsigned long, unsigned long, void **)')
+to parameter of type 'int (*)(VALUE, VALUE, VALUE)' (aka 'int (*)(unsigned long, unsigned long, unsigned long)') [-Wincompatible-function-pointer-types]
+</span><span class="gp">        rb_hash_foreach(options, posixspawn_file_actions_operations_iter, (VALUE)fops);</span><span class="w">
+</span><span class="go">                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/username/.rbenv/versions/3.3.1/include/ruby-3.3.0/ruby/internal/intern/hash.h:83:40: note: passing argument to parameter 'func' here
+</span><span class="gp">void rb_hash_foreach(VALUE hash, int (*func)(VALUE key, VALUE val, VALUE arg), VALUE arg);</span><span class="w">
+</span><span class="go">                                       ^
+1 error generated.
+make: *** [posix-spawn.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/gems/posix-spawn-0.3.15 for inspection.
+Results logged to /Users/username/akkinoc.github.io/vendor/bundle/ruby/3.3.0/extensions/arm64-darwin-23/3.3.0/posix-spawn-0.3.15/gem_make.out
+
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:125:in `run'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:51:in `block in make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:43:in `make'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/ext_conf_builder.rb:42:in `build'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:193:in `build_extension'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:227:in `block in build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `each'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/ext/builder.rb:224:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/rubygems/installer.rb:852:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:76:in `build_extensions'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/rubygems_gem_installer.rb:28:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/source/rubygems.rb:205:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:54:in `install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/gem_installer.rb:16:in `install_from_spec'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:132:in `do_install'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/installer/parallel_installer.rb:123:in `block in worker_pool'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:62:in `apply_func'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:57:in `block in process_queue'
+</span><span class="gp">  &lt;internal:kernel&gt;</span>:187:in <span class="sb">`</span>loop<span class="s1">'
+</span><span class="go">  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:54:in `process_queue'
+  /Users/username/.rbenv/versions/3.3.1/lib/ruby/3.3.0/bundler/worker.rb:90:in `block (2 levels) in create_threads'
+
+An error occurred while installing posix-spawn (0.3.15), and Bundler cannot continue.
+
+In Gemfile:
+  jekyll-last-modified-at was resolved to 1.3.0, which depends on
+    posix-spawn
+</span></code></pre></div></div> <h3 id="解決方法-1">解決方法</h3> <p><a href="https://rubygems.org/gems/posix-spawn">posix-spawn</a> も長いことメンテされてないようですが、<br/> <a href="https://github.com/rtomayko/posix-spawn/issues/92#issuecomment-1993049841">posix-spawn Issue #92 Comment</a> に回避方法がありました。</p> <p>次のビルドオプションを加えることで回避できました。</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>bundle config <span class="nt">--local</span> build.posix-spawn <span class="se">\</span>
+<span class="go">    --with-cflags="-Wno-incompatible-function-pointer-types"
+</span></code></pre></div></div>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="blog"/><category term="website"/><category term="jekyll"/><category term="ruby"/><summary type="html"><![CDATA[この Blog (Jekyll) を久々にビルドしたところ、 依存ライブラリ classifier-reborn (gsl), jekyll-last-modified-at (posix-spawn) の インストールに失敗したので解消しました。]]></summary></entry><entry><title type="html">logback-access-spring-boot-starter - Spring Boot 3 をサポートしました</title><link href="https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3/" rel="alternate" type="text/html" title="logback-access-spring-boot-starter - Spring Boot 3 をサポートしました"/><published>2023-05-05T00:00:00+09:00</published><updated>2023-05-05T15:25:37+09:00</updated><id>https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3</id><content type="html" xml:base="https://akkinoc.dev/posts/2023/05/05/logback-access-spring-boot-starter-supports-spring-boot-v3/"><![CDATA[<p>Spring Boot 3 へのアップデートに必要だった変更をまとめました。</p> <p>今回の変更は殆ど Pull Request でいただきました。感謝です。<br/> リリース直後には初めて GitHub Sponsor までいただけました。<br/> とても嬉しいし励みになります。ありがとうございます。</p> <h2 id="logback-access-spring-boot-starter-とは">logback-access-spring-boot-starter とは</h2> <p>前に投稿した記事をご参照ください:<br/> <a href="/posts/2021/10/30/rewrote-logback-access-spring-boot-starter-in-kotlin/">logback-access-spring-boot-starter を Kotlin で書き直した</a></p> <p>GitHub リポジトリはこちら:<br/> <a href="https://github.com/akkinoc/logback-access-spring-boot-starter"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-repo-500x250.png" alt="Image: logback-access-spring-boot-starter"/></a></p> <h2 id="spring-boot-3-へのアップデートに必要だった変更内容">Spring Boot 3 へのアップデートに必要だった変更内容</h2> <h3 id="java-17-未満のサポート廃止">Java 17 未満のサポート廃止</h3> <p>Java 17 以上が必須となったため、 Java 8 と 11 のサポートは廃止しました。</p> <h3 id="constructorbinding-の廃止">@ConstructorBinding の廃止</h3> <p>Immutable な <code class="language-plaintext highlighter-rouge">@ConfigurationProperties</code> クラスにおいて、<br/> <code class="language-plaintext highlighter-rouge">@ConstructorBinding</code> の付与が不要になったので削除しました。</p> <h3 id="auto-configuration-ファイルの変更">Auto-configuration ファイルの変更</h3> <p><code class="language-plaintext highlighter-rouge">META-INF/spring.factories</code> にクラス名を記載しておくと<br/> そのモジュールを使う時に自動的に <code class="language-plaintext highlighter-rouge">@Configuration</code> を走らせてくれる、<br/> というライブラリ向けの機能がありました。</p> <p>このファイルのパスとフォーマットが変わったので、新しい形に変更しました。</p> <ul> <li>旧) <code class="language-plaintext highlighter-rouge">META-INF/spring.factories</code></li> <li>新) <code class="language-plaintext highlighter-rouge">META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports</code></li> </ul> <h3 id="servlet-api-の変更-java-ee--jakarta-ee">Servlet API の変更 (Java EE → Jakarta EE)</h3> <p>Servlet API のバージョンが v4 → v6 に更新され、 Java EE は Jakarta EE になりました。<br/> これに伴い、 <code class="language-plaintext highlighter-rouge">javax.*</code> パッケージの <code class="language-plaintext highlighter-rouge">import</code> を <code class="language-plaintext highlighter-rouge">jakarta.*</code> に変更しました。</p> <p>バージョンが一気に 2 つ上がってますが、<br/> v5 は Jakarta EE 移管によるパッケージの変更のみのようです。<br/> v6 は機能が増えてるようですが影響ありませんでした。</p> <p>注意点として、 Spring Boot Starter の Jetty 11 では Servlet API 6.0 に対応していません。<br/> (Tomcat 10, Undertow 2 では対応しています。)<br/> そのため、 <code class="language-plaintext highlighter-rouge">spring-boot-starter-jetty</code> を使う場合は、<br/> <code class="language-plaintext highlighter-rouge">jakarta.servlet-api</code> のバージョンを <code class="language-plaintext highlighter-rouge">5.0.0</code> に落とす必要がありました。</p> <p>📝 背景:<br/> 本ライブラリは Tomcat, Jetty, Undertow をサポートしており、<br/> どの Web サーバが使われているか判別して実装を切り替えてます。</p> <h3 id="logback-joran-の変更">Logback Joran の変更</h3> <p>Logback のバージョンが v1.2 → v1.4 に更新され、 Joran の作りが大きく変わりました。<br/> これに伴い、新しい Joran のインターフェイスに合わせ実装を変更しました。</p> <p>📝 Joran とは:<br/> Logback の設定ファイルパース部分のフレームワークを <a href="https://logback.qos.ch/manual/onJoran.html">Joran</a> と呼ぶようです。</p> <p>📝 背景:<br/> Spring Boot 本体の Logback ロギングの内部実装では、<br/> Joran に踏み込んで <code class="language-plaintext highlighter-rouge">&lt;springProfile&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;springProperty&gt;</code> タグを拡張していました。<br/> それを参考に、本ライブラリでも Joran に踏み込んで同タグをサポートしています。</p> <h3 id="logback-access-の変更">Logback Access の変更</h3> <p>Logback のバージョンアップで、 <a href="https://logback.qos.ch/manual/configuration.html#sequenceNumberGenerator">SequenceNumberGenerator</a> という機能が増えました。<br/> ロギングイベントにシーケンス番号を付与できるようです。<br/> イベントインターフェイス (<code class="language-plaintext highlighter-rouge">IAccessEvent</code>) にこの関数が増えているため、実装を追加しました。</p> <h3 id="deprecated-関数の置き換え">Deprecated 関数の置き換え</h3> <p>Deprecated となった関数があったので置き換えました。<br/> 本ライブラリでは次の関数が対象でした。</p> <ul> <li><code class="language-plaintext highlighter-rouge">org.springframework.http.ResponseEntity#getStatusCodeValue()</code></li> <li><code class="language-plaintext highlighter-rouge">org.springframework.util.SerializationUtils#deserialize(byte[])</code></li> </ul> <h2 id="関連リンク">関連リンク</h2> <h3 id="release">Release</h3> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/releases/tag/v4.0.0"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-release-500x250.png" alt="Image: Release v4.0.0"/></a></p> <h3 id="pull-requests">Pull Requests</h3> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/pull/280"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-pr280-500x250.png" alt="Image: Pull Request #280 Upgrade to support Spring boot 3 by Pirayya"/></a></p> <p><a href="https://github.com/akkinoc/logback-access-spring-boot-starter/pull/336"><img src="/assets/posts/2023-05-05-logback-access-spring-boot-starter-supports-spring-boot-v3-pr336-500x250.png" alt="Image: Pull Request #336 Release version 4 to support Spring Boot 3 by akkinoc"/></a></p> <h3 id="参考">参考</h3> <ul> <li><a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide">Spring Boot 3.0 Migration Guide - spring-projects/spring-boot</a></li> <li><a href="https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x">Upgrading to Spring Framework 6.x - spring-projects/spring-framework</a></li> <li><a href="https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/">Spring Boot Reference Documentation</a></li> </ul>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="logback-access-spring-boot-starter"/><category term="spring-boot"/><category term="spring-framework"/><category term="logback-access"/><category term="logback"/><summary type="html"><![CDATA[Spring Boot 3 へのアップデートに必要だった変更をまとめました。 今回の変更は殆ど Pull Request でいただきました。感謝です。 リリース直後には初めて GitHub Sponsor までいただけました。 とても嬉しいし励みになります。ありがとうございます。]]></summary></entry><entry><title type="html">Spring Boot ログの出力先とフォーマットを環境によって切り替える</title><link href="https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env/" rel="alternate" type="text/html" title="Spring Boot ログの出力先とフォーマットを環境によって切り替える"/><published>2023-03-26T00:00:00+09:00</published><updated>2023-03-26T16:56:54+09:00</updated><id>https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env</id><content type="html" xml:base="https://akkinoc.dev/posts/2023/03/26/spring-boot-log-by-env/"><![CDATA[<p>Spring Boot アプリケーションでログの出力先やフォーマットを<br/> 環境によって切り替えたいことがよくあります。</p> <p>自分の場合は、</p> <ul> <li>ローカル開発時は標準出力にテキスト出力</li> <li>本番実行時は標準出力に JSON フォーマットで出力</li> </ul> <p>とすることが多いです。</p> <p>(ローカル開発時まで JSON 出力するのは読みにくいため)</p> <h2 id="環境">環境</h2> <ul> <li>Java バージョン: 17</li> <li>Spring Boot バージョン: 3.0 (2.x でも OK)</li> <li>ビルドツール: Maven</li> </ul> <h2 id="方針">方針</h2> <ul> <li>ここではローカル開発時, 本番実行時の 2 環境の切り替えを想定します</li> <li>ローカル開発時以外の環境では Spring Profile に環境名を与えます (下表 A) <ul> <li>📝 環境を増やしたい場合は、この値の種類を増やします</li> </ul> </li> <li><code class="language-plaintext highlighter-rouge">application(-{環境名}).yml</code> に Spring Property <code class="language-plaintext highlighter-rouge">app.log.appender</code> を定義します (下表 B) <ul> <li>📝 出力先/フォーマットを増やしたい場合は、この値の種類を増やします</li> </ul> </li> <li>Spring Property <code class="language-plaintext highlighter-rouge">app.log.appender</code> によって出力先/フォーマットを切り替えます (下表 C) <ul> <li>📝 Spring Property 経由なので、環境変数 <code class="language-plaintext highlighter-rouge">APP_LOG_APPENDER</code> でも柔軟に切り替え可能です</li> <li>📝 標準出力のみ扱ってますが、実際はファイル出力やログサーバ送信等も想定できます</li> </ul> </li> </ul> <table> <thead> <tr> <th>環境</th> <th>Spring Profile (A)</th> <th>Spring Property (B)</th> <th>出力先 (C)</th> <th>フォーマット (C)</th> </tr> </thead> <tbody> <tr> <td>ローカル開発時</td> <td>なし</td> <td><code class="language-plaintext highlighter-rouge">console-text</code></td> <td>標準出力</td> <td>テキスト</td> </tr> <tr> <td>本番実行時</td> <td><code class="language-plaintext highlighter-rouge">prod</code></td> <td><code class="language-plaintext highlighter-rouge">console-json</code></td> <td>標準出力</td> <td>JSON</td> </tr> </tbody> </table> <h2 id="実装方法">実装方法</h2> <h3 id="依存関係の追加">依存関係の追加</h3> <p>JSON 出力する場合は <a href="https://github.com/logfellow/logstash-logback-encoder">logstash-logback-encoder</a> を使うのが楽なので、依存関係に追加します。</p> <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- pom.xml --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>net.logstash.logback<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>logstash-logback-encoder<span class="nt">&lt;/artifactId&gt;</span>
@@ -697,4 +928,4 @@ RSA 鍵は 1024 から 4096 ビットの長さで可能です。
 <span class="nt">&lt;/profiles&gt;</span>
 </code></pre></div></div> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>mvn clean deploy            <span class="c"># CI 環境を含む通常時 (GPG 署名なし)</span>
 <span class="gp">$</span><span class="w"> </span>mvn clean deploy <span class="nt">-Prelease</span>  <span class="c"># ローカル環境でのリリース時 (GPG 署名あり)</span>
-</code></pre></div></div> <h3 id="ossrh-認証に使えるユーザトークン">OSSRH 認証に使えるユーザトークン</h3> <p><code class="language-plaintext highlighter-rouge">~/.m2/settings.xml</code> ファイルに記載する Sonatype JIRA アカウント情報は、<br/> <a href="https://s01.oss.sonatype.org/">Nexus Repository Manager</a> の Profile → User Token から発行できるトークンが使えます。<br/> ログインパスワードを使わずにデプロイできるため、ﾁｮｯﾄ意識高くできます。</p> <p><a href="/assets/posts/2021-08-01-maven-central-repository-ossrh-token-865x478.png"><img src="/assets/posts/2021-08-01-maven-central-repository-ossrh-token-865x478.png" alt="Image: OSSRH Token"/></a></p> <h3 id="sonatype-ユーザ名の変更方法">Sonatype ユーザ名の変更方法</h3> <p>今回、自分は Sonatype ユーザ名も変更しました。<br/> 過去の Issue を参考にしたところ、こんな手順が採られていました。</p> <ol> <li>新しいユーザ名で新規アカウントを登録</li> <li>新しいユーザ名へ旧ユーザ名の権限を付与</li> <li>旧ユーザ名を無効化</li> </ol> <p>僕の場合はこんな Issue を立てて対応いただきました。</p> <ul> <li><a href="https://issues.sonatype.org/browse/OSSRH-69348">OSSRH-69348 Change username - Sonatype JIRA</a></li> <li><a href="https://issues.sonatype.org/browse/OSSRH-69387">OSSRH-69387 Delete my account - Sonatype JIRA</a></li> </ul> <h2 id="前に書いた記事">前に書いた記事</h2> <p><a href="/posts/2015/12/24/maven-central-repository/">2015-12-24 Maven Central Repository 公開メモ</a></p>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="maven"/><category term="java"/><category term="kotlin"/><summary type="html"><![CDATA[Maven Central Repository への公開をアカウント登録とリポジトリ登録申請からやり直しました。 公開までの手順や設定が前とは少しだけ変わっていたので、改めてメモとして残しておきます。]]></summary></entry><entry><title type="html">LT - 広告配信データの自動集積に RPA (BizteX cobit) を活用した話</title><link href="https://akkinoc.dev/posts/2021/07/19/rpa-for-ad-data-auto-collection/" rel="alternate" type="text/html" title="LT - 広告配信データの自動集積に RPA (BizteX cobit) を活用した話"/><published>2021-07-19T00:00:00+09:00</published><updated>2022-05-15T18:04:10+09:00</updated><id>https://akkinoc.dev/posts/2021/07/19/rpa-for-ad-data-auto-collection</id><content type="html" xml:base="https://akkinoc.dev/posts/2021/07/19/rpa-for-ad-data-auto-collection/"><![CDATA[<p>社内 LT で発表したスライドです。</p> <h2 id="スライド">スライド</h2> <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRXdOBnXUFFmyccnT-f245fRbMJwZzMJFzIE_O82YIDlCUWV7bzw1CC5Z210SgaIU618o-NZ3l0UZiA/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="slide"/><category term="ad"/><category term="rpa"/><category term="biztex-cobit"/><category term="aws-lambda"/><category term="amazon-s3"/><category term="amazon-rds"/><category term="aws"/><summary type="html"><![CDATA[社内 LT で発表したスライドです。]]></summary></entry></feed>
+</code></pre></div></div> <h3 id="ossrh-認証に使えるユーザトークン">OSSRH 認証に使えるユーザトークン</h3> <p><code class="language-plaintext highlighter-rouge">~/.m2/settings.xml</code> ファイルに記載する Sonatype JIRA アカウント情報は、<br/> <a href="https://s01.oss.sonatype.org/">Nexus Repository Manager</a> の Profile → User Token から発行できるトークンが使えます。<br/> ログインパスワードを使わずにデプロイできるため、ﾁｮｯﾄ意識高くできます。</p> <p><a href="/assets/posts/2021-08-01-maven-central-repository-ossrh-token-865x478.png"><img src="/assets/posts/2021-08-01-maven-central-repository-ossrh-token-865x478.png" alt="Image: OSSRH Token"/></a></p> <h3 id="sonatype-ユーザ名の変更方法">Sonatype ユーザ名の変更方法</h3> <p>今回、自分は Sonatype ユーザ名も変更しました。<br/> 過去の Issue を参考にしたところ、こんな手順が採られていました。</p> <ol> <li>新しいユーザ名で新規アカウントを登録</li> <li>新しいユーザ名へ旧ユーザ名の権限を付与</li> <li>旧ユーザ名を無効化</li> </ol> <p>僕の場合はこんな Issue を立てて対応いただきました。</p> <ul> <li><a href="https://issues.sonatype.org/browse/OSSRH-69348">OSSRH-69348 Change username - Sonatype JIRA</a></li> <li><a href="https://issues.sonatype.org/browse/OSSRH-69387">OSSRH-69387 Delete my account - Sonatype JIRA</a></li> </ul> <h2 id="前に書いた記事">前に書いた記事</h2> <p><a href="/posts/2015/12/24/maven-central-repository/">2015-12-24 Maven Central Repository 公開メモ</a></p>]]></content><author><name>Akihiro Kondo</name></author><category term="tech"/><category term="maven"/><category term="java"/><category term="kotlin"/><summary type="html"><![CDATA[Maven Central Repository への公開をアカウント登録とリポジトリ登録申請からやり直しました。 公開までの手順や設定が前とは少しだけ変わっていたので、改めてメモとして残しておきます。]]></summary></entry></feed>
