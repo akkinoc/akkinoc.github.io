@@ -74,6 +74,8 @@ ECS タスク定義内のコンテナ定義の方にも
 [Container definitions > memory]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#container_definition_memory
 [TaskDefinition > ContainerDefinition > Memory]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html#cfn-ecs-taskdefinition-containerdefinition-memory
 
+逆に言うと、これ設定しないと Heap の計算が狂ってしまうので注意したいところです。
+
 ちなみに "メモリのソフト制限" ([Container definitions > memoryReservation]) という
 設定項目もあるのですが、こちらは設定しても解消されませんでした。
 (CloudFormation で言うと [TaskDefinition > ContainerDefinition > MemoryReservation] です。)
