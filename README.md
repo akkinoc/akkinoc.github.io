@@ -39,7 +39,7 @@ $ bundle exec jekyll build
 To run on localhost, run:
 
 ```console
-$ bundle exec jekyll serve --drafts --future
+$ bundle exec jekyll serve --drafts --future --livereload
 ```
 
 ## Deploying
