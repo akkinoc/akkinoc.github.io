@@ -13,6 +13,8 @@ logo: /assets/images/icon-nobg-512x512.svg
 enable_copy_code_button: true
 search: true
 search_full_content: true
+twitter:
+  username: akkinoc
 analytics:
   provider: google-gtag
   google:
