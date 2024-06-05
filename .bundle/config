@@ -1,4 +1,3 @@
 ---
 BUNDLE_PATH: "vendor/bundle"
 BUNDLE_BUILD__NUMO___LINALG: "--with-lapack-lib=/opt/homebrew/opt/lapack/lib --with-openblas-dir=/opt/homebrew/opt/openblas"
-BUNDLE_BUILD__POSIX___SPAWN: "--with-cflags=-Wno-incompatible-function-pointer-types"
