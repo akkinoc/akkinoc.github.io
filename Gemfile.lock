@@ -203,4 +203,4 @@ DEPENDENCIES
   numo-narray (~> 0.9)
 
 BUNDLED WITH
-   2.5.9
+   2.6.7
