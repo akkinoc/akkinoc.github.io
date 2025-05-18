@@ -86,7 +86,7 @@ gradle flywayClean flywayMigrate flywayInfo
 
 ## jOOQ で DB アクセス用コードを Gradle でスキーマ別に生成するには？
 
-Server Side Kotlin から DB アクセスには jOOQ を使う。そのためのコード生成。
+Server Side Kotlin から DB アクセスには jOOQ を使う場合のコード生成。
 スキーマの数だけ Gradle モジュールに設定を仕込めば良い。
 スキーマの情報も生成されたコードに含まれている。
 
