@@ -80,8 +80,8 @@ html {
 
 // Font Awesome
 .fa-hatena-bookmark {
+  --fa: "B!";
   &:before {
-    content: "B!";
     font-family: Verdana, sans-serif;
     font-weight: bold;
   }
