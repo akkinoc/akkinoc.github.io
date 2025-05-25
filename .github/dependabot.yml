@@ -1,14 +1,26 @@
 version: 2
 updates:
-  - package-ecosystem: bundler
-    directory: /
-    schedule:
-      interval: daily
-    labels:
-      - type:dependencies
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: cron
+      cronjob: 0 12 * * *
+    reviewers:
+      - akkinoc
+    assignees:
+      - akkinoc
     labels:
       - type:dependencies
+    milestone: 5
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: cron
+      cronjob: 0 12 * * *
+    reviewers:
+      - akkinoc
+    assignees:
+      - akkinoc
+    labels:
+      - type:dependencies
+    milestone: 5
