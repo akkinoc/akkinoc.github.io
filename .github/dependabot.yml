@@ -5,8 +5,6 @@ updates:
     schedule:
       interval: cron
       cronjob: 0 12 * * *
-    reviewers:
-      - akkinoc
     assignees:
       - akkinoc
     labels:
@@ -17,8 +15,6 @@ updates:
     schedule:
       interval: cron
       cronjob: 0 12 * * *
-    reviewers:
-      - akkinoc
     assignees:
       - akkinoc
     labels:
