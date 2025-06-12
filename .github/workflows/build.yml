@@ -19,7 +19,7 @@ jobs:
       - name: Install Homebrew Packages
         run: brew install lapack openblas # for classifier-reborn
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.244.0
+        uses: ruby/setup-ruby@v1.245.0
         with:
           bundler-cache: true
       - name: Build the site
