@@ -1,8 +1,12 @@
+==================================================================
+https://keybase.io/akkinoc
+--------------------------------------------------------------------
+
 I hereby claim:
 
   * I am an admin of https://akkinoc.dev
   * I am akkinoc (https://keybase.io/akkinoc) on keybase.
-  * I have a public key ASAHujqUxAjINY2JDmJZeW1nAnvUzBfvaDhNfDfKR39FRgo
+  * I have a public key ASAuuNw_MM0gjBlBYm6_j2xn649nSyyCX-y58oPChozXaAo
 
 To do so, I am signing this object:
 
@@ -11,18 +15,18 @@ To do so, I am signing this object:
     "key": {
       "eldest_kid": "012007ba3a94c408c8358d890e6259796d67027bd4cc17ef68384d7c37ca477f45460a",
       "host": "keybase.io",
-      "kid": "012007ba3a94c408c8358d890e6259796d67027bd4cc17ef68384d7c37ca477f45460a",
+      "kid": "01202eb8dc3f30cd208c1941626ebf8f6c67eb8f674b2c825fecb9f283c2868cd7680a",
       "uid": "e0d72cc0137265606352fe1c036e5619",
       "username": "akkinoc"
     },
     "merkle_root": {
-      "ctime": 1619775827,
-      "hash": "940ea077bc97271974cfa3ed237ddde080451cedb3b3e805870e3d4f5fd80d593af89f650bb1bdf29eef92c11099e09372f2b71beb03685ce50a47e6c07cbb45",
-      "hash_meta": "16bb4c38abec82ef2874e9c27aa2ca7622f5f03148bf8f891d3111466817c89a",
-      "seqno": 19789533
+      "ctime": 1749897055,
+      "hash": "fedde981596d31d4a90e78b4d7f34d6186cd0f8f3ea7ef25919e1f08031f196bbeb5625355af4704d62080b8c3f6759e032bea12aef26e6f5d3dee3fcb99d577",
+      "hash_meta": "fcc3ccfdc53f13181ce1d1053d1d86fd80317d101e0a93d9d44c006fa0616263",
+      "seqno": 26873711
     },
     "service": {
-      "entropy": "k1xnKiFtw00rhQ/DB3cZwZ05",
+      "entropy": "TTQBF4FFFjeqf9W04EIVqAtu",
       "hostname": "akkinoc.dev",
       "protocol": "https:"
     },
@@ -31,20 +35,22 @@ To do so, I am signing this object:
   },
   "client": {
     "name": "keybase.io go client",
-    "version": "5.6.2"
+    "version": "6.5.1"
   },
-  "ctime": 1619775834,
+  "ctime": 1749897074,
   "expire_in": 504576000,
-  "prev": "77aceec7df0f3a58e54f94456a91ff82928b72b1cfd176f92c71479639d0deec",
-  "seqno": 22,
+  "prev": "c47fadad35fb2acac40694347f0663a9a06265d05820707f4f0d43d274ff5796",
+  "seqno": 32,
   "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgB7o6lMQIyDWNiQ5iWXltZwJ71MwX72g4TXw3ykd/RUYKp3BheWxvYWTESpcCFsQgd6zux98POljlT5RFapH/gpKLcrHP0Xb5LHFHljnQ3uzEIBK1XyKrIH+N1mJZFlfsokZcCKPUD620e1rkuGgFtEkuAgHCo3NpZ8RAU+kucB7ap7UytvsOgoBlka0UwsCJYDdK74YrX0dtRT3GPekpi0Z3SvjosUgc5FyI3mMB4nLDGeeHi5043WKJB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEINceeaz/qo1C3lQrkkz8MWdIjFC/mJVh23JoDRYGfIZQo3RhZ80CAqd2ZXJzaW9uAQ==
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgLrjcPzDNIIwZQWJuv49sZ+uPZ0ssgl/sufKDwoaM12gKp3BheWxvYWTESpcCIMQgxH+trTX7KsrEBpQ0fwZjqaBiZdBYIHB/Tw1D0nT/V5bEIMCNvKEDQRAb4e+gOxgudSEsXS86loynimZvfJm7ORJ4AgHCo3NpZ8RAH1aiRt8DeuY3pqDEwrsASgZpUeYafqSUbMF/Q4zyxflF81t8BnQwAbaSz+MYn75ODq1wxFiS9H2wIhQsDjelAahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIG8e32KTI/divUJm//xJ2JHAKnUO8lSX1/v7GQPQiL3yo3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
 
 View my publicly-auditable identity here: https://keybase.io/akkinoc
+
+==================================================================
