@@ -50,6 +50,8 @@ footer:
   links: *author_links
 
 # Reading files
+include:
+  - .well-known
 exclude:
   - README.md
   - LICENSE.txt
