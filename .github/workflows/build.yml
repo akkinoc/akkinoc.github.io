@@ -3,6 +3,9 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     name: Build
@@ -10,14 +13,12 @@ jobs:
     env:
       TZ: Asia/Tokyo
       JEKYLL_ENV: production
-    permissions:
-      contents: write
     steps:
       - name: Checkout the Git repository
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
-      - name: Install Homebrew Packages
+      - name: Install Homebrew packages
         run: brew install lapack openblas # for classifier-reborn
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.245.0
@@ -25,10 +26,3 @@ jobs:
           bundler-cache: true
       - name: Build the site
         run: bundle exec jekyll build
-      - name: Deploy the site
-        uses: peaceiris/actions-gh-pages@v4.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
-          cname: akkinoc.dev
-        if: ${{ github.ref == 'refs/heads/main' }}

@@ -1,0 +1,43 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: macos-15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      TZ: Asia/Tokyo
+      JEKYLL_ENV: production
+    steps:
+      - name: Checkout the Git repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0 # for jekyll-last-modified-at
+      - name: Install Homebrew packages
+        run: brew install lapack openblas # for classifier-reborn
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.245.0
+        with:
+          bundler-cache: true
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5.0.0
+      - name: Build the site
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+      - name: Deploy the site
+        id: deploy
+        uses: actions/deploy-pages@v4.0.5
