@@ -19,7 +19,7 @@ jobs:
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
       - name: Install Homebrew packages
-        run: brew install lapack openblas # for classifier-reborn
+        run: brew bundle --file .Brewfile
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1.245.0
         with:
