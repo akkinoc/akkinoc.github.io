@@ -9,6 +9,7 @@ jobs:
     runs-on: macos-15
     env:
       TZ: Asia/Tokyo
+      JEKYLL_ENV: production
     permissions:
       contents: write
     steps:
@@ -24,8 +25,6 @@ jobs:
           bundler-cache: true
       - name: Build the site
         run: bundle exec jekyll build
-        env:
-          JEKYLL_ENV: production
       - name: Deploy the site
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
