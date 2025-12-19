@@ -28,7 +28,7 @@ jobs:
       - name: Install Homebrew packages
         run: brew bundle --file .Brewfile
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.272.0
+        uses: ruby/setup-ruby@v1.274.0
         with:
           bundler-cache: true
       - name: Setup Pages
