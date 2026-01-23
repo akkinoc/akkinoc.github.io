@@ -22,7 +22,7 @@ jobs:
       JEKYLL_ENV: production
     steps:
       - name: Checkout the Git repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
       - name: Install Homebrew packages
