@@ -9,7 +9,7 @@ updates:
       - akkinoc
     labels:
       - type:dependencies
-    milestone: 5
+    milestone: 6
   - package-ecosystem: bundler
     directory: /
     schedule:
@@ -19,4 +19,4 @@ updates:
       - akkinoc
     labels:
       - type:dependencies
-    milestone: 5
+    milestone: 6
