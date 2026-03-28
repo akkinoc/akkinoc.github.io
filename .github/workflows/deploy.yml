@@ -36,8 +36,6 @@ jobs:
         uses: actions/configure-pages@v5.0.0
       - name: Build the site
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        with:
-          include-hidden-files: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4.0.0
         with:
