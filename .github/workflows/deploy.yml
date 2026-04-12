@@ -38,6 +38,8 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          include-hidden-files: true
       - name: Deploy artifact
         id: deploy
         uses: actions/deploy-pages@v5.0.0
