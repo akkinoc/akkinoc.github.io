@@ -13,7 +13,7 @@ jobs:
       TZ: Asia/Tokyo
       JEKYLL_ENV: production
     steps:
-      - name: Checkout the Git repository
+      - name: Checkout
         uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0 # for jekyll-last-modified-at
@@ -23,5 +23,5 @@ jobs:
         uses: ruby/setup-ruby@v1.306.0
         with:
           bundler-cache: true
-      - name: Build the site
+      - name: Build
         run: bundle exec jekyll build
