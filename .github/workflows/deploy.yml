@@ -4,6 +4,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+  pages: write
 concurrency:
   group: deploy
   cancel-in-progress: false
@@ -11,9 +15,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: macos-15
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
