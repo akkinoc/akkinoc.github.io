@@ -3,9 +3,9 @@
   {% assign social_share_url = page.url | absolute_url | url_encode %}
   {% assign social_share_title = page.title | markdownify | strip_html | strip_newlines | url_encode %}
   <a
-    class="btn btn--twitter"
-    href="https://twitter.com/intent/tweet?url={{ social_share_url }}&amp;text={{ social_share_title }}">
-    <i aria-hidden="true" class="fab fa-fw fa-twitter"></i> Twitter
+    class="btn btn--x"
+    href="https://x.com/intent/tweet?url={{ social_share_url }}&amp;text={{ social_share_title }}">
+    <i aria-hidden="true" class="fab fa-fw fa-x-twitter"></i> X
   </a>
   <a
     class="btn btn--facebook"
@@ -18,9 +18,9 @@
     <i aria-hidden="true" class="fab fa-fw fa-linkedin"></i> LinkedIn
   </a>
   <a
-    class="btn btn--pocket"
-    href="https://getpocket.com/save?url={{ social_share_url }}">
-    <i aria-hidden="true" class="fab fa-fw fa-get-pocket"></i> Pocket
+    class="btn btn--bluesky"
+    href="https://bsky.app/intent/compose?text={{ social_share_title }}%20{{ social_share_url }}">
+    <i aria-hidden="true" class="fab fa-fw fa-bluesky"></i> Bluesky
   </a>
   <a
     class="btn btn--hatena-bookmark"
