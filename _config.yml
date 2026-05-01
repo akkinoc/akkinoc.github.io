@@ -123,8 +123,3 @@ target-blank:
   noopener: true
   noreferrer: true
   rel: nofollow
-
-# Plugin: jekyll-minifier
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
