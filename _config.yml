@@ -41,9 +41,6 @@ author:
     - label: Bluesky
       icon: fab fa-fw fa-bluesky
       url: https://bsky.app/profile/akkinoc.bsky.social
-    - label: Keybase
-      icon: fab fa-fw fa-keybase
-      url: https://keybase.io/akkinoc
     - label: Email
       icon: fas fa-fw fa-envelope
       url: mailto:akkinoc@gmail.com
