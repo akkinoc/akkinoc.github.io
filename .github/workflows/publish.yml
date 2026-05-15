@@ -1,4 +1,4 @@
-name: Deploy
+name: Publish
 on:
   push:
     branches:
@@ -9,11 +9,11 @@ permissions:
   id-token: write
   pages: write
 concurrency:
-  group: deploy
+  group: publish
   cancel-in-progress: false
 jobs:
-  deploy:
-    name: Deploy
+  publish:
+    name: Publish
     runs-on: macos-15
     environment:
       name: github-pages
@@ -37,8 +37,8 @@ jobs:
         uses: actions/configure-pages@v6.0.0
       - name: Build
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-      - name: Upload artifact
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v5.0.0
