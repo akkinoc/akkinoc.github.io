@@ -11,7 +11,7 @@
 [sponsor]: https://github.com/sponsors/akkinoc
 [sponsor badge]: https://img.shields.io/static/v1?logo=github&label=sponsor&message=%E2%9D%A4&color=db61a2
 
-The codebase for my personal website hosted on GitHub Pages: [akkinoc.dev]
+My personal website hosted on GitHub Pages: [akkinoc.dev]
 
 [akkinoc.dev]: https://akkinoc.dev
 
