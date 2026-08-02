@@ -12,8 +12,8 @@ Spring Boot アプリケーションでログの出力先やフォーマット�
 
 自分の場合は、
 
-* ローカル開発時は標準出力にテキスト出力
-* 本番実行時は標準出力に JSON フォーマットで出力
+- ローカル開発時は標準出力にテキスト出力
+- 本番実行時は標準出力に JSON フォーマットで出力
 
 とすることが多いです。
 
@@ -23,20 +23,20 @@ Spring Boot アプリケーションでログの出力先やフォーマット�
 
 ## 環境
 
-* Java バージョン: 17
-* Spring Boot バージョン: 3.0 (2.x でも OK)
-* ビルドツール: Maven
+- Java バージョン: 17
+- Spring Boot バージョン: 3.0 (2.x でも OK)
+- ビルドツール: Maven
 
 ## 方針
 
-* ここではローカル開発時, 本番実行時の 2 環境の切り替えを想定します
-* ローカル開発時以外の環境では Spring Profile に環境名を与えます (下表 A)
-  * 📝 環境を増やしたい場合は、この値の種類を増やします
-* `application(-{環境名}).yml` に Spring Property `app.log.appender` を定義します (下表 B)
-  * 📝 出力先/フォーマットを増やしたい場合は、この値の種類を増やします
-* Spring Property `app.log.appender` によって出力先/フォーマットを切り替えます (下表 C)
-  * 📝 Spring Property 経由なので、環境変数 `APP_LOG_APPENDER` でも柔軟に切り替え可能です
-  * 📝 標準出力のみ扱ってますが、実際はファイル出力やログサーバ送信等も想定できます
+- ここではローカル開発時, 本番実行時の 2 環境の切り替えを想定します
+- ローカル開発時以外の環境では Spring Profile に環境名を与えます (下表 A)
+  - 📝 環境を増やしたい場合は、この値の種類を増やします
+- `application(-{環境名}).yml` に Spring Property `app.log.appender` を定義します (下表 B)
+  - 📝 出力先/フォーマットを増やしたい場合は、この値の種類を増やします
+- Spring Property `app.log.appender` によって出力先/フォーマットを切り替えます (下表 C)
+  - 📝 Spring Property 経由なので、環境変数 `APP_LOG_APPENDER` でも柔軟に切り替え可能です
+  - 📝 標準出力のみ扱ってますが、実際はファイル出力やログサーバ送信等も想定できます
 
 | 環境           | Spring Profile (A) | Spring Property (B) | 出力先 (C) | フォーマット (C) |
 |----------------|--------------------|---------------------|------------|------------------|
@@ -272,14 +272,14 @@ $ APP_LOG_APPENDER=console-json mvn spring-boot:run
 
 ## 参考リンク
 
-* [Spring Boot Reference Documentation (v3.0.5)](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/)
-  * [Configure Logback for Logging](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#howto.logging.logback)
-  * [Logback Extensions](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.logback-extensions)
-  * [Log Levels](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.log-levels)
-  * [Custom Log Configuration](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.custom-log-configuration)
-* [GitHub spring-projects/spring-boot (v3.0.5)](https://github.com/spring-projects/spring-boot/tree/v3.0.5)
-  * [org/springframework/boot/logging/logback/defaults.xml](https://github.com/spring-projects/spring-boot/blob/v3.0.5/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml)
-  * [org/springframework/boot/logging/logback/console-appender.xml](https://github.com/spring-projects/spring-boot/blob/v3.0.5/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/logback/console-appender.xml)
-* [Logback Manual](https://logback.qos.ch/manual/)
-  * [Configuration](https://logback.qos.ch/manual/configuration.html)
-  * [Layouts](https://logback.qos.ch/manual/layouts.html)
+- [Spring Boot Reference Documentation (v3.0.5)](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/)
+  - [Configure Logback for Logging](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#howto.logging.logback)
+  - [Logback Extensions](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.logback-extensions)
+  - [Log Levels](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.log-levels)
+  - [Custom Log Configuration](https://docs.spring.io/spring-boot/docs/3.0.5/reference/htmlsingle/#features.logging.custom-log-configuration)
+- [GitHub spring-projects/spring-boot (v3.0.5)](https://github.com/spring-projects/spring-boot/tree/v3.0.5)
+  - [org/springframework/boot/logging/logback/defaults.xml](https://github.com/spring-projects/spring-boot/blob/v3.0.5/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml)
+  - [org/springframework/boot/logging/logback/console-appender.xml](https://github.com/spring-projects/spring-boot/blob/v3.0.5/spring-boot-project/spring-boot/src/main/resources/org/springframework/boot/logging/logback/console-appender.xml)
+- [Logback Manual](https://logback.qos.ch/manual/)
+  - [Configuration](https://logback.qos.ch/manual/configuration.html)
+  - [Layouts](https://logback.qos.ch/manual/layouts.html)

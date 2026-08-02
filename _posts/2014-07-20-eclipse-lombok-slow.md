@@ -14,10 +14,10 @@ Java で Getter/Setter 等の冗長コードがすっきり書ける lombok。
 
 ## 環境
 
-* Windows 7
-* [Oracle JDK 7](http://www.oracle.com/technetwork/jp/java/javase/downloads/jdk7-downloads-1880260.html)
-* [Eclipse 4.4.0 Luna Pleiades All in One](http://mergedoc.sourceforge.jp/index.html#/pleiades_distros4.4.html)
-* [lombok 1.14.4](http://projectlombok.org)
+- Windows 7
+- [Oracle JDK 7](http://www.oracle.com/technetwork/jp/java/javase/downloads/jdk7-downloads-1880260.html)
+- [Eclipse 4.4.0 Luna Pleiades All in One](http://mergedoc.sourceforge.jp/index.html#/pleiades_distros4.4.html)
+- [lombok 1.14.4](http://projectlombok.org)
 
 ## コードアシストしたら
 

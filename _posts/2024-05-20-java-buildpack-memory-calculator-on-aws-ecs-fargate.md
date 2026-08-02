@@ -16,15 +16,15 @@ Spring Boot アプリケーションを Amazon ECS + AWS Fargate で動かした
 
 ## 前提
 
-* 環境
-  * Java 17
-  * Gradle 8.7
-  * Spring Boot 3.2
-* Docker イメージ ビルド方法
-  * Spring Boot Gradle Plugin の `gradle bootBuildImage` でビルド
-* Docker イメージ 実行環境
-  * Amazon ECS + AWS Fargate
-* (僕はコンテナ技術に明るくありません)
+- 環境
+  - Java 17
+  - Gradle 8.7
+  - Spring Boot 3.2
+- Docker イメージ ビルド方法
+  - Spring Boot Gradle Plugin の `gradle bootBuildImage` でビルド
+- Docker イメージ 実行環境
+  - Amazon ECS + AWS Fargate
+- (僕はコンテナ技術に明るくありません)
 
 ## Java Buildpack Memory Calculator とは
 
@@ -147,11 +147,11 @@ OutOfMemoryError (Direct Buffer) が割と発生しやすいです。
 そのためこの値のデフォルトが何故 10MB 固定なのか気になり見つけたページです。
 今回の記事との関係は薄いですが、覚書でリンクを貼っておきます。
 
-* [Discussion #241 Why does paketo-libjvm set direct memory to an arbitrary 10MB by default? - paketo-buildpacks](https://github.com/orgs/paketo-buildpacks/discussions/241)
+- [Discussion #241 Why does paketo-libjvm set direct memory to an arbitrary 10MB by default? - paketo-buildpacks](https://github.com/orgs/paketo-buildpacks/discussions/241)
 
 ## 推察 まとめ
 
 概ね以下の挙動をしているのかなと推察し、納得できました。
 
-* ECS メモリのハード制限は `/sys/fs/cgroup/memory/memory.limit_in_bytes` に書き込まれる
-* Memory Calculator は `/sys/fs/cgroup/memory/memory.limit_in_bytes` を Total Memory として使う
+- ECS メモリのハード制限は `/sys/fs/cgroup/memory/memory.limit_in_bytes` に書き込まれる
+- Memory Calculator は `/sys/fs/cgroup/memory/memory.limit_in_bytes` を Total Memory として使う

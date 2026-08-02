@@ -16,8 +16,8 @@ Oracle JDK のダウンロードはライセンス同意のチェックが厄介
 
 こちらを参考にさせて頂いた。
 
-* [curl で JDK をダウンロード - OT メモ帳](http://nori3tsu.hatenablog.com/entry/2013/11/02/130927)
-* [JDK を wget で直接ダウンロードしたいとき - OpenGroove](http://open-groove.net/java/jdk-wget/)
+- [curl で JDK をダウンロード - OT メモ帳](http://nori3tsu.hatenablog.com/entry/2013/11/02/130927)
+- [JDK を wget で直接ダウンロードしたいとき - OpenGroove](http://open-groove.net/java/jdk-wget/)
 
 ただ自分の環境では "Unauthorized Request" な HTML しかダウンロード出来なかった。
 

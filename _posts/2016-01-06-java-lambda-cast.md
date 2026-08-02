@@ -26,8 +26,8 @@ header:
 
 [@bitter_fox]: https://twitter.com/bitter_fox
 
-* [徹底解説！ Project Lambda のすべて リターンズ [祝 Java8Launch #jjug] - SlideShare](http://www.slideshare.net/bitter_fox/java8-launch#108)
-* [JavaSE8 リリース記念！マイナーな言語仕様を紹介してみる (交差型キャスト，レシーバパラメータ(仮引数にthis)) - きつねとJava！](http://d.hatena.ne.jp/bitter_fox/20140319/1395221764)
+- [徹底解説！ Project Lambda のすべて リターンズ [祝 Java8Launch #jjug] - SlideShare](http://www.slideshare.net/bitter_fox/java8-launch#108)
+- [JavaSE8 リリース記念！マイナーな言語仕様を紹介してみる (交差型キャスト，レシーバパラメータ(仮引数にthis)) - きつねとJava！](http://d.hatena.ne.jp/bitter_fox/20140319/1395221764)
 
 ## 環境
 

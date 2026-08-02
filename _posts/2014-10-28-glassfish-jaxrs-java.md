@@ -17,21 +17,21 @@ header:
 
 ## ここでやること
 
-* `POST /hoges` で Hoge データを登録する。
-* `GET /hoges` で Hoge データのリストを取得する。
-* `GET /hoges/{id}` で Hoge データを取得する。
-* データストアは Java のメモリ上に持つ。
-  * 本来なら DB 保存が殆どだろうけど、本題じゃないので横着。
-  * 本来ならスレッドセーフにすべきだけど、本題じゃないので横着。
-* データは XML or JSON で返す。
+- `POST /hoges` で Hoge データを登録する。
+- `GET /hoges` で Hoge データのリストを取得する。
+- `GET /hoges/{id}` で Hoge データを取得する。
+- データストアは Java のメモリ上に持つ。
+  - 本来なら DB 保存が殆どだろうけど、本題じゃないので横着。
+  - 本来ならスレッドセーフにすべきだけど、本題じゃないので横着。
+- データは XML or JSON で返す。
 
 ## 環境 (前回の記事からの差分)
 
 いくつか新しいバージョンが出てたのでインストールし直した。
 
-* JDK 7 u67 => JDK 8 u25
-* Maven 3.2.2 => Maven 3.2.3
-* GlassFish 4.0.1 => GlassFish 4.1
+- JDK 7 u67 => JDK 8 u25
+- Maven 3.2.2 => Maven 3.2.3
+- GlassFish 4.0.1 => GlassFish 4.1
 
 ## 依存ライブラリ Jersey core Servlet 3.x 追加
 
@@ -154,21 +154,21 @@ URL とのマッピングと、実処理を書く。
 
 ポイントはこんなとこ。
 
-* `@Path` で URL のマッピングをする。
-  * `@Path` はメソッドにも付けれる。
-  * その場合はクラスとメソッドのパスを連結した URL になる。
-  * `{hogehoge}` で URL パスの一部をパラメータに出来る (=> `@PathParam`)。
-* `@GET`, `@POST` で HTTP メソッドのマッピングをする。
-* パラメータは引数やフィールドで受取れる。
-  * URL パスの一部を受取る場合は `@PathParam` を使う。
-  * URL クエリ文字列を受取る場合は `@QueryParam` を使う。
-  * フォームの値を受取る場合は `@FormParam` を使う。
-  * Bean クラスにまとめて受取る場合は `@BeanParam` を使う。
-* 戻り値のデータは、リクエストヘッダに応じたフォーマットで返してくれる。
-  * `Accept: application/json` なら JSON に変換して返してくれる。
-  * `Accept: application/xml` なら XML に変換して返してくれる。
-* `@Context` を使うと色々なリクエスト/レスポンス情報をインジェクション出来る。
-  * 今回はアプリケーションの URL を取得するのに `UriInfo` を使ってる。
+- `@Path` で URL のマッピングをする。
+  - `@Path` はメソッドにも付けれる。
+  - その場合はクラスとメソッドのパスを連結した URL になる。
+  - `{hogehoge}` で URL パスの一部をパラメータに出来る (=> `@PathParam`)。
+- `@GET`, `@POST` で HTTP メソッドのマッピングをする。
+- パラメータは引数やフィールドで受取れる。
+  - URL パスの一部を受取る場合は `@PathParam` を使う。
+  - URL クエリ文字列を受取る場合は `@QueryParam` を使う。
+  - フォームの値を受取る場合は `@FormParam` を使う。
+  - Bean クラスにまとめて受取る場合は `@BeanParam` を使う。
+- 戻り値のデータは、リクエストヘッダに応じたフォーマットで返してくれる。
+  - `Accept: application/json` なら JSON に変換して返してくれる。
+  - `Accept: application/xml` なら XML に変換して返してくれる。
+- `@Context` を使うと色々なリクエスト/レスポンス情報をインジェクション出来る。
+  - 今回はアプリケーションの URL を取得するのに `UriInfo` を使ってる。
 
 ```java
 package tryrest.hoges;
@@ -216,14 +216,14 @@ public class HogeResource {
 データクラスはこんな感じ。
 単純な Bean に幾つかのアノテーションを与えてる。
 
-* `@Data` は Getter/Setter を自動生成してる。
-  * Lombok の機能。コードの見通し良くなって Lombok 最高。
-  * `toString()` なんかも自動生成してくれる。
-* `@XmlRootElement` は XML に変換する場合に必要。
-  * JAXB の機能。
-  * 他にも色々アノテーションがあって、 XML の形をカスタマイズ出来るっぽい。
-* `@FormParam` はフォームデータのキーとのマッピング。
-  * リストの場合は同じキーのデータを複数送ればOK。
+- `@Data` は Getter/Setter を自動生成してる。
+  - Lombok の機能。コードの見通し良くなって Lombok 最高。
+  - `toString()` なんかも自動生成してくれる。
+- `@XmlRootElement` は XML に変換する場合に必要。
+  - JAXB の機能。
+  - 他にも色々アノテーションがあって、 XML の形をカスタマイズ出来るっぽい。
+- `@FormParam` はフォームデータのキーとのマッピング。
+  - リストの場合は同じキーのデータを複数送ればOK。
 
 ```java
 package tryrest.hoges;
@@ -346,7 +346,7 @@ Accept ヘッダが面倒な場合は、 URL の拡張子で制御する仕組�
 
 ## 参考
 
-* [今どきの Java Web フレームワークってどうなってるの？ - きしだのはてな](http://d.hatena.ne.jp/nowokay/20131108)
-* [Jersey 2.13 User Guide](https://jersey.java.net/documentation/latest/user-guide.html)
-* [Project Lombok](http://projectlombok.org)
-* [JerseyMVC の使い方メモ - Qiita](http://qiita.com/opengl-8080/items/f4c25ad671e8a6dac743)
+- [今どきの Java Web フレームワークってどうなってるの？ - きしだのはてな](http://d.hatena.ne.jp/nowokay/20131108)
+- [Jersey 2.13 User Guide](https://jersey.java.net/documentation/latest/user-guide.html)
+- [Project Lombok](http://projectlombok.org)
+- [JerseyMVC の使い方メモ - Qiita](http://qiita.com/opengl-8080/items/f4c25ad671e8a6dac743)

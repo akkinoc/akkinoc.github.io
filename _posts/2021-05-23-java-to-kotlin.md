@@ -93,8 +93,8 @@ println(b)  // [3, 6, 9, 12, 13, 15, 18, 21, 23, 24, 27, 30, 31, 32, 33, 34, 35]
 
 どんな操作ができるかは、この辺りのリファレンスで確認できます:
 
-* [Collection - Kotlin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/)
-* [Sequence - Kotlin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/)
+- [Collection - Kotlin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/)
+- [Sequence - Kotlin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/)
 
 ### コレクション変数が読取専用であることを明示できる
 
@@ -113,8 +113,8 @@ Spring Framework, Spring Boot を使う場合、公式でサポートされて�
 Kotlin 向けの拡張機能が使えますし、変なハマり方も少ないです。
 何より公式サポートという安心感が強いです。
 
-* [Language Support - Spring Framework Documentation](https://docs.spring.io/spring-framework/docs/5.3.6/reference/html/languages.html#kotlin)
-* [Kotlin support - Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/2.4.5/reference/html/spring-boot-features.html#boot-features-kotlin)
+- [Language Support - Spring Framework Documentation](https://docs.spring.io/spring-framework/docs/5.3.6/reference/html/languages.html#kotlin)
+- [Kotlin support - Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/2.4.5/reference/html/spring-boot-features.html#boot-features-kotlin)
 
 ### Java 資産をそのまま使える
 
@@ -143,14 +143,14 @@ open class にしないと起動できません。
 open class MyRepository
 ```
 
-* Spring Framework が内部的にプロキシ用に継承しようとするためです。
-* Kotlin のクラス定義は `open` を付けないと継承不可 (final class) なのです。
+- Spring Framework が内部的にプロキシ用に継承しようとするためです。
+- Kotlin のクラス定義は `open` を付けないと継承不可 (final class) なのです。
 
 クラス定義に毎回 `open` を書くのは面倒なので、
 コンパイラに kotlin-spring plugin を仕込んでおくのが楽です。
 コンパイル時に自動で open class にしてくれます。
 
-* [All-open compiler plugin - Kotlin](https://kotlinlang.org/docs/all-open-plugin.html#spring-support)
+- [All-open compiler plugin - Kotlin](https://kotlinlang.org/docs/all-open-plugin.html#spring-support)
 
 プラグインを初回設定するだけなので、あまりデメリットには感じてません。
 

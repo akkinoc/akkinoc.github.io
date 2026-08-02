@@ -15,9 +15,9 @@ java コマンドがないという罠にはまったのでメモ。
 
 ## 環境
 
-* Windows 7 (64bit)
-* Java SDK 7u51 (64bit)
-* Ruby 1.9.3p545 (32bit)
+- Windows 7 (64bit)
+- Java SDK 7u51 (64bit)
+- Ruby 1.9.3p545 (32bit)
 
 ## rake から java を呼び出してみた
 

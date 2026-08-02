@@ -36,8 +36,8 @@ Maven Central Repository に公開もしてみました。
 残念なことに内部で `new File(String)` してて、
 JAR ファイル内のリソースは使えませんでした...
 
-* Spring Boot アプリなら JAR ファイル1つで動くようにしたい！
-* 前々から Spring Boot の自動設定の仕組み
+- Spring Boot アプリなら JAR ファイル1つで動くようにしたい！
+- 前々から Spring Boot の自動設定の仕組み
   (`@Conditional` 系アノテーション等) を使ってみたかった！
 
 とゆーことで、今回 Logback-access の Auto-Configuration を作ってみました。

@@ -45,8 +45,8 @@ Immutable な `@ConfigurationProperties` クラスにおいて、
 
 このファイルのパスとフォーマットが変わったので、新しい形に変更しました。
 
-* 旧) `META-INF/spring.factories`
-* 新) `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
+- 旧) `META-INF/spring.factories`
+- 新) `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`
 
 ### Servlet API の変更 (Java EE → Jakarta EE)
 
@@ -94,8 +94,8 @@ Logback のバージョンアップで、 [SequenceNumberGenerator] という機
 Deprecated となった関数があったので置き換えました。
 本ライブラリでは次の関数が対象でした。
 
-* `org.springframework.http.ResponseEntity#getStatusCodeValue()`
-* `org.springframework.util.SerializationUtils#deserialize(byte[])`
+- `org.springframework.http.ResponseEntity#getStatusCodeValue()`
+- `org.springframework.util.SerializationUtils#deserialize(byte[])`
 
 ## 関連リンク
 
@@ -120,6 +120,6 @@ Deprecated となった関数があったので置き換えました。
 
 ### 参考
 
-* [Spring Boot 3.0 Migration Guide - spring-projects/spring-boot](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
-* [Upgrading to Spring Framework 6.x - spring-projects/spring-framework](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x)
-* [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/)
+- [Spring Boot 3.0 Migration Guide - spring-projects/spring-boot](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide)
+- [Upgrading to Spring Framework 6.x - spring-projects/spring-framework](https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-6.x)
+- [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/)

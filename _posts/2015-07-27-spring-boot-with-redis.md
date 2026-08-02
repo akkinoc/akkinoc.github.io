@@ -14,26 +14,26 @@ header:
 
 Redis に格納するデータフォーマットは
 
-* 文字列
-* Java シリアライズ
-* JSON
+- 文字列
+- Java シリアライズ
+- JSON
 
 をまとめました。
 
 ## Redis とは
 
-* Key-Value ストア (KVS)
-* インメモリ DB なので高速
-* データに型がある (文字列, リスト, セット, ソート済セット, ハッシュ)
+- Key-Value ストア (KVS)
+- インメモリ DB なので高速
+- データに型がある (文字列, リスト, セット, ソート済セット, ハッシュ)
 
 ## 環境
 
-* CentOS 6.6
-* Redis 2.8.19
-* Java 1.8.0 update 51
-* Maven 3.3.3
-* Spring Boot 1.2.5
-* Lombok 1.16.4 (Getter/Setter 作成に使ってます, 本題ではないです)
+- CentOS 6.6
+- Redis 2.8.19
+- Java 1.8.0 update 51
+- Maven 3.3.3
+- Spring Boot 1.2.5
+- Lombok 1.16.4 (Getter/Setter 作成に使ってます, 本題ではないです)
 
 ## 依存関係
 
@@ -361,16 +361,16 @@ $ redis-cli
 
 アプリの特性にもよるだろうけど、僕は今のところ JSON で格納が好きです。
 
-* リストやハッシュの構造を持てる。
-* 値を人間が確認できる。
-  * redis-cli だけでは見にくいけど...
-  * Redis Desktop Manager を使うと見やすい。
-* 項目を追加しやすい。
-  * 前記のコードで言うと、 `Hoge` クラスにフィールドを追加しやすい。
-  * `JdkSerializationRedisSerializer` では、
+- リストやハッシュの構造を持てる。
+- 値を人間が確認できる。
+  - redis-cli だけでは見にくいけど...
+  - Redis Desktop Manager を使うと見やすい。
+- 項目を追加しやすい。
+  - 前記のコードで言うと、 `Hoge` クラスにフィールドを追加しやすい。
+  - `JdkSerializationRedisSerializer` では、
     フィールド追加前に保存したエントリを読み込もうとすると
     `SerializationException` が発生する。
-  * `Jackson2JsonRedisSerializer` では、
+  - `Jackson2JsonRedisSerializer` では、
     新たに追加したフィールドは `null` で返してくれる。
 
 ## おまけ: クライアントは Redis Desktop Manager が便利
@@ -402,7 +402,7 @@ Amazon ElastiCache の Redis が便利でした。
 
 ## 参考
 
-* [Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-* [Spring Data Redis](http://docs.spring.io/spring-data/redis/docs/1.4.3.RELEASE/reference/html/)
-* [Redis と spring-boot 連携 - teruuuのブログ](http://steavevaivai.hatenablog.com/entry/2015/05/23/183137)
-* [SpringDataRedis を使ってみる - するめとめがね](http://tm8r.hateblo.jp/entry/20120329/1333033094)
+- [Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
+- [Spring Data Redis](http://docs.spring.io/spring-data/redis/docs/1.4.3.RELEASE/reference/html/)
+- [Redis と spring-boot 連携 - teruuuのブログ](http://steavevaivai.hatenablog.com/entry/2015/05/23/183137)
+- [SpringDataRedis を使ってみる - するめとめがね](http://tm8r.hateblo.jp/entry/20120329/1333033094)

@@ -16,11 +16,11 @@ GlassFish + JAX-RS (Jersey) で REST なアプリを作ってみたのでメモ�
 
 ## 環境
 
-* CentOS 6.5 (64bit)
-* JDK 7 u67
-* Maven 3.2.2
-* GlassFish 4.0.1 (Java EE 7)
-* Maven GlassFish プラグイン (maven-glassfish-plugin) 2.1
+- CentOS 6.5 (64bit)
+- JDK 7 u67
+- Maven 3.2.2
+- GlassFish 4.0.1 (Java EE 7)
+- Maven GlassFish プラグイン (maven-glassfish-plugin) 2.1
 
 Gradle 使うことも考えたけど、 GlassFish プラグインを
 使ってみたくて一旦 Maven にしてみた。
@@ -270,15 +270,15 @@ Maven GlassFish プラグイン (maven-glassfish-plugin) を導入する。
 このプラグインでは下記の操作が出来る。
 簡単な作業は `asadmin` コマンドが不要になるので楽ちんになる。
 
-* ドメイン操作
-  * 作成 (glassfish:create-domain)
-  * 起動 (glassfish:start-domain)
-  * 停止 (glassfish:stop-domain)
-  * 削除 (glassfish:delete-domain)
-* アプリケーション操作
-  * デプロイ (glassfish:deploy)
-  * リデプロイ (glassfish:redeploy)
-  * アンデプロイ (glassfish:undeploy)
+- ドメイン操作
+  - 作成 (glassfish:create-domain)
+  - 起動 (glassfish:start-domain)
+  - 停止 (glassfish:stop-domain)
+  - 削除 (glassfish:delete-domain)
+- アプリケーション操作
+  - デプロイ (glassfish:deploy)
+  - リデプロイ (glassfish:redeploy)
+  - アンデプロイ (glassfish:undeploy)
 
 `pom.xml` にプラグインと作成するドメインの情報を設定する。
 ここではプロジェクトディレクトリ配下に

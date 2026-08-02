@@ -90,4 +90,4 @@ Ctrl+K -> '\|' (Shift+\\) でさくっと変換。
 
 ## 参考
 
-* [Sublime Text 3 を最強の Markdown エディタに - Layman's web creation.](http://web-layman.com/sublime-text-3-wozui-qiang-no-markdown-edeitani)
+- [Sublime Text 3 を最強の Markdown エディタに - Layman's web creation.](http://web-layman.com/sublime-text-3-wozui-qiang-no-markdown-edeitani)

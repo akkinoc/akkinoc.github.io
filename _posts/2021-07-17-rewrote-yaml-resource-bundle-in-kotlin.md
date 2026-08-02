@@ -48,9 +48,9 @@ System.out.println(bundle.getString("key"));
 
 ## 頑張ったところ
 
-* マップ, リストでネストされた値をいい感じに展開
-* `---` で区切られた複数の YAML ドキュメントに対応
-* `&`, `*` 記号による YAML アンカー, エイリアスに対応
-* YAML エイリアスで再帰的な無限ループ (ex: `&A [ *A ]`) が入力されたときのハングアップ回避
-* Kotlin らしくテストに Kotest を導入
-* CI を CircleCI から GitHub Actions へ移行
+- マップ, リストでネストされた値をいい感じに展開
+- `---` で区切られた複数の YAML ドキュメントに対応
+- `&`, `*` 記号による YAML アンカー, エイリアスに対応
+- YAML エイリアスで再帰的な無限ループ (ex: `&A [ *A ]`) が入力されたときのハングアップ回避
+- Kotlin らしくテストに Kotest を導入
+- CI を CircleCI から GitHub Actions へ移行

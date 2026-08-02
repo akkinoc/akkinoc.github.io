@@ -52,6 +52,6 @@ protected void configure(HttpSecurity http) throws Exception {
 
 ## 参考
 
-* [28. Security - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security)
-* [17.1.3 HTTP Strict Transport Security (HSTS) - Spring Security Reference](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/index.html#headers-hsts)
-* [HSTS (HTTP Strict Transport Security) の導入](http://qiita.com/takoratta/items/fb6b3486257eb7b9f12e)
+- [28. Security - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security)
+- [17.1.3 HTTP Strict Transport Security (HSTS) - Spring Security Reference](https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/index.html#headers-hsts)
+- [HSTS (HTTP Strict Transport Security) の導入](http://qiita.com/takoratta/items/fb6b3486257eb7b9f12e)

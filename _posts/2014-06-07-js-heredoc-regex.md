@@ -17,8 +17,8 @@ JavaScript でヒアドキュメントするページで見つけた、
 こちらで見つけたコード。 Node.js が元ネタのよう。
 環境依存かもしれないけど、面白い。
 
-* [Multi-line strings in JavaScript and Node.js - Tomek on Software](http://tomasz.janczuk.org/2013/05/multi-line-strings-in-javascript-and.html)
-* [Javascript でヒアドキュメント - Qiita](http://qiita.com/_shimizu/items/837b529de9f3302e315c)
+- [Multi-line strings in JavaScript and Node.js - Tomek on Software](http://tomasz.janczuk.org/2013/05/multi-line-strings-in-javascript-and.html)
+- [Javascript でヒアドキュメント - Qiita](http://qiita.com/_shimizu/items/837b529de9f3302e315c)
 
 ```javascript
 (function () {/*

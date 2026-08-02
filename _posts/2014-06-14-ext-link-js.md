@@ -43,4 +43,4 @@ $(document).on("click",
 
 ## 参考
 
-* [jQuery の bind/live/delegate の違いまとめ、と新 API .on() の使い方 - y-kawaz の日記](http://d.hatena.ne.jp/y-kawaz/20111002/1317489435)
+- [jQuery の bind/live/delegate の違いまとめ、と新 API .on() の使い方 - y-kawaz の日記](http://d.hatena.ne.jp/y-kawaz/20111002/1317489435)

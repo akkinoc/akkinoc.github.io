@@ -9,9 +9,9 @@ header:
 
 ＊この記事は [Qiita](http://qiita.com/akihyro/items/8ac372ff6ce188e372be) から移行した内容です。
 
-* DBI (DBD::Oracle) で取得したデータに utf8 フラグが付いてくる。
-* 取得したデータは全て utf8 フラグなしで扱いたい。
-* 全ての箇所に utf8 フラグ落とす処理を書くのは面倒。
+- DBI (DBD::Oracle) で取得したデータに utf8 フラグが付いてくる。
+- 取得したデータは全て utf8 フラグなしで扱いたい。
+- 全ての箇所に utf8 フラグ落とす処理を書くのは面倒。
 
 というケースに使った。
 
@@ -19,12 +19,12 @@ header:
 
 DBD::Oracle で utf8 フラグが付いてくる条件はこのあたり参照:
 
-* [DBD::Oracle and Unicode - search.cpan.org](http://search.cpan.org/~pythian/DBD-Oracle-1.74/lib/DBD/Oracle.pm#DBD::Oracle_and_Unicode)
+- [DBD::Oracle and Unicode - search.cpan.org](http://search.cpan.org/~pythian/DBD-Oracle-1.74/lib/DBD/Oracle.pm#DBD::Oracle_and_Unicode)
 
 DBI のサブクラス化で対応した。
 DBI のサブクラス化についてはこのあたり参照:
 
-* [Subclassing the DBI - search.cpan.org](http://search.cpan.org/dist/DBI/DBI.pm#Subclassing_the_DBI)
+- [Subclassing the DBI - search.cpan.org](http://search.cpan.org/dist/DBI/DBI.pm#Subclassing_the_DBI)
 
 ## コード
 

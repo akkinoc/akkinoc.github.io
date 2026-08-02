@@ -119,9 +119,9 @@ document.body.innerHTML = grow_xa(document.body.innerHTML);
 
 ## 作ってみて思ったこと
 
-* マニフェストファイルのキー (`name` とか `description` とか) は
+- マニフェストファイルのキー (`name` とか `description` とか) は
   二重引用符で囲まないと上手く読んでくれないっぽい。
-* "www.*" な草ドメインのときだけ有効にしたかったんだけど、
+- "www.*" な草ドメインのときだけ有効にしたかったんだけど、
   `content_scripts.matches` に書く URL パターンは
   サブドメイン側にしかワイルドカードを使えないらしい。残念。
-  * 参考: [Match Patterns - Chrome Platform APIs](http://developer.chrome.com/extensions/match_patterns)
+  - 参考: [Match Patterns - Chrome Platform APIs](http://developer.chrome.com/extensions/match_patterns)

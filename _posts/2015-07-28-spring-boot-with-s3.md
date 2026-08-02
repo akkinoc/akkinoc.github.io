@@ -15,12 +15,12 @@ Spring Framework の Resource インターフェイスを使いました。
 
 ## 環境
 
-* CentOS 6.6
-* Java 1.8.0 update 51
-* Maven 3.3.3
-* Spring Boot 1.2.5
-* Spring Cloud AWS 1.0.2
-* AWS CLI 1.7.39 (準備＆確認用に使用, 本題ではないです)
+- CentOS 6.6
+- Java 1.8.0 update 51
+- Maven 3.3.3
+- Spring Boot 1.2.5
+- Spring Cloud AWS 1.0.2
+- AWS CLI 1.7.39 (準備＆確認用に使用, 本題ではないです)
 
 ## AWS アクセスキーを定義
 
@@ -168,5 +168,5 @@ piyo
 
 ## 参考
 
-* [Spring Cloud AWS Reference](http://cloud.spring.io/spring-cloud-aws/spring-cloud-aws.html)
-* [6. Resources - Spring Framework Reference Documentation](http://docs.spring.io/autorepo/docs/spring/4.1.x/spring-framework-reference/html/resources.html)
+- [Spring Cloud AWS Reference](http://cloud.spring.io/spring-cloud-aws/spring-cloud-aws.html)
+- [6. Resources - Spring Framework Reference Documentation](http://docs.spring.io/autorepo/docs/spring/4.1.x/spring-framework-reference/html/resources.html)

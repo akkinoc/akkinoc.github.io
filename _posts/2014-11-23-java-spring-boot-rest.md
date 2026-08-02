@@ -18,10 +18,10 @@ Spring Boot が熱そうなので試してみた。
 
 [GlassFish + JAX-RS (Jersey) で REST なアプリを作ってみる (Java)]({% post_url 2014-10-28-glassfish-jaxrs-java %})
 
-* `POST /hoges` で Hoge データを登録する。
-* `GET /hoges` で Hoge データのリストを取得する。
-* `GET /hoges/{id}` で Hoge データを取得する。
-* データは XML or JSON で返す。
+- `POST /hoges` で Hoge データを登録する。
+- `GET /hoges` で Hoge データのリストを取得する。
+- `GET /hoges/{id}` で Hoge データを取得する。
+- データは XML or JSON で返す。
 
 ## プロジェクト作成
 
@@ -78,9 +78,9 @@ Spring Boot が熱そうなので試してみた。
 </project>
 ```
 
-* 親プロジェクトに `spring-boot-starter-parent`
-* 依存関係に `spring-boot-starter-web`
-* ビルドプラグインに `spring-boot-maven-plugin`
+- 親プロジェクトに `spring-boot-starter-parent`
+- 依存関係に `spring-boot-starter-web`
+- ビルドプラグインに `spring-boot-maven-plugin`
 
 を指定してるのが今回のメイン。
 `lombok` は本題と直接関係ないけど、実装を楽する為に入れてる。
@@ -181,12 +181,12 @@ public class HogeController {
 
 他、細かいとこを説明すると...
 
-* `@ModelAttribute` でリクエストパラメータを引数で受け取ってる。
-  * デフォルトではフィールド名がパラメータ名として使われる。
-  * JAX-RS の `@QueryParam`/`@FormParam` と違って、パラメータ名を省略出来ていい！
-* POST の返却値は、 `Location` ヘッダも返したくて `ResponseEntity` にしてる。
-  * `Location` ヘッダを付けないなら、 `HogeData` をそのまま返しても大丈夫。
-* `UriComponentsBuilder` は、 `Location` ヘッダ用にアプリのルート URL を取得したくて使ってる。
+- `@ModelAttribute` でリクエストパラメータを引数で受け取ってる。
+  - デフォルトではフィールド名がパラメータ名として使われる。
+  - JAX-RS の `@QueryParam`/`@FormParam` と違って、パラメータ名を省略出来ていい！
+- POST の返却値は、 `Location` ヘッダも返したくて `ResponseEntity` にしてる。
+  - `Location` ヘッダを付けないなら、 `HogeData` をそのまま返しても大丈夫。
+- `UriComponentsBuilder` は、 `Location` ヘッダ用にアプリのルート URL を取得したくて使ってる。
 
 ## 動かしてみる
 

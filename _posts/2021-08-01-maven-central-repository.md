@@ -14,15 +14,15 @@ Maven Central Repository への公開をアカウント登録とリポジトリ�
 
 アカウント登録とリポジトリ登録申請からやり直したのは、こんな理由です。
 
-* Sonatype のユーザ名を変更したかった (akihyro → akkinoc)
-* 公開先の Group Id を変更したかった (net.rakugakibox.util → dev.akkinoc.util)
+- Sonatype のユーザ名を変更したかった (akihyro → akkinoc)
+- 公開先の Group Id を変更したかった (net.rakugakibox.util → dev.akkinoc.util)
 
 ## 環境
 
-* macOS Big Sur 11.4
-* AdoptOpenJDK 11.0.11+9
-* GnuPG 2.3.1
-* Maven 3.8.1
+- macOS Big Sur 11.4
+- AdoptOpenJDK 11.0.11+9
+- GnuPG 2.3.1
+- Maven 3.8.1
 
 AdoptOpenJDK, GnuPG, Maven は、 macOS なら Homebrew で楽にインストールできます。
 
@@ -48,12 +48,12 @@ $ brew install maven
 
 ## 公式ドキュメント
 
-* [Producers - The Central Repository Documentation](https://central.sonatype.org/publish/)
-* [OSSRH Guide - The Central Repository Documentation](https://central.sonatype.org/publish/publish-guide/)
-* [Requirements - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/)
-* [Choosing your Coordinates - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/coordinates/)
-* [Working with PGP Signatures - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/gpg/)
-* [Apache Maven - The Central Repository Documentation](https://central.sonatype.org/publish/publish-maven/)
+- [Producers - The Central Repository Documentation](https://central.sonatype.org/publish/)
+- [OSSRH Guide - The Central Repository Documentation](https://central.sonatype.org/publish/publish-guide/)
+- [Requirements - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/)
+- [Choosing your Coordinates - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/coordinates/)
+- [Working with PGP Signatures - The Central Repository Documentation](https://central.sonatype.org/publish/requirements/gpg/)
+- [Apache Maven - The Central Repository Documentation](https://central.sonatype.org/publish/publish-maven/)
 
 ## 公開手順
 
@@ -90,11 +90,11 @@ Group Id には、自分のドメイン "dev.akkinoc" を使っています。
 
 Group Id の所有者かチェックされるので、次のどれかで証明します。
 
-* 自分のドメインなら:
-  * ドメインサービスに TXT レコードで Issue 番号 (OSSRH-XXXXX) を設定
-  * プロジェクトホスティングサービスの URL へリダイレクトを設定
-* GitHub 等のユーザごとのサブドメインなら:
-  * Issue 番号で空のリポジトリを作成 (ex: github.com/USERNAME/OSSRH-XXXXX)
+- 自分のドメインなら:
+  - ドメインサービスに TXT レコードで Issue 番号 (OSSRH-XXXXX) を設定
+  - プロジェクトホスティングサービスの URL へリダイレクトを設定
+- GitHub 等のユーザごとのサブドメインなら:
+  - Issue 番号で空のリポジトリを作成 (ex: github.com/USERNAME/OSSRH-XXXXX)
 
 僕の場合は TXT レコードで設定しました。
 
@@ -156,9 +156,9 @@ RSA 鍵は 1024 から 4096 ビットの長さで可能です。
 他の人が署名を検証できるように、作成したキーペアの公開鍵を
 Maven Central Repository 推奨のキーサーバへ配布します。
 
-> * keyserver.ubuntu.com
-> * keys.openpgp.org
-> * pgp.mit.edu
+> - keyserver.ubuntu.com
+> - keys.openpgp.org
+> - pgp.mit.edu
 >
 > <footer><cite><a href="https://central.sonatype.org/publish/requirements/gpg/#distributing-your-public-key">Distributing Your Public Key - The Central Repository Documentation</a></cite></footer>
 
@@ -398,8 +398,8 @@ JIRA Issue のコメントに従い、初回リリースしたことを Issue �
 
 数時間ほど待って、次のサイトへ反映されれば公開完了です。
 
-* [Maven Central Repository](https://repo1.maven.org/maven2/) (通常 30 分以内で公開とのこと)
-* [Maven Central Repository Search](https://search.maven.org/) (最大 4 時間で公開とのこと)
+- [Maven Central Repository](https://repo1.maven.org/maven2/) (通常 30 分以内で公開とのこと)
+- [Maven Central Repository Search](https://search.maven.org/) (最大 4 時間で公開とのこと)
 
 ## 公開手順 (2 回目以降)
 
@@ -497,8 +497,8 @@ $ mvn clean deploy -Prelease  # ローカル環境でのリリース時 (GPG 署
 
 僕の場合はこんな Issue を立てて対応いただきました。
 
-* [OSSRH-69348 Change username - Sonatype JIRA](https://issues.sonatype.org/browse/OSSRH-69348)
-* [OSSRH-69387 Delete my account - Sonatype JIRA](https://issues.sonatype.org/browse/OSSRH-69387)
+- [OSSRH-69348 Change username - Sonatype JIRA](https://issues.sonatype.org/browse/OSSRH-69348)
+- [OSSRH-69387 Delete my account - Sonatype JIRA](https://issues.sonatype.org/browse/OSSRH-69387)
 
 ## 前に書いた記事
 

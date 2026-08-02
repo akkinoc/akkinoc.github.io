@@ -30,12 +30,12 @@ C:\Users\{ユーザ名}\AppData\Roaming\Sublime Text 3
 
 ただこのファイルたちは共有しない方がいいみたい。
 
-* Package Control.last-run
-* Package Control.ca-list
-* Package Control.ca-bundle
-* Package Control.system-ca-bundle
-* Package Control.cache/
-* Package Control.ca-certs/
+- Package Control.last-run
+- Package Control.ca-list
+- Package Control.ca-bundle
+- Package Control.system-ca-bundle
+- Package Control.cache/
+- Package Control.ca-certs/
 
 ## .gitignore
 
@@ -68,6 +68,6 @@ C:\Users\{ユーザ名}\AppData\Roaming\Sublime Text 3
 
 ## 参考
 
-* [SublimeText の設定を git 管理し、複数 PC で設定やパッケージを同期する。 - MANA-DOT](http://blog.manaten.net/entry/sublimetext-git)
-* [SublimeText2 - Sublime Text2,3 の Dropbox, Git を使った同期の方法 - Qiita](http://qiita.com/matsu_chara/items/b58564bba37e81637057)
-* [Syncing - Package Control](https://sublime.wbond.net/docs/syncing)
+- [SublimeText の設定を git 管理し、複数 PC で設定やパッケージを同期する。 - MANA-DOT](http://blog.manaten.net/entry/sublimetext-git)
+- [SublimeText2 - Sublime Text2,3 の Dropbox, Git を使った同期の方法 - Qiita](http://qiita.com/matsu_chara/items/b58564bba37e81637057)
+- [Syncing - Package Control](https://sublime.wbond.net/docs/syncing)

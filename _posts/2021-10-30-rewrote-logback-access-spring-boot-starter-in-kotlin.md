@@ -15,8 +15,8 @@ logback-access-spring-boot-starter もアップデートしました (v3.0.0)。
 
 先日の記事:
 
-* [yaml-resource-bundle を Kotlin で書き直した]({% post_url 2021-07-17-rewrote-yaml-resource-bundle-in-kotlin %})
-* [orika-spring-boot-starter を Kotlin で書き直した]({% post_url 2021-08-29-rewrote-orika-spring-boot-starter-in-kotlin %})
+- [yaml-resource-bundle を Kotlin で書き直した]({% post_url 2021-07-17-rewrote-yaml-resource-bundle-in-kotlin %})
+- [orika-spring-boot-starter を Kotlin で書き直した]({% post_url 2021-08-29-rewrote-orika-spring-boot-starter-in-kotlin %})
 
 ## logback-access-spring-boot-starter とは
 
@@ -74,7 +74,7 @@ Spring Boot Web アプリケーションへアクセスした時に、
 
 設定ファイルの書き方の詳細は Logback-access 公式ドキュメントを参照ください:
 
-* [Logback-access configuration](https://logback.qos.ch/access.html#configuration)
+- [Logback-access configuration](https://logback.qos.ch/access.html#configuration)
 
 また、通常のロギングの Logback 設定 ("logback-spring.xml") と同様に、
 `<springProfile>`, `<springProperty>` タグも使えるように拡張してあります。
@@ -141,9 +141,9 @@ Logback-access を結構改造する必要があり大変でした (^^;
 
 次の理由から、各 Web サーバのネイティブに近い部分まで潜り込んでロギングしています。
 
-* 生の Logback-access の実装と合わせるため
-* Spring Boot 標準のプロパティ (ex: "server.tomcat.accesslog.*") で動く実装と合わせるため
-* リクエスト開始〜レスポンス終了の末端に一番近い部分で処理時間を計測するため
+- 生の Logback-access の実装と合わせるため
+- Spring Boot 標準のプロパティ (ex: "server.tomcat.accesslog.*") で動く実装と合わせるため
+- リクエスト開始〜レスポンス終了の末端に一番近い部分で処理時間を計測するため
 
 例えば Tomcat なら専用の Valve, Jetty なら専用の RequestLog を実装しています。
 そのため、ここでも Web サーバごとの内部まで個別に理解して実装する必要があるので大変です。
@@ -159,8 +159,8 @@ Web サーバの違いを一気に吸収できる形で実装した方が良か�
 次の理由から、全ての Web サーバに対して、 Web MVC 用, WebFlux 用の
 全パターンを網羅してテストするようにしています。
 
-* 前記した通り Web サーバごとの実装を書いてる部分があるため
-* Web サーバに依存しない共通のインターフェイスを通して処理した場合でも、
+- 前記した通り Web サーバごとの実装を書いてる部分があるため
+- Web サーバに依存しない共通のインターフェイスを通して処理した場合でも、
   Web サーバによって微妙に挙動が異なる場合があるため
 
 Spring Boot はクラスパスに存在するクラスによって自動で Web サーバを選択/起動するため、
@@ -204,16 +204,16 @@ JSON 出力なら [logstash-logback-encoder] の "LogstashAccessEncoder" が便�
 
 ## 今回アップデートしたこと
 
-* Kotlin で書き直した
-* Maven Group ID と Java パッケージを変更
-* Java 11, 17 のサポートを追加
-* 最新の Spring Boot に対応
-* Undertow x WebFlux のサポートを追加
-* Configuration Properties の名前/構成を一部見直し
-* `@Bean` Lite Mode (`@Configuration(proxyBeanMethods = false)`) を使用
-* テストに Kotest を導入
-* CI を CircleCI から GitHub Actions へ移行
-* 依存関係の更新
+- Kotlin で書き直した
+- Maven Group ID と Java パッケージを変更
+- Java 11, 17 のサポートを追加
+- 最新の Spring Boot に対応
+- Undertow x WebFlux のサポートを追加
+- Configuration Properties の名前/構成を一部見直し
+- `@Bean` Lite Mode (`@Configuration(proxyBeanMethods = false)`) を使用
+- テストに Kotest を導入
+- CI を CircleCI から GitHub Actions へ移行
+- 依存関係の更新
 
 ## 今後
 

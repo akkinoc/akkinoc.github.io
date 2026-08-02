@@ -71,9 +71,9 @@ NMB サービスを起動中:                                      [  OK  ]
 
 ### 参考
 
-* [BashFAQ/098 How to add localization support to your bash scripts - Greg's Wiki](http://mywiki.wooledge.org/BashFAQ/098)
-* [シェルスクリプトの多言語対応 - レピカグループの技術者ブログ](http://www.repica.jp/staffblog/tech/2013/03/07/783)
-* [/etc/init.d/functions の解説 - 覚え書き](http://darutk-oboegaki.blogspot.jp/2012/10/etcinitdfunctions.html)
+- [BashFAQ/098 How to add localization support to your bash scripts - Greg's Wiki](http://mywiki.wooledge.org/BashFAQ/098)
+- [シェルスクリプトの多言語対応 - レピカグループの技術者ブログ](http://www.repica.jp/staffblog/tech/2013/03/07/783)
+- [/etc/init.d/functions の解説 - 覚え書き](http://darutk-oboegaki.blogspot.jp/2012/10/etcinitdfunctions.html)
 
 ## 単一引用符の前にあるドル記号の意味
 
@@ -101,9 +101,9 @@ $ echo $'\n'$'\\n'
 
 ### 参考
 
-* [echo $'\n' で改行が表示できる - reroの日記](http://d.hatena.ne.jp/rero/20071117/p1)
+- [echo $'\n' で改行が表示できる - reroの日記](http://d.hatena.ne.jp/rero/20071117/p1)
 
 ## まとめ
 
-* `echo $"hoge"` は多言語対応用。
-* `echo $'fuga'` はエスケープ有効化。
+- `echo $"hoge"` は多言語対応用。
+- `echo $'fuga'` はエスケープ有効化。

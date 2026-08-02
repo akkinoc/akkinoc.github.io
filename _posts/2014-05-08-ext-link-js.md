@@ -28,9 +28,9 @@ $(function() {
 
 ### 参考
 
-* [外部リンクに target="_blank" と class を付与する jQuery で別窓アイコンを付ける - WPC](http://web-pc.net/jquery007)
-* [外部サイトへのリンクに target=_blank 属性を追加 (jQuery) - せんむの技術ブログ](http://www.shikidahironori.jp/music/2011/01/target-blankjquery.html)
-* [一行の記述で全ての外部サイトへのリンクを別ウィンドウ (target="_blank") で開く方法 - D-31N.COM デザインスタジオ](http://www.d-31n.com/blog_archive/jquery/3962)
+- [外部リンクに target="_blank" と class を付与する jQuery で別窓アイコンを付ける - WPC](http://web-pc.net/jquery007)
+- [外部サイトへのリンクに target=_blank 属性を追加 (jQuery) - せんむの技術ブログ](http://www.shikidahironori.jp/music/2011/01/target-blankjquery.html)
+- [一行の記述で全ての外部サイトへのリンクを別ウィンドウ (target="_blank") で開く方法 - D-31N.COM デザインスタジオ](http://www.d-31n.com/blog_archive/jquery/3962)
 
 ## それでは不十分なこと
 

@@ -80,9 +80,9 @@ public class PersonMapping implements OrikaMapperFactoryConfigurer {
 
 ## 今回アップデートしたこと
 
-* Kotlin で書き直した
-* Maven Group ID と Java パッケージを変更
-* `@Bean` Lite Mode (`@Configuration(proxyBeanMethods = false)`) を使ってみた
-* Kotlin らしくテストに Kotest を導入
-* CI を CircleCI から GitHub Actions へ移行
-* 他, 依存関係の更新とバグ修正
+- Kotlin で書き直した
+- Maven Group ID と Java パッケージを変更
+- `@Bean` Lite Mode (`@Configuration(proxyBeanMethods = false)`) を使ってみた
+- Kotlin らしくテストに Kotest を導入
+- CI を CircleCI から GitHub Actions へ移行
+- 他, 依存関係の更新とバグ修正

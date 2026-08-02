@@ -44,9 +44,9 @@ $ bundle exec jekyll build
 
 ビルド環境は次の通りです。
 
-* macOS Sonoma 14.4.1 (M1)
-* Ruby 3.3.1
-* Bundler 2.5.9
+- macOS Sonoma 14.4.1 (M1)
+- Ruby 3.3.1
+- Bundler 2.5.9
 
 ## classifier-reborn (gsl)
 

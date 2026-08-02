@@ -243,17 +243,17 @@ function DynamoDBPutItem() {
 
 ### S3-for-Google-Apps-Script を使う方法
 
-* [eschultink/S3-for-Google-Apps-Script - GitHub](https://github.com/eschultink/S3-for-Google-Apps-Script/)
-* [Amazon S3 API Binding for Google Apps Script - Engineering Etc](https://engetc.com/projects/amazon-s3-api-binding-for-google-apps-script/)
-* [Google Apps Script を利用して Google スプレッドシートのデータを S3 へ JSON として保存する - DevelopersIO](https://dev.classmethod.jp/articles/google-apps-script-gss-to-s3-json/)
-* [GAS の新しいエディタで S3 ライブラリを使用する方法 - Qiita](https://qiita.com/GoeMon564/items/851b76a5c78b22a64fe2)
+- [eschultink/S3-for-Google-Apps-Script - GitHub](https://github.com/eschultink/S3-for-Google-Apps-Script/)
+- [Amazon S3 API Binding for Google Apps Script - Engineering Etc](https://engetc.com/projects/amazon-s3-api-binding-for-google-apps-script/)
+- [Google Apps Script を利用して Google スプレッドシートのデータを S3 へ JSON として保存する - DevelopersIO](https://dev.classmethod.jp/articles/google-apps-script-gss-to-s3-json/)
+- [GAS の新しいエディタで S3 ライブラリを使用する方法 - Qiita](https://qiita.com/GoeMon564/items/851b76a5c78b22a64fe2)
 
 S3 にしか対応してないです。
 インターフェイスがシンプルなので、 S3 だけ使う場合はこちらのが便利です。
 
 ### HtmlService 経由で AWS SDK for JavaScript を使う方法
 
-* [Google Apps Script から AWS SDK for JavaScript を使って、スプレッドシートのデータを S3 にアップロードしてみた - DevelopersIO](https://dev.classmethod.jp/articles/uploaded-spreadsheet-data-to-s3-using-aws-sdk-for-javascript-from-google-apps-script/)
+- [Google Apps Script から AWS SDK for JavaScript を使って、スプレッドシートのデータを S3 にアップロードしてみた - DevelopersIO](https://dev.classmethod.jp/articles/uploaded-spreadsheet-data-to-s3-using-aws-sdk-for-javascript-from-google-apps-script/)
 
 AWS SDK for JavaScript を使えるのは便利そうです。
 ただ、 HtmlService でサブウィンドウを表示/経由する必要があり、

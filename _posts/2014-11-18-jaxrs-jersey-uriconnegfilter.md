@@ -31,8 +31,8 @@ Jersey では `org.glassfish.jersey.server.filter.UriConnegFilter` で楽に実�
 
 ここでは、
 
-* ".xml" => "application/xml"
-* ".json" => "application/json"
+- ".xml" => "application/xml"
+- ".json" => "application/json"
 
 にマッピングしてみる。
 
@@ -127,8 +127,8 @@ Content-Length: 185
 
 ## まとめ
 
-* 拡張子でコンテンツタイプを切り替える場合は `UriConnegFilter` を使う。
-* マッピングは `ResourceConfig` サブクラス or `web.xml` で設定。
+- 拡張子でコンテンツタイプを切り替える場合は `UriConnegFilter` を使う。
+- マッピングは `ResourceConfig` サブクラス or `web.xml` で設定。
 
 ## コード (GitHub)
 
@@ -136,6 +136,6 @@ Content-Length: 185
 
 ## 参考
 
-* [JAX-RS でアクセスした拡張子に応じて出力形式を変える + Spring 連携 - 今日つかったスニペット](http://cyubachi.hatenablog.com/entry/2013/11/15/194056)
-* [Jersey で拡張子に応じて出力コンテンツを振り分ける方法 - AOE の日記](http://d.hatena.ne.jp/aoe-tk/20130203/1359900081)
-* [UriConnegFilter - Jersey 2.13 API](https://jersey.java.net/apidocs/2.13/jersey/org/glassfish/jersey/server/filter/UriConnegFilter.html)
+- [JAX-RS でアクセスした拡張子に応じて出力形式を変える + Spring 連携 - 今日つかったスニペット](http://cyubachi.hatenablog.com/entry/2013/11/15/194056)
+- [Jersey で拡張子に応じて出力コンテンツを振り分ける方法 - AOE の日記](http://d.hatena.ne.jp/aoe-tk/20130203/1359900081)
+- [UriConnegFilter - Jersey 2.13 API](https://jersey.java.net/apidocs/2.13/jersey/org/glassfish/jersey/server/filter/UriConnegFilter.html)

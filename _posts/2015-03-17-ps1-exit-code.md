@@ -21,8 +21,8 @@ CUI でコマンドを叩いてると、終了コードが気になることが�
 
 ## 使ってる環境
 
-* OS: CentOS 6.6
-* ターミナル: Windows PuTTY ごった煮版 (SSH経由)
+- OS: CentOS 6.6
+- ターミナル: Windows PuTTY ごった煮版 (SSH経由)
 
 ## コード
 
@@ -47,17 +47,17 @@ _ps1_reset="\e[00m"
 
 # PS1 parts
 function _ps1_result() {
-    code=$?
-    if [ ${code} == 0 ]; then
-        echo -e "${_ps1_blue}"'(っ*´∀`*)っ OK!!'" [${code}]${_ps1_reset}"
-    else
-        echo -e "${_ps1_red}"'(｡´･ω･`) NG...'" [${code}]${_ps1_reset}"
-    fi
+  code=$?
+  if [ ${code} == 0 ]; then
+    echo -e "${_ps1_blue}"'(っ*´∀`*)っ OK!!'" [${code}]${_ps1_reset}"
+  else
+    echo -e "${_ps1_red}"'(｡´･ω･`) NG...'" [${code}]${_ps1_reset}"
+  fi
 }
 _ps1_user="${_ps1_green}\u@\h${_ps1_reset}"
 _ps1_dir="${_ps1_cyan}\w${_ps1_reset}"
 function _ps1_git() {
-    echo -e "${_ps1_yellow}$(__git_ps1 2>/dev/null)${_ps1_reset}"
+  echo -e "${_ps1_yellow}$(__git_ps1 2>/dev/null)${_ps1_reset}"
 }
 _ps1_prompt="\$ "
 
@@ -83,5 +83,5 @@ PuTTY では全角文字の表示幅が潰れてしまった。
 
 ## 参考
 
-* [プロンプトに顔文字を出す - おおにしあきらの日記](http://d.hatena.ne.jp/ohnishiakira/20111202/1322825446)
-* [プロンプトの戯れ - rcmdnk’s blog](http://rcmdnk.github.io/blog/2013/03/18/prompt-screen)
+- [プロンプトに顔文字を出す - おおにしあきらの日記](http://d.hatena.ne.jp/ohnishiakira/20111202/1322825446)
+- [プロンプトの戯れ - rcmdnk’s blog](http://rcmdnk.github.io/blog/2013/03/18/prompt-screen)

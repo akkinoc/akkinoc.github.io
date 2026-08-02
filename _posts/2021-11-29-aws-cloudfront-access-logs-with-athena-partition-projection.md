@@ -51,14 +51,14 @@ WAF 等で第三者はアクセス不可にするのもアリだと思います�
 S3 ObjectCreated イベントをトリガーに Lambda でパスを移動するようにしました。
 移動先パスの `dt=YYYY-MM-DD-HH` の部分がパーティションキーになります。
 
-* 移動元: `<OPTIONAL-PREFIX>/<DISTRIBUTION-ID>.YYYY-MM-DD-HH.<UNIQUE-ID>.gz`
-* 移動先: `<OPTIONAL-PREFIX>/dt=YYYY-MM-DD-HH/<DISTRIBUTION-ID>.YYYY-MM-DD-HH.<UNIQUE-ID>.gz`
+- 移動元: `<OPTIONAL-PREFIX>/<DISTRIBUTION-ID>.YYYY-MM-DD-HH.<UNIQUE-ID>.gz`
+- 移動先: `<OPTIONAL-PREFIX>/dt=YYYY-MM-DD-HH/<DISTRIBUTION-ID>.YYYY-MM-DD-HH.<UNIQUE-ID>.gz`
 
 Lambda のコードは、 AWS 公式のサンプルを拝借し、移動先パスだけ調整しました。
 year/month/day/hour 列に分ける形で良ければ、そのままでも良いと思います。
 僕は列 1 つの方がクエリで範囲指定しやすかったので、文字列型の dt 列だけにしました。
 
-* [aws-samples/amazon-cloudfront-access-logs-queries/functions/moveAccessLogs.js](https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/cb92ccd979b2fdb1ae81339352399da5b8bb7e63/functions/moveAccessLogs.js)
+- [aws-samples/amazon-cloudfront-access-logs-queries/functions/moveAccessLogs.js](https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/cb92ccd979b2fdb1ae81339352399da5b8bb7e63/functions/moveAccessLogs.js)
 
 ```diff
 - const targetKey = `${targetKeyPrefix}year=${year}/month=${month}/day=${day}/hour=${hour}/${filename}`;
@@ -155,7 +155,7 @@ ORDER BY
 上記環境を構築できる CloudFormation テンプレートも作成しました。
 GitHub に置いてます。
 
-* [akkinoc/try-aws-cloudfront-access-logs-with-athena-partition-projection - GitHub](https://github.com/akkinoc/try-aws-cloudfront-access-logs-with-athena-partition-projection)
+- [akkinoc/try-aws-cloudfront-access-logs-with-athena-partition-projection - GitHub](https://github.com/akkinoc/try-aws-cloudfront-access-logs-with-athena-partition-projection)
 
 こちらのコマンドで "store.yml" を構築すると、
 
@@ -169,13 +169,13 @@ $ aws cloudformation deploy \
 
 ざっくり次のリソースが出来上がります。
 
-* S3 バケット: `cflogs-store`
-  * ログを溜め込むバケット
-* Lambda 関数: `cflogs-store-events`
-  * `s3://cflogs-store/new-events/` にログ配置されたら起動
-  * `s3://cflogs-store/events/dt=YYYY-MM-DD-HH/` にログを移動
-* Glue テーブル: `cflogs.events`
-  * `s3://cflogs-store/events/dt=YYYY-MM-DD-HH/` を Partition Projection で反映
+- S3 バケット: `cflogs-store`
+  - ログを溜め込むバケット
+- Lambda 関数: `cflogs-store-events`
+  - `s3://cflogs-store/new-events/` にログ配置されたら起動
+  - `s3://cflogs-store/events/dt=YYYY-MM-DD-HH/` にログを移動
+- Glue テーブル: `cflogs.events`
+  - `s3://cflogs-store/events/dt=YYYY-MM-DD-HH/` を Partition Projection で反映
 
 あとは CloudFront 側で `s3://cflogs-store/new-events/` に
 アクセスログを出力するよう設定すれば完成です。

@@ -31,19 +31,19 @@ dependencies:
     - mysqladmin --host=127.0.0.1 --port={port} --user=root --wait ping
 ```
 
-* `{version}` の部分には、使うバージョンのタグ (`5.6`, `5.7.11`, `latest` 等) を指定します。
-  * タグは [mysql - Docker Hub] から確認できました。
-  * マイナーバージョンまで細かく指定出来て良いです。
-* `{port}` の部分には、接続するときのポート番号を指定します。
-  * CircleCI では既に MySQL が動いてるので、 `3306` は使えませんでした。
-* `MYSQL_ALLOW_EMPTY_PASSWORD=yes` で root パスワードはなしにしてます。
-  * 必要なら `MYSQL_ROOT_PASSWORD`, `MYSQL_USER`, `MYSQL_PASSWORD` 等を使うと良さそう。
-* `mysqladmin ping` が通るまで待機してます。
-  * `docker run` だけだと即座に接続できないことがあったので。
-  * `--wait` オプションで失敗してもリトライしてくれるようです。
-* `--host` は `localhost` ではなく IP アドレス (`127.0.0.1`) を使ってます。
-  * `localhost` だとソケット接続になってしまうようです。
-  * `--protocol=tcp` オプションを使っても良いかも。
+- `{version}` の部分には、使うバージョンのタグ (`5.6`, `5.7.11`, `latest` 等) を指定します。
+  - タグは [mysql - Docker Hub] から確認できました。
+  - マイナーバージョンまで細かく指定出来て良いです。
+- `{port}` の部分には、接続するときのポート番号を指定します。
+  - CircleCI では既に MySQL が動いてるので、 `3306` は使えませんでした。
+- `MYSQL_ALLOW_EMPTY_PASSWORD=yes` で root パスワードはなしにしてます。
+  - 必要なら `MYSQL_ROOT_PASSWORD`, `MYSQL_USER`, `MYSQL_PASSWORD` 等を使うと良さそう。
+- `mysqladmin ping` が通るまで待機してます。
+  - `docker run` だけだと即座に接続できないことがあったので。
+  - `--wait` オプションで失敗してもリトライしてくれるようです。
+- `--host` は `localhost` ではなく IP アドレス (`127.0.0.1`) を使ってます。
+  - `localhost` だとソケット接続になってしまうようです。
+  - `--protocol=tcp` オプションを使っても良いかも。
 
 [mysql - Docker Hub]: https://hub.docker.com/r/library/mysql/tags/
 
@@ -74,5 +74,5 @@ localhsot に 好みのバージョンをインストールするようにして
 実際に CircleCI で回したコードと結果です。
 5.6, 5.7 の2つを起動して、それぞれのバージョン, DB, ユーザを出力しました。
 
-* [akihyro/mysql-in-circleci - GitHub](https://github.com/akihyro/mysql-in-circleci)
-* [akihyro/mysql-in-circleci - CircleCI](https://circleci.com/gh/akihyro/mysql-in-circleci/13)
+- [akihyro/mysql-in-circleci - GitHub](https://github.com/akihyro/mysql-in-circleci)
+- [akihyro/mysql-in-circleci - CircleCI](https://circleci.com/gh/akihyro/mysql-in-circleci/13)

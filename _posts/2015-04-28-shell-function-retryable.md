@@ -63,6 +63,6 @@ $ retryable test 0 -eq 1
 
 ## 参考
 
-* [メモ: ループ制御 - argius note](http://argius.hatenablog.jp/entry/20070321/1174484318)
-* [シェルスクリプトでリトライ処理 - cloudpack 技術情報サイト](http://blog.cloudpack.jp/2013/02/20/server-news-blog-post/)
-* [ssh 接続が成功するまでリトライする - 物ら君語なの〓い要](http://autofuton.hatenadiary.jp/entry/20110602/1306953436)
+- [メモ: ループ制御 - argius note](http://argius.hatenablog.jp/entry/20070321/1174484318)
+- [シェルスクリプトでリトライ処理 - cloudpack 技術情報サイト](http://blog.cloudpack.jp/2013/02/20/server-news-blog-post/)
+- [ssh 接続が成功するまでリトライする - 物ら君語なの〓い要](http://autofuton.hatenadiary.jp/entry/20110602/1306953436)

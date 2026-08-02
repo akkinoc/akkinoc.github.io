@@ -42,4 +42,4 @@ native2ascii のパスは環境に合ったパスで。
 
 ## 参考
 
-* [2013-12-21 - Yoichi's diary](http://yoichi.geiin.org/d/?date=20131221)
+- [2013-12-21 - Yoichi's diary](http://yoichi.geiin.org/d/?date=20131221)

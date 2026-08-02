@@ -21,8 +21,8 @@ header:
 Java で日時を扱う場合は、できるだけ Java 8 Date and Time API を使っています。
 旧 API (`java.util.Date`, `java.util.Calendar`) と比較して、
 
-* Immutable なこと。
-* 日付, 時間, 日付 + 時間等でクラスが分かれてること。
+- Immutable なこと。
+- 日付, 時間, 日付 + 時間等でクラスが分かれてること。
 
 が気に入ってます。
 
@@ -38,25 +38,25 @@ Java 8 日時 API を使うときにやったことをまとめました。
 
 今回、試した環境はこちらです。
 
-* Spring Boot 1.3.0
-* Java 1.8.0 Update 60
-* Apache Maven 3.3.3
+- Spring Boot 1.3.0
+- Java 1.8.0 Update 60
+- Apache Maven 3.3.3
 
 次の部分について、 Java 8 日時を1つずつ扱えるようにしました。
 
-* Jackson
-* JAXB
-* JPA
-* Thymeleaf
-* プロパティ (`@Value`, `@ConfigurationProperties`)
-* リクエストパラメータ (`@PathVariable`, `@RequestParam`, `@ModelAttribute`, etc)
+- Jackson
+- JAXB
+- JPA
+- Thymeleaf
+- プロパティ (`@Value`, `@ConfigurationProperties`)
+- リクエストパラメータ (`@PathVariable`, `@RequestParam`, `@ModelAttribute`, etc)
 
 使う日時の型は、次の3つに限定します。
 Offset 系, Zoned 系はあまり扱ったことがありません (^^;
 
-* `java.time.LocalDate`
-* `java.time.LocalTime`
-* `java.time.LocalDateTime`
+- `java.time.LocalDate`
+- `java.time.LocalTime`
+- `java.time.LocalDateTime`
 
 日時のフォーマットは、基本は ISO で統一しています。
 
@@ -107,8 +107,8 @@ $ curl -X POST "http://localhost:8080/hoge" \
 
 ### 参考
 
-* [FasterXML/jackson-datatype-jsr310 - GitHub](https://github.com/FasterXML/jackson-datatype-jsr310)
-* [71.3 Customize the Jackson ObjectMapper - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/1.3.0.RELEASE/reference/htmlsingle/#howto-customize-the-jackson-objectmapper)
+- [FasterXML/jackson-datatype-jsr310 - GitHub](https://github.com/FasterXML/jackson-datatype-jsr310)
+- [71.3 Customize the Jackson ObjectMapper - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/1.3.0.RELEASE/reference/htmlsingle/#howto-customize-the-jackson-objectmapper)
 
 ## JAXB
 
@@ -157,8 +157,8 @@ $ curl -X POST "http://localhost:8080/hoge.xml" \
 
 ### 参考
 
-* [migesok/jaxb-java-time-adapters - GitHub](https://github.com/migesok/jaxb-java-time-adapters)
-* [日本人のための Date and Time API Tips - Programming Studio](http://www.coppermine.jp/docs/programming/2013/12/jsr310-tips.html)
+- [migesok/jaxb-java-time-adapters - GitHub](https://github.com/migesok/jaxb-java-time-adapters)
+- [日本人のための Date and Time API Tips - Programming Studio](http://www.coppermine.jp/docs/programming/2013/12/jsr310-tips.html)
 
 ## JPA
 
@@ -196,7 +196,7 @@ localhost に test スキーマがあること前提のコードです。
 
 ### 参考
 
-* [Jsr310JpaConverters - Spring Data JPA 1.9.1.RELEASE API](http://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/convert/threeten/Jsr310JpaConverters.html)
+- [Jsr310JpaConverters - Spring Data JPA 1.9.1.RELEASE API](http://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/convert/threeten/Jsr310JpaConverters.html)
 
 ## Thymeleaf
 
@@ -234,9 +234,9 @@ public IDialect java8TimeDialect() {
 
 ### 参考
 
-* [thymeleaf/thymeleaf-extras-java8time - GitHub](https://github.com/thymeleaf/thymeleaf-extras-java8time)
-* [Dates - 18 Appendix B: Expression Utility Objects - Tutorial: Using Thymeleaf](http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#dates)
-* [Calendars - 18 Appendix B: Expression Utility Objects - Tutorial: Using Thymeleaf](http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#calendars)
+- [thymeleaf/thymeleaf-extras-java8time - GitHub](https://github.com/thymeleaf/thymeleaf-extras-java8time)
+- [Dates - 18 Appendix B: Expression Utility Objects - Tutorial: Using Thymeleaf](http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#dates)
+- [Calendars - 18 Appendix B: Expression Utility Objects - Tutorial: Using Thymeleaf](http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#calendars)
 
 ## プロパティ (`@Value`, `@ConfigurationProperties`)
 
@@ -301,7 +301,7 @@ private LocalDateTime customDateTime;
 
 ### 参考
 
-* [24.7.2 Relaxed binding - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/1.3.0.RELEASE/reference/htmlsingle/#boot-features-external-config-relaxed-binding)
+- [24.7.2 Relaxed binding - Spring Boot Reference Guide](http://docs.spring.io/spring-boot/docs/1.3.0.RELEASE/reference/htmlsingle/#boot-features-external-config-relaxed-binding)
 
 ## リクエストパラメータ (`@PathVariable`, `@RequestParam`, `@ModelAttribute`, etc)
 
@@ -362,12 +362,12 @@ $ curl "http://localhost:8080/hoge?defaultDate=2015-12-04&defaultTime=12:34:56.7
 
 ## まとめ
 
-* Jackson: `jackson-datatype-jsr310` を使う。
-* JAXB: 日時の型ごとに `XmlAdapter` を用意。
-* JPA: `Jsr310JpaConverters` を使う。
-* Thymeleaf: `thymeleaf-extras-java8time` を使う。
-* プロパティ: `ConversionService` を設定。
-* リクエストパラメータ: そのままでも使える。
+- Jackson: `jackson-datatype-jsr310` を使う。
+- JAXB: 日時の型ごとに `XmlAdapter` を用意。
+- JPA: `Jsr310JpaConverters` を使う。
+- Thymeleaf: `thymeleaf-extras-java8time` を使う。
+- プロパティ: `ConversionService` を設定。
+- リクエストパラメータ: そのままでも使える。
   フォーマット変えたい場合は `WebMvcConfigurer` で設定。
 
 近いうち、特に意識しなくても Java 8 日時が

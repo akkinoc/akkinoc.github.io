@@ -28,10 +28,10 @@ CircleCI に MySQL 5.6.23 をインストールする方法をまとめました
 
 ## CircleCI 環境
 
-> * Architecture: x86_64
-> * Username: ubuntu
-> * Ubuntu 12.04 (precise)
-> * Kernel version: 3.2
+> - Architecture: x86_64
+> - Username: ubuntu
+> - Ubuntu 12.04 (precise)
+> - Kernel version: 3.2
 >
 > <footer><cite><a href="https://circleci.com/docs/environment">Test environment - CircleCI</a></cite></footer>
 
@@ -67,14 +67,14 @@ dependencies:
     - ~/mysql-packages
 ```
 
-* 大まかな流れ:
+- 大まかな流れ:
   1. deb パッケージをダウンロード。
   2. 既存の MySQL をアンインストール。
   3. ダウンロードしたパッケージをインストール。
-* deb パッケージのダウンロード URL は、
+- deb パッケージのダウンロード URL は、
   [公式のアーカイブダウンロードページ] から辿ったものです。
-* ダウンロードした deb パッケージはキャッシュしてみました。
-* deb パッケージのインストール中に確認メッセージが出て止まらないように、
+- ダウンロードした deb パッケージはキャッシュしてみました。
+- deb パッケージのインストール中に確認メッセージが出て止まらないように、
   `DEBIAN_FRONTEND=noninteractive` で抑えてます。
 
 [公式のアーカイブダウンロードページ]: http://downloads.mysql.com/archives/community/
@@ -83,9 +83,9 @@ dependencies:
 
 設定は CircleCI で用意されてたものが引き継がれたので、
 
-* DB: `circle_test`
-* ユーザ: `ubuntu`
-* パスワード: なし
+- DB: `circle_test`
+- ユーザ: `ubuntu`
+- パスワード: なし
 
 でアクセスできました。
 新しい DB, ユーザを作るコマンドを組み込んでもいいと思う。
@@ -102,13 +102,13 @@ dependencies:
 
 実際に CircleCI で回したコードと結果です。
 
-* [akihyro/mysql56-in-circleci - GitHub](https://github.com/akihyro/mysql56-in-circleci)
-* [akihyro/mysql56-in-circleci - CircleCI](https://circleci.com/gh/akihyro/mysql56-in-circleci/9)
+- [akihyro/mysql56-in-circleci - GitHub](https://github.com/akihyro/mysql56-in-circleci)
+- [akihyro/mysql56-in-circleci - CircleCI](https://circleci.com/gh/akihyro/mysql56-in-circleci/9)
 
 ## 参考
 
-* [CircleCI で MySQL 5.6 を使う方法 - リア充爆発日記](http://ria10.hatenablog.com/entry/20150217/1424135330)
-* [Want to use MySQL 5.6 at CircleCI? (Faster version) - Qiita](http://qiita.com/k12u/items/e00870174ec63489f2b0)
-* [Installing MySQL on Linux Using Debian Packages from Oracle - MySQL 5.6 Reference Manual](http://dev.mysql.com/doc/refman/5.6/en/linux-installation-debian.html)
-* [How do I use mysql 5.6? - CircleCI](https://circleci.com/docs/faq#how-do-i-use-mysql-5-6-)
-* [Test environment - CircleCI](https://circleci.com/docs/environment)
+- [CircleCI で MySQL 5.6 を使う方法 - リア充爆発日記](http://ria10.hatenablog.com/entry/20150217/1424135330)
+- [Want to use MySQL 5.6 at CircleCI? (Faster version) - Qiita](http://qiita.com/k12u/items/e00870174ec63489f2b0)
+- [Installing MySQL on Linux Using Debian Packages from Oracle - MySQL 5.6 Reference Manual](http://dev.mysql.com/doc/refman/5.6/en/linux-installation-debian.html)
+- [How do I use mysql 5.6? - CircleCI](https://circleci.com/docs/faq#how-do-i-use-mysql-5-6-)
+- [Test environment - CircleCI](https://circleci.com/docs/environment)

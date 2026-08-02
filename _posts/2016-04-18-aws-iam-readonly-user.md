@@ -43,13 +43,13 @@ Readonly グループに加えます。
 以降、次のポリシーに分けてグループに追加していきます。
 不要なものは読み飛ばしてください。
 
-* 各サービスの情報の参照
-* 請求情報の参照
-* 自身のパスワードの変更 (認証情報ページからの変更)
-* 自身のパスワードの変更 (ユーザーページからの変更)
-* 自身のアクセスキーの変更
-* 自身の MFA デバイスの変更
-* 自身の SSH キーの変更
+- 各サービスの情報の参照
+- 請求情報の参照
+- 自身のパスワードの変更 (認証情報ページからの変更)
+- 自身のパスワードの変更 (ユーザーページからの変更)
+- 自身のアクセスキーの変更
+- 自身の MFA デバイスの変更
+- 自身の SSH キーの変更
 
 ## 各サービスの情報の参照
 
@@ -105,15 +105,15 @@ Readonly グループに加えます。
 > 次の \[Billing and Cost Management\] コンソールページを表示する権限を
 > IAM ユーザーに与えるか拒否します。
 > 
-> * 請求ダッシュボード
-> * 請求書
-> * コストエクスプローラー
-> * 予算
-> * 支払履歴
-> * 一括請求
-> * 設定
-> * Credits
-> * 前払い（前払いの詳細については、「一括請求について」を参照してください。）
+> - 請求ダッシュボード
+> - 請求書
+> - コストエクスプローラー
+> - 予算
+> - 支払履歴
+> - 一括請求
+> - 設定
+> - Credits
+> - 前払い（前払いの詳細については、「一括請求について」を参照してください。）
 > 
 > **ViewAccount**
 > 
@@ -339,10 +339,10 @@ Readonly グループに次のインラインポリシーを追加すれば OK �
 
 ## 参考
 
-* [AWS Identity and Access Management](http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/introduction.html)
-* [AWS 請求情報とコスト管理](https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/billing-what-is.html)
-* [[AWS] 閲覧のみ(Read Only) IAMユーザの作り方 - Developers.IO](http://dev.classmethod.jp/etc/create_readonly_iamuser/)
-* [【IAM】リードオンリーのユーザーにパスワード変更を許可する方法について - Developers.IO](http://dev.classmethod.jp/cloud/aws/iam-allow-users-to-change-own-password/)
+- [AWS Identity and Access Management](http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/introduction.html)
+- [AWS 請求情報とコスト管理](https://docs.aws.amazon.com/ja_jp/awsaccountbilling/latest/aboutv2/billing-what-is.html)
+- [[AWS] 閲覧のみ(Read Only) IAMユーザの作り方 - Developers.IO](http://dev.classmethod.jp/etc/create_readonly_iamuser/)
+- [【IAM】リードオンリーのユーザーにパスワード変更を許可する方法について - Developers.IO](http://dev.classmethod.jp/cloud/aws/iam-allow-users-to-change-own-password/)
 
 <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=akkinoc.dev-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=4822277372&linkId=58d993e8d919689e518b47783d17fdbe"></iframe>
 <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=akkinoc.dev-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=4822277364&linkId=7760138a426630d8671941d0e89234a6"></iframe>

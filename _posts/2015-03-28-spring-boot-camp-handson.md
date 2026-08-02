@@ -39,30 +39,30 @@ duke で kusokora するアプリを作りました。
 
 ## 使った技術
 
-* OpenCV
-  * 画像変換のライブラリ。
-  * duke の描画に使いました。
-* JMS
-  * Java のメッセージング API.
-  * 画像変換を非同期で開始する為に使いました。
-  * ブラウザからリクエストを受けたらメッセージ送信だけしてレスポンスは即返却。
-  * メッセージを受ける側では、画像変換処理を行いました。
-* STOMP
-  * Simple (or Streaming) Text Orientated Messaging Protocol.
-  * こちらもメッセージング。
-  * ブラウザ ⇔ サーバとの通信で使いました。
-  * ブラウザ側でメッセージを subscribe, 変換結果の画像を受けとって描画しました。
-* WebRTC
-  * リアルタイムコミュニケーション用 API.
-  * ブラウザでのカメラアクセスに使いました。
-  * 撮影した画像は STOMP でサーバへ送信しました。
+- OpenCV
+  - 画像変換のライブラリ。
+  - duke の描画に使いました。
+- JMS
+  - Java のメッセージング API.
+  - 画像変換を非同期で開始する為に使いました。
+  - ブラウザからリクエストを受けたらメッセージ送信だけしてレスポンスは即返却。
+  - メッセージを受ける側では、画像変換処理を行いました。
+- STOMP
+  - Simple (or Streaming) Text Orientated Messaging Protocol.
+  - こちらもメッセージング。
+  - ブラウザ ⇔ サーバとの通信で使いました。
+  - ブラウザ側でメッセージを subscribe, 変換結果の画像を受けとって描画しました。
+- WebRTC
+  - リアルタイムコミュニケーション用 API.
+  - ブラウザでのカメラアクセスに使いました。
+  - 撮影した画像は STOMP でサーバへ送信しました。
 
 Spring Boot があまり出てきません。噂通り影が薄かったです。
 けど、
 
-* 簡単に HTTP リクエストを捌けたり。
-* JMS や STOMP を使えるようにしてくれたり。
-* DI コンテナを提供してくれたり。
+- 簡単に HTTP リクエストを捌けたり。
+- JMS や STOMP を使えるようにしてくれたり。
+- DI コンテナを提供してくれたり。
 
 裏方で頑張ってくれるとてもいい子でした。
 
@@ -98,10 +98,10 @@ Spring Boot は日々使ってるけど、
 
 ## リンク
 
-* [【東京】JJUG ナイト・セミナー「中上級者向け！Spring Bootハンズオン！」3/25(水)開催 - 日本Javaユーザーグループ](http://www.java-users.jp/?p=1700)
-* [Spring Bootキャンプ ハンズオン資料](http://spring-boot-camp.readthedocs.org/ja/latest)
-* [Spring Bootキャンプ@関ジャバでハンズオンをやってきました #kanjava_sbc - BLOG.IK.AM](http://blog.ik.am/#/entries/326)
-* [Spring Bootキャンプをやった #kanjava_sbc - 裏紙](http://backpaper0.github.io/2015/03/08/spring_boot_camp.html)
-* [Spring Boot キャンプハンズオンに参加してきた！ #kanjava_sbc - Mitsuyuki.Shiiba](http://bufferings.hatenablog.com/entry/2015/03/08/124740)
-* [Sping Boot キャンプに入隊してきました！！ - シスアーキ in はてな](http://kozake.hatenablog.com/entry/2015/03/09/233242)
-* [Spring Boot キャンプ予習メモ - Java EE 事始め！](http://masatoshitada.hatenadiary.jp/entry/2015/03/13/070656)
+- [【東京】JJUG ナイト・セミナー「中上級者向け！Spring Bootハンズオン！」3/25(水)開催 - 日本Javaユーザーグループ](http://www.java-users.jp/?p=1700)
+- [Spring Bootキャンプ ハンズオン資料](http://spring-boot-camp.readthedocs.org/ja/latest)
+- [Spring Bootキャンプ@関ジャバでハンズオンをやってきました #kanjava_sbc - BLOG.IK.AM](http://blog.ik.am/#/entries/326)
+- [Spring Bootキャンプをやった #kanjava_sbc - 裏紙](http://backpaper0.github.io/2015/03/08/spring_boot_camp.html)
+- [Spring Boot キャンプハンズオンに参加してきた！ #kanjava_sbc - Mitsuyuki.Shiiba](http://bufferings.hatenablog.com/entry/2015/03/08/124740)
+- [Sping Boot キャンプに入隊してきました！！ - シスアーキ in はてな](http://kozake.hatenablog.com/entry/2015/03/09/233242)
+- [Spring Boot キャンプ予習メモ - Java EE 事始め！](http://masatoshitada.hatenadiary.jp/entry/2015/03/13/070656)

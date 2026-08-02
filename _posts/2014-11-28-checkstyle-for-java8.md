@@ -18,13 +18,13 @@ Java 8 対応のバージョンになるのも時間の問題だろうけど、
 
 ## 環境
 
-* Eclipse:
-  * Pleiades All in One 4.4.1.v20140926
-  * Eclipse 4.4.0 Luna ルナ SR1 for Windows ベース
-  * Checkstyle プラグイン 5.7
-* Maven:
-  * Apache Maven 3.2.3
-  * Maven CheckStyle Plugin 2.13 (CheckStyle 5.7)
+- Eclipse:
+  - Pleiades All in One 4.4.1.v20140926
+  - Eclipse 4.4.0 Luna ルナ SR1 for Windows ベース
+  - Checkstyle プラグイン 5.7
+- Maven:
+  - Apache Maven 3.2.3
+  - Maven CheckStyle Plugin 2.13 (CheckStyle 5.7)
 
 ## エラー内容
 

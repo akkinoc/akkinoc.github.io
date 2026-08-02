@@ -23,12 +23,12 @@ Jekyll でビルド + GitHub Pages でホストする形へ移転しました。
 
 下記の条件を満たしたくて、 GitHub Pages + 静的サイトジェネレータにしました。
 
-* 記事を Markdown で書きたい
-* 記事や画像や設定などを GitHub で管理したい
-* 独自ドメインを使いたい
-* JS/CSS をカスタムして遊びたい
-* ホスティング料金を抑えたい
-* HTTPS (SSL), レスポンシブは必須 (今時ないとこないと思うけど)
+- 記事を Markdown で書きたい
+- 記事や画像や設定などを GitHub で管理したい
+- 独自ドメインを使いたい
+- JS/CSS をカスタムして遊びたい
+- ホスティング料金を抑えたい
+- HTTPS (SSL), レスポンシブは必須 (今時ないとこないと思うけど)
 
 他にも note や Zenn も候補だったのですが、全て満たすのが GitHub Pages でした。
 あと、ドメインに新しめの TLD を使ってみたくて、 ".dev" を選びました。
@@ -41,23 +41,23 @@ Hugo に好みのテーマが育つか、気分が変わったら乗り換える
 
 ＊今回使った Jekyll テーマ:
 
-* [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
+- [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
 
 ＊気になってる Hugo テーマ:
 
-* [Academic](https://themes.gohugo.io/academic/)
-* [LoveIt](https://themes.gohugo.io/loveit/)
-* [Hermit](https://themes.gohugo.io/hermit/)
+- [Academic](https://themes.gohugo.io/academic/)
+- [LoveIt](https://themes.gohugo.io/loveit/)
+- [Hermit](https://themes.gohugo.io/hermit/)
 
 ## できたこと
 
 色々と最新の Web 技術も調べながらやってたので、
 
-* OGP
-* Web Application Manifest
-* Well-known URIs
-* Google Search Console
-* Google Analytics
+- OGP
+- Web Application Manifest
+- Well-known URIs
+- Google Search Console
+- Google Analytics
 
 など、古くなってた知識をアップデートもできて、なかなか楽しかったです。
 

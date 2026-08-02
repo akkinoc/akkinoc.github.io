@@ -17,8 +17,8 @@ Maven Central Repository への公開方法を知っておきたくて、
 
 ## 環境
 
-* CentOS 6.7
-* Apache Maven 3.3.3
+- CentOS 6.7
+- Apache Maven 3.3.3
 
 ## 公開したもの
 
@@ -30,13 +30,13 @@ Maven Central Repository への公開方法を知っておきたくて、
 
 公式ドキュメントと以下の記事を参考にさせて頂きました。
 
-* 公式ドキュメント
-  * [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html)
-  * [Requirements](http://central.sonatype.org/pages/requirements.html)
-  * [Apache Maven](http://central.sonatype.org/pages/apache-maven.html)
-* [はじめての maven central 公開 - たごもりすメモ](http://tagomoris.hatenablog.com/entry/20141028/1414485679)
-* [GitHub で公開したソースコードを Maven Central Repository に登録する手順 - Tagbangers Blog](https://blog.tagbangers.co.jp/ja/2015/02/27/to-register-the-source-code-that-was-published-in-github-to-maven-central-repository)
-* [【最新版】Maven Central Repository へのライブラリ登録方法 #maven - #侍ズム](http://samuraism.jp/diary/2012/05/03/1336047480000.html)
+- 公式ドキュメント
+  - [OSSRH Guide](http://central.sonatype.org/pages/ossrh-guide.html)
+  - [Requirements](http://central.sonatype.org/pages/requirements.html)
+  - [Apache Maven](http://central.sonatype.org/pages/apache-maven.html)
+- [はじめての maven central 公開 - たごもりすメモ](http://tagomoris.hatenablog.com/entry/20141028/1414485679)
+- [GitHub で公開したソースコードを Maven Central Repository に登録する手順 - Tagbangers Blog](https://blog.tagbangers.co.jp/ja/2015/02/27/to-register-the-source-code-that-was-published-in-github-to-maven-central-repository)
+- [【最新版】Maven Central Repository へのライブラリ登録方法 #maven - #侍ズム](http://samuraism.jp/diary/2012/05/03/1336047480000.html)
 
 以降、俺俺メモ。
 

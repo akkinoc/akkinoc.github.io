@@ -133,4 +133,4 @@ AWS リソースは CloudFormation テンプレートで構築しました。
 
 ## 参考
 
-* [AWS Batch での AWS Fargate - AWS Batch ユーザーガイド](https://docs.aws.amazon.com/ja_jp/batch/latest/userguide/fargate.html)
+- [AWS Batch での AWS Fargate - AWS Batch ユーザーガイド](https://docs.aws.amazon.com/ja_jp/batch/latest/userguide/fargate.html)
