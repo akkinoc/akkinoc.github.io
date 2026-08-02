@@ -41,7 +41,7 @@ CircleCI に MySQL 5.6.23 をインストールする方法をまとめました
 
 こんな `circle.yml` でいけました。
 
-```yaml
+```yml
 machine:
   environment:
     DEBIAN_FRONTEND: noninteractive

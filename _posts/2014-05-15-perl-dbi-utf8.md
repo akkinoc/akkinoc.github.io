@@ -30,7 +30,7 @@ DBI のサブクラス化についてはこのあたり参照:
 
 ### hoge.pl
 
-```perl
+```pl
 #!/usr/bin/env perl
 
 use strict;
@@ -39,18 +39,18 @@ use DBI;
 use MySubDBI; # DBIサブクラス
 
 my $dbh = DBI->connect("dbi:Oracle:localhost",
-  "scott", "tiger", { RootClass => "MySubDBI" });
+    "scott", "tiger", { RootClass => "MySubDBI" });
 my $sth = $dbh->prepare("SELECT 'ほげ' AS HOGE FROM DUAL");
 $sth->execute;
 while (my $row = $sth->fetchrow_hashref) {
-  print $row->{HOGE}."ほげ\n";
+    print $row->{HOGE}."ほげ\n";
 }
 # => ほげほげ
 ```
 
 ### MySubDBI.pm
 
-```perl
+```pl
 use strict;
 use warnings;
 use Encode;
@@ -65,9 +65,9 @@ package MySubDBI::st;
 use base qw(DBI::st);
 
 sub fetch {
-  my ($self, @args) = @_;
-  my $row = $self->SUPER::fetch(@args) || return;
-  [ map { Encode::is_utf8($_) ? Encode::encode_utf8($_) : $_ } @$row ];
+    my ($self, @args) = @_;
+    my $row = $self->SUPER::fetch(@args) || return;
+    [ map { Encode::is_utf8($_) ? Encode::encode_utf8($_) : $_ } @$row ];
 }
 
 1;
@@ -75,7 +75,7 @@ sub fetch {
 
 ## 元のコード (utf8 フラグがついてきてしまう版)
 
-```perl
+```pl
 #!/usr/bin/env perl
 
 use strict;
@@ -86,7 +86,7 @@ my $dbh = DBI->connect("dbi:Oracle:localhost", "scott", "tiger");
 my $sth = $dbh->prepare("SELECT 'ほげ' AS HOGE FROM DUAL");
 $sth->execute;
 while (my $row = $sth->fetchrow_hashref) {
-  print $row->{HOGE}."ほげ\n";
+    print $row->{HOGE}."ほげ\n";
 }
 # => Wide character in print at ./hoge.pl line 11.
 #    ほげã�»ã�� (文字化け)

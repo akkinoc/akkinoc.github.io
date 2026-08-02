@@ -17,13 +17,13 @@ header:
 
 `cell_addr` に文字列を入れて実行すると行番号と列番号が取れる。
 
-```ruby
+```rb
 [cell_addr[/\d+/].to_i,cell_addr[/[A-Z]+/].chars.inject(0){|a,b|a*26+('A'..'Z').find_index(b)+1}]
 ```
 
 メソッド化して使うとこんな感じ。
 
-```ruby
+```rb
 def cell_addr_str_to_num(cell_addr)
   [cell_addr[/\d+/].to_i,cell_addr[/[A-Z]+/].chars.inject(0){|a,b|a*26+('A'..'Z').find_index(b)+1}]
 end
@@ -41,13 +41,13 @@ col                           # => 2
 
 `row`, `col` に数値を入れて実行すると文字列が取れる。
 
-```ruby
+```rb
 col.to_s(26).chars.map{|a|('A'..'Z').to_a[a.to_i(26)-1]}.join+row.to_s
 ```
 
 メソッド化して使うとこんな感じ。
 
-```ruby
+```rb
 def cell_addr_num_to_str(row, col)
   col.to_s(26).chars.map{|a|('A'..'Z').to_a[a.to_i(26)-1]}.join+row.to_s
 end

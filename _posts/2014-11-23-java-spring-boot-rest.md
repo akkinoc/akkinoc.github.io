@@ -99,9 +99,9 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan
 @EnableAutoConfiguration
 public class Application {
-  public static void main(String[] args) {
-    SpringApplication.run(Application.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 }
 ```
 
@@ -124,9 +124,9 @@ import lombok.Data;
 
 @Data @XmlRootElement
 public class HogeData {
-  private Integer integer;
-  private String string;
-  private List<String> strings;
+    private Integer integer;
+    private String string;
+    private List<String> strings;
 }
 ```
 
@@ -156,25 +156,25 @@ import lombok.val;
 @RestController
 @RequestMapping("/hoges")
 public class HogeController {
-  private static List<HogeData> store = new ArrayList<HogeData>();
+    private static List<HogeData> store = new ArrayList<HogeData>();
 
-  @RequestMapping(method = RequestMethod.POST)
-  public ResponseEntity<HogeData> post(@ModelAttribute HogeData data, UriComponentsBuilder uriComponentsBuilder) {
-    store.add(data);
-    val headers = new HttpHeaders();
-    headers.setLocation(uriComponentsBuilder.path("/hoges/{id}").buildAndExpand(store.size()).toUri());
-    return new ResponseEntity<HogeData>(data, headers, HttpStatus.CREATED);
-  }
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<HogeData> post(@ModelAttribute HogeData data, UriComponentsBuilder uriComponentsBuilder) {
+        store.add(data);
+        val headers = new HttpHeaders();
+        headers.setLocation(uriComponentsBuilder.path("/hoges/{id}").buildAndExpand(store.size()).toUri());
+        return new ResponseEntity<HogeData>(data, headers, HttpStatus.CREATED);
+    }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public List<HogeData> get() {
-    return store;
-  }
+    @RequestMapping(method = RequestMethod.GET)
+    public List<HogeData> get() {
+        return store;
+    }
 
-  @RequestMapping(value = "{id}", method = RequestMethod.GET)
-  public HogeData get(@PathVariable int id) {
-    return store.get(id - 1);
-  }
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    public HogeData get(@PathVariable int id) {
+        return store.get(id - 1);
+    }
 
 }
 ```

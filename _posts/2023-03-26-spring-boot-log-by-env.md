@@ -64,12 +64,12 @@ JSON 出力する場合は [logstash-logback-encoder] を使うのが楽なの�
 
 環境ごとの設定ファイル `application(-{環境名}).yml` をクラスパスルートに作成します。
 
-```yaml
+```yml
 # application.yml (デフォルト, ローカル開発時用)
 app.log.appender: console-text
 ```
 
-```yaml
+```yml
 # application-prod.yml (本番実行時用)
 app.log.appender: console-json
 ```
@@ -156,7 +156,7 @@ $ APP_LOG_APPENDER=console-json mvn spring-boot:run
 
 `application.yml`, `logback-spring.xml`, どちらでも設定できます。
 
-```yaml
+```yml
 # application.yml
 logging.level.your.package=debug
 logging.level.root=warn
@@ -181,7 +181,7 @@ Spring Property `logging.pattern.console` が用意されてます。
 
 [Logback Manual: PatternLayout]: https://logback.qos.ch/manual/layouts.html#ClassicPatternLayout
 
-```yaml
+```yml
 # application.yml
 logging.pattern.console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] [%c{30}] %m - %C.%M \\(%F:%L\\)%n%ex"
 ```

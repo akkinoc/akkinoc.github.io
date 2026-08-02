@@ -46,30 +46,30 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)
 
 ```java
 public static void main(String[] args) throws Exception {
-  Runnable lambda = (Runnable & Serializable) () -> System.out.println("hoge");
+    Runnable lambda = (Runnable & Serializable) () -> System.out.println("hoge");
 
-  byte[] bytes = serialize(lambda);
-  Runnable lambda2 = deserialize(bytes);
+    byte[] bytes = serialize(lambda);
+    Runnable lambda2 = deserialize(bytes);
 
-  System.out.println(lambda);     // Hoge$$Lambda$1/868693306@1fb3ebeb
-  lambda.run();                   // hoge
-  System.out.println(lambda2);    // Hoge$$Lambda$2/2003749087@4eec7777
-  lambda2.run();                  // hoge
+    System.out.println(lambda);     // Hoge$$Lambda$1/868693306@1fb3ebeb
+    lambda.run();                   // hoge
+    System.out.println(lambda2);    // Hoge$$Lambda$2/2003749087@4eec7777
+    lambda2.run();                  // hoge
 }
 
 static byte[] serialize(Object object) throws Exception {
-  try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      ObjectOutputStream oos = new ObjectOutputStream(baos)) {
-    oos.writeObject(object);
-    return baos.toByteArray();
-  }
+    try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos)) {
+        oos.writeObject(object);
+        return baos.toByteArray();
+    }
 }
 
 static <T> T deserialize(byte[] bytes) throws Exception {
-  try (ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-      ObjectInputStream ois = new ObjectInputStream(bais)) {
-    return (T) ois.readObject();
-  }
+    try (ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+            ObjectInputStream ois = new ObjectInputStream(bais)) {
+        return (T) ois.readObject();
+    }
 }
 ```
 
@@ -89,21 +89,21 @@ Runnable lambda = (Runnable & Serializable) () -> System.out.println(hoge);
 
 ```java
 public static void main(String[] args) throws Exception {
-  Map<String, String> hoge = new HashMap<>();
-  hoge.put("a", "x");
-  Runnable lambda = (Runnable & Serializable) () -> System.out.println(hoge);
+    Map<String, String> hoge = new HashMap<>();
+    hoge.put("a", "x");
+    Runnable lambda = (Runnable & Serializable) () -> System.out.println(hoge);
 
-  hoge.put("b", "y");
+    hoge.put("b", "y");
 
-  byte[] bytes = serialize(lambda);
-  Runnable lambda2 = deserialize(bytes);
+    byte[] bytes = serialize(lambda);
+    Runnable lambda2 = deserialize(bytes);
 
-  hoge.put("c", "z");
+    hoge.put("c", "z");
 
-  System.out.println(lambda);     // Hoge$$Lambda$1/868693306@1c20c684
-  lambda.run();                   // {a=x, b=y, c=z}
-  System.out.println(lambda2);    // Hoge$$Lambda$2/1149319664@7cca494b
-  lambda2.run();                  // {a=x, b=y}
+    System.out.println(lambda);     // Hoge$$Lambda$1/868693306@1c20c684
+    lambda.run();                   // {a=x, b=y, c=z}
+    System.out.println(lambda2);    // Hoge$$Lambda$2/1149319664@7cca494b
+    lambda2.run();                  // {a=x, b=y}
 }
 ```
 
@@ -116,8 +116,8 @@ Cloneable にも出来ちゃいました。
 
 ```java
 public static void main(String[] args) throws Exception {
-  Runnable lambda = (Runnable & Cloneable) () -> System.out.println("hoge");
-  System.out.println(lambda instanceof Cloneable);    // true
+    Runnable lambda = (Runnable & Cloneable) () -> System.out.println("hoge");
+    System.out.println(lambda instanceof Cloneable);    // true
 }
 ```
 
@@ -127,18 +127,18 @@ public static void main(String[] args) throws Exception {
 
 ```java
 public static void main(String[] args) throws Exception {
-  Runnable lambda = (Runnable & Cloneable) () -> System.out.println("hoge");
-  Runnable lambda2 = cloneForce(lambda);
-  System.out.println(lambda);     // Hoge$$Lambda$1/455659002@4c873330
-  lambda.run();                   // hoge
-  System.out.println(lambda2);    // Hoge$$Lambda$1/455659002@119d7047
-  lambda2.run();                  // hoge
+    Runnable lambda = (Runnable & Cloneable) () -> System.out.println("hoge");
+    Runnable lambda2 = cloneForce(lambda);
+    System.out.println(lambda);     // Hoge$$Lambda$1/455659002@4c873330
+    lambda.run();                   // hoge
+    System.out.println(lambda2);    // Hoge$$Lambda$1/455659002@119d7047
+    lambda2.run();                  // hoge
 }
 
 static <T> T cloneForce(T object) throws Exception {
-  Method clone = Object.class.getDeclaredMethod("clone");
-  clone.setAccessible(true);
-  return (T) clone.invoke(object);
+    Method clone = Object.class.getDeclaredMethod("clone");
+    clone.setAccessible(true);
+    return (T) clone.invoke(object);
 }
 ```
 
@@ -147,16 +147,16 @@ Serializable と同じように、状態を持つ外部変数も使ってみた�
 
 ```java
 public static void main(String[] args) throws Exception {
-  Map<String, String> hoge = new HashMap<>();
-  hoge.put("a", "x");
-  Runnable lambda = (Runnable & Cloneable) () -> System.out.println(hoge);
-  hoge.put("b", "y");
-  Runnable lambda2 = cloneForce(lambda);
-  hoge.put("c", "z");
-  System.out.println(lambda);     // Hoge$$Lambda$1/455659002@7229724f
-  lambda.run();                   // {a=x, b=y, c=z}
-  System.out.println(lambda2);    // Hoge$$Lambda$1/455659002@4c873330
-  lambda2.run();                  // {a=x, b=y, c=z}
+    Map<String, String> hoge = new HashMap<>();
+    hoge.put("a", "x");
+    Runnable lambda = (Runnable & Cloneable) () -> System.out.println(hoge);
+    hoge.put("b", "y");
+    Runnable lambda2 = cloneForce(lambda);
+    hoge.put("c", "z");
+    System.out.println(lambda);     // Hoge$$Lambda$1/455659002@7229724f
+    lambda.run();                   // {a=x, b=y, c=z}
+    System.out.println(lambda2);    // Hoge$$Lambda$1/455659002@4c873330
+    lambda2.run();                  // {a=x, b=y, c=z}
 }
 ```
 

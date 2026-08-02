@@ -17,7 +17,7 @@ git diff が見にくいので、自動的に native2ascii で変換するよう
 attributesfile のパスを設定する。
 設定済みな場合は自分の環境に適宜読み換えで。
 
-```shell
+```sh
 git config --global core.attributesfile "~/.gitattributes"
 ```
 
@@ -25,7 +25,7 @@ git config --global core.attributesfile "~/.gitattributes"
 
 `*.properties` を追加。
 
-```shell
+```sh
 echo '*.properties diff=properties' >>~/.gitattributes
 ```
 
@@ -33,7 +33,7 @@ echo '*.properties diff=properties' >>~/.gitattributes
 
 差分を取るとき、 `native2ascii -reverse` をかますように設定。
 
-```shell
+```sh
 git config --global diff.properties.textconv "/usr/java/default/bin/native2ascii -reverse"
 ```
 

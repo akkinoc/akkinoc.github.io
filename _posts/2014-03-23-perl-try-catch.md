@@ -18,11 +18,11 @@ header:
 既存のコードをコピーして try-catch を書いたところ、
 正常な処理なのに catch の中まで動いてはまりました。
 
-```perl
+```pl
 try {
-  print "try\n";
+    print "try\n";
 } catch {
-  print "catch\n";  # ここも動く
+    print "catch\n";  # ここも動く
 }
 ```
 
@@ -46,10 +46,10 @@ Can't call method "catch" without a package or object reference at - line 3.
 Try::Tiny の仕組みは少し考えれば予想はついたし、ググれば出てきた。
 こんな括弧や sub が省略されてるんだろうな。
 
-```perl
+```pl
 use Try::Tiny;
 try (
-  sub { print "try\n"; },
-  catch ( sub { print "catch\n"; } )
+    sub { print "try\n"; },
+    catch ( sub { print "catch\n"; } )
 );
 ```

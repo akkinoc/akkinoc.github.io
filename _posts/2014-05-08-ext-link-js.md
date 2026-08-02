@@ -20,7 +20,7 @@ JavaScript で対応することになるのだけど、
 DOM Ready をトリガーに、対象の要素に対して `target="_blank"` をセットしていく。
 属性セレクタで自サイトのホスト名を含まないリンクを対象にしてる。
 
-```javascript
+```js
 $(function() {
   $("a[href^=http]:not([href*='" + location.hostname + "'])").attr("target", "_blank");
 });
@@ -43,7 +43,7 @@ Ajax 等で DOM Ready より後に追加されたリンクに対応出来ない�
 リンククリックをトリガーに、 window まで伝搬されたイベントを拾って対応してる。
 a 要素を検索しない分、大きなページでは表示も高速化するかもしれない (未確認)。
 
-```javascript
+```js
 $(window).click(function(event) {
   var target = $(event.target);
   if (!target.is("a")) {

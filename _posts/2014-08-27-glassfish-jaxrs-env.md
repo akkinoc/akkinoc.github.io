@@ -57,7 +57,7 @@ OS name: "linux", version: "2.6.32-431.23.3.el6.x86_64", arch: "amd64", family: 
 
 Chef レシピで書くならこんな感じかなー。
 
-```ruby
+```rb
 remote_file '/tmp/apache-maven-3.2.2-bin.tar.gz' do
   source 'http://ftp.meisei-u.ac.jp/mirror/apache/dist/maven/maven-3/3.2.2/binaries/apache-maven-3.2.2-bin.tar.gz'
   checksum 'cce5914cf8797671fc6e10c4e034b453d854edf711cbc664b478d0f04934cb76'
@@ -101,7 +101,7 @@ Command version executed successfully.
 
 Chef レシピはこんな感じかなー。
 
-```ruby
+```rb
 remote_file '/tmp/glassfish-4.0.1-b10.zip' do
   source 'http://dlc.sun.com.edgesuite.net/glassfish/4.0.1/promoted/glassfish-4.0.1-b10.zip'
   checksum '11f9440739cd96aad9f0032152718682afdc69c4ce817210f8e74a106ae9a20d'
@@ -244,8 +244,8 @@ GlassFish には Java EE が載ってるので、 `scope` は `provided` で。
 
 ```xml
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>

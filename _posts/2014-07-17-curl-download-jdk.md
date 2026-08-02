@@ -28,7 +28,7 @@ Oracle JDK のダウンロードはライセンス同意のチェックが厄介
 
 ### JDK7 (Java SE Development Kit 7u65 - Linux x64)
 
-```shell
+```sh
 curl -L -o /tmp/jdk-7u65-linux-x64.rpm \
   -H 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com; oraclelicense=accept-securebackup-cookie' \
   'http://download.oracle.com/otn-pub/java/jdk/7u65-b17/jdk-7u65-linux-x64.rpm'
@@ -36,7 +36,7 @@ curl -L -o /tmp/jdk-7u65-linux-x64.rpm \
 
 ### JDK8 (Java SE Development Kit 8u11 - Linux x64)
 
-```shell
+```sh
 curl -L -o /tmp/jdk-8u11-linux-x64.rpm \
   -H 'Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com; oraclelicense=accept-securebackup-cookie' \
   'http://download.oracle.com/otn-pub/java/jdk/8u11-b12/jdk-8u11-linux-x64.rpm'
@@ -46,7 +46,7 @@ curl -L -o /tmp/jdk-8u11-linux-x64.rpm \
 
 ついでにインストール。普通に rpm を回す。
 
-```shell
+```sh
 rpm -ivh /tmp/jdk-7u65-linux-x64.rpm
 ```
 
@@ -58,7 +58,7 @@ rpm -ivh /tmp/jdk-7u65-linux-x64.rpm
 [Opscode の Cookbook]: http://community.opscode.com/cookbooks/java
 [socrata-cookbooks/java]: https://github.com/socrata-cookbooks/java
 
-```ruby
+```rb
 bash '/tmp/jdk-7u65-linux-x64.rpm' do
   not_if "test -f /tmp/jdk-7u65-linux-x64.rpm"
   code <<-EOC

@@ -46,14 +46,14 @@ Jersey では `org.glassfish.jersey.server.filter.UriConnegFilter` で楽に実�
 
 ```java
 public class TryRestApplication extends ResourceConfig {
-  public TryRestApplication() {
-    packages(TryRestApplication.class.getPackage().getName());
-    // URL拡張子とコンテンツタイプのマッピング
-    Map<String, MediaType> mappings = new HashMap<>();
-    mappings.put("xml", MediaType.APPLICATION_XML_TYPE);
-    mappings.put("json", MediaType.APPLICATION_JSON_TYPE);
-    property(ServerProperties.MEDIA_TYPE_MAPPINGS, mappings);
-  }
+    public TryRestApplication() {
+        packages(TryRestApplication.class.getPackage().getName());
+        // URL拡張子とコンテンツタイプのマッピング
+        Map<String, MediaType> mappings = new HashMap<>();
+        mappings.put("xml", MediaType.APPLICATION_XML_TYPE);
+        mappings.put("json", MediaType.APPLICATION_JSON_TYPE);
+        property(ServerProperties.MEDIA_TYPE_MAPPINGS, mappings);
+    }
 }
 ```
 

@@ -79,15 +79,15 @@ Sequence で同じことができて、更に便利関数も揃っていて良�
 ```kotlin
 // 3 の倍数と 3 のつく数を強調
 val a = generateSequence(1) { it + 1 }
-  .map { if (it % 3 == 0 || '3' in "$it") "$it!" else "$it" }
-  .take(35)
-  .toList()
+    .map { if (it % 3 == 0 || '3' in "$it") "$it!" else "$it" }
+    .take(35)
+    .toList()
 println(a)  // [1, 2, 3!, 4, 5, 6!, 7, 8, 9!, 10, 11, 12!, 13!, ..., 35!]
 // 強調された数を抽出
 val b = a.asSequence()
-  .filter { '!' in it }
-  .map { it.trim('!') }
-  .toList()
+    .filter { '!' in it }
+    .map { it.trim('!') }
+    .toList()
 println(b)  // [3, 6, 9, 12, 13, 15, 18, 21, 23, 24, 27, 30, 31, 32, 33, 34, 35]
 ```
 

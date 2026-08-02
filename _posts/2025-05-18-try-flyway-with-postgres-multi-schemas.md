@@ -25,7 +25,7 @@ header:
 
 スキーマ作成する初期化スクリプト (`/docker-entrypoint-initdb.d`) をマウントすれば良い。
 
-```yaml
+```yml
 # docker-compose.yml
 services:
   postgres:

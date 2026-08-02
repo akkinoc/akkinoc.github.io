@@ -26,7 +26,7 @@ java コマンドがないという罠にはまったのでメモ。
 こんなファイルを用意。
 ここでは便宜上バージョン確認のみ。
 
-```ruby
+```rb
 task :default do
   sh "java -version"
 end

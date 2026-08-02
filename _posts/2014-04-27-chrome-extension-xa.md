@@ -66,7 +66,7 @@ header:
 
 ### content.js
 
-```javascript
+```js
 // xa と書いて草と読む
 
 // 草の生え具合を調整する定数

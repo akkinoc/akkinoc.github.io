@@ -51,7 +51,7 @@ AWS API のリクエスト発行を自前で実装するにしても、
 2. `AWS.init(...)` を呼び出して初期設定。
 3. `AWS.request(...)` で AWS API リクエストを発行。
 
-> ```javascript
+> ```js
 > function myFunction() {
 >   AWS.init("MY_ACCESS_KEY", "MY_SECRET_KEY");
 >   var instanceXML = AWS.request('ec2', 'us-east-1', 'DescribeInstances', {"Version":"2015-10-01"});
@@ -108,7 +108,7 @@ HTTP 404 エラーになってしまったので、こちらも注意です。
 EC2 インスタンス ID の一覧を出力する例です。
 ※ページングは考慮してません。件数が多いと一部しか出力されません。
 
-```javascript
+```js
 function EC2DescribeInstances() {
   const res = AWS.request(
     'ec2',
@@ -136,7 +136,7 @@ function EC2DescribeInstances() {
 
 S3 にオブジェクトをアップロードする例です。
 
-```javascript
+```js
 function S3PutObject() {
   const bucket = 'my-bucket'
   const key = 'my-content.txt'
@@ -163,7 +163,7 @@ function S3PutObject() {
 
 S3 からオブジェクトをダウンロードする例です。
 
-```javascript
+```js
 function S3GetObject() {
   const bucket = 'my-bucket'
   const key = 'my-content.txt'
@@ -189,7 +189,7 @@ function S3GetObject() {
 
 DynamoDB テーブルにアイテムを登録する例です。
 
-```javascript
+```js
 function DynamoDBPutItem() {
   const table = 'my_table'
   const item = { id: { S: 'my-item' } }
@@ -216,7 +216,7 @@ function DynamoDBPutItem() {
 
 [Roche が Google スプレッドシートと Amazon Redshift Data API で データへのアクセスを民主化した方法 - Amazon Web Services ブログ](https://aws.amazon.com/jp/blogs/news/how-roche-democratized-access-to-data-with-google-sheets-and-amazon-redshift-data-api/)
 
-> ```javascript
+> ```js
 > var resultJson = AWS.request(
 >   getTypeAWS_(),
 >   getLocationAWS_(),

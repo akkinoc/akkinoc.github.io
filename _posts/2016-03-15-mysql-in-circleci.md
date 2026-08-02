@@ -16,7 +16,7 @@ CircleCI に入ってる MySQLは 5.5 です。古いです。
 
 `machine.services` で Docker を使えるようにします。
 
-```yaml
+```yml
 machine:
   services:
     - "docker"
@@ -24,7 +24,7 @@ machine:
 
 `dependencies` あたりで MySQL を起動します。
 
-```yaml
+```yml
 dependencies:
   override:
     - docker run --detach --publish {port}:3306 --env MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:{version}
@@ -50,7 +50,7 @@ dependencies:
 あとは後続処理で自分用の DB やテーブルを作るなりテストするなり。
 もし mysql コマンドで繋ぐなら、こんな感じで接続できました。
 
-```yaml
+```yml
 test:
   override:
     - mysql --host=127.0.0.1 --port={port} --user=root --execute "select host, user from mysql.user"

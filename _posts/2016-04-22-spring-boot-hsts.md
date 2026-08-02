@@ -33,7 +33,7 @@ Spring Boot & Spring Security ベースの Web アプリケーションを
 
 [このへんの自動設定]: https://github.com/spring-projects/spring-boot/blob/v1.3.3.RELEASE/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/SpringBootWebSecurityConfiguration.java#L101-L106
 
-```yaml
+```yml
 security.headers.hsts: DOMAIN
   # NONE  : "Strict-Transport-Security" ヘッダを吐かない。
   # DOMAIN: "includeSubDomains" を付けない。
@@ -46,7 +46,7 @@ security.headers.hsts: DOMAIN
 ```java
 @Override
 protected void configure(HttpSecurity http) throws Exception {
-  http.headers().httpStrictTransportSecurity().includeSubDomains(false);
+    http.headers().httpStrictTransportSecurity().includeSubDomains(false);
 }
 ```
 

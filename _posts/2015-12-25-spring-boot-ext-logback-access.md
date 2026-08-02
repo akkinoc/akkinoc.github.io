@@ -87,9 +87,9 @@ Jetty ならこちら。
 
 ```xml
 <dependency>
-    <groupId>net.rakugakibox.springbootext</groupId>
-    <artifactId>spring-boot-ext-logback-access</artifactId>
-    <version>1.0</version>
+  <groupId>net.rakugakibox.springbootext</groupId>
+  <artifactId>spring-boot-ext-logback-access</artifactId>
+  <version>1.0</version>
 </dependency>
 ```
 
@@ -113,7 +113,7 @@ common パターンでコンソールに吐きだすだけならこんな感じ�
 
 `application.yml` 等でプロパティを調整すれば、ファイルパスは変更できます :)
 
-```yaml
+```yml
 logback.access.config: "classpath:your-logback-access.xml"
 ```
 

@@ -77,7 +77,7 @@ Offset 系, Zoned 系はあまり扱ったことがありません (^^;
 
 2) `application.yml` 等で Jackson のオプションをセット。
 
-```yaml
+```yml
 spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS: false
 ```
 
@@ -135,9 +135,9 @@ Java 標準で使える JAXB.
 
 ```java
 @XmlJavaTypeAdapters({
-  @XmlJavaTypeAdapter(value = LocalDateXmlAdapter.class, type = LocalDate.class),
-  @XmlJavaTypeAdapter(value = LocalTimeXmlAdapter.class, type = LocalTime.class),
-  @XmlJavaTypeAdapter(value = LocalDateTimeXmlAdapter.class, type = LocalDateTime.class)
+    @XmlJavaTypeAdapter(value = LocalDateXmlAdapter.class, type = LocalDate.class),
+    @XmlJavaTypeAdapter(value = LocalTimeXmlAdapter.class, type = LocalTime.class),
+    @XmlJavaTypeAdapter(value = LocalDateTimeXmlAdapter.class, type = LocalDateTime.class)
 })
 package your.pkg;
 ```
@@ -178,7 +178,7 @@ Spring Data JPA には `Jsr310JpaConverters` というクラスが
 ```java
 @SpringBootApplication
 @EntityScan(basePackageClasses = {
-  YourApplication.class, Jsr310JpaConverters.class
+    YourApplication.class, Jsr310JpaConverters.class
 })
 public class YourApplication {
 }
@@ -222,7 +222,7 @@ localhost に test スキーマがあること前提のコードです。
 ```java
 @Bean
 public IDialect java8TimeDialect() {
-  return new Java8TimeDialect();
+    return new Java8TimeDialect();
 }
 ```
 
@@ -242,7 +242,7 @@ public IDialect java8TimeDialect() {
 
 例えばこんな `application.yml` を書いて、
 
-```yaml
+```yml
 try-springboot-with-java8time:
   iso:
     date: "2015-12-04"
@@ -267,15 +267,15 @@ private LocalDateTime isoDateTime;
 ```java
 @Configuration
 public class ConversionServiceConfiguration {
-  @Bean
-  public ConversionService conversionService() {
-    FormattingConversionServiceFactoryBean factory = new FormattingConversionServiceFactoryBean();
-    DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
-    registrar.setUseIsoFormat(true);
-    factory.setFormatterRegistrars(Collections.singleton(registrar));
-    factory.afterPropertiesSet();
-    return factory.getObject();
-  }
+    @Bean
+    public ConversionService conversionService() {
+        FormattingConversionServiceFactoryBean factory = new FormattingConversionServiceFactoryBean();
+        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
+        registrar.setUseIsoFormat(true);
+        factory.setFormatterRegistrars(Collections.singleton(registrar));
+        factory.afterPropertiesSet();
+        return factory.getObject();
+    }
 }
 ```
 
@@ -315,23 +315,23 @@ MVC コントローラでは、特に何もしなくても Java 8 日時型で�
 ```java
 @RequestMapping("/hoge")
 public Map hoge(
-  @RequestParam(required = false)
-  LocalDate defaultDate,
-  @RequestParam(required = false)
-  LocalTime defaultTime,
-  @RequestParam(required = false)
-  LocalDateTime defaultDateTime,
-  @RequestParam(required = false)
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  LocalDate isoDate,
-  @RequestParam(required = false)
-  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-  LocalTime isoTime,
-  @RequestParam(required = false)
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  LocalDateTime isoDateTime
+    @RequestParam(required = false)
+    LocalDate defaultDate,
+    @RequestParam(required = false)
+    LocalTime defaultTime,
+    @RequestParam(required = false)
+    LocalDateTime defaultDateTime,
+    @RequestParam(required = false)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    LocalDate isoDate,
+    @RequestParam(required = false)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    LocalTime isoTime,
+    @RequestParam(required = false)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    LocalDateTime isoDateTime
 ) {
-  // ...
+    // ...
 }
 ```
 
@@ -341,12 +341,12 @@ public Map hoge(
 ```java
 @Configuration
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
-  @Override
-  public void addFormatters(FormatterRegistry registry) {
-    DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
-    registrar.setUseIsoFormat(true);
-    registrar.registerFormatters(registry);
-  }
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
+        registrar.setUseIsoFormat(true);
+        registrar.registerFormatters(registry);
+    }
 }
 ```
 

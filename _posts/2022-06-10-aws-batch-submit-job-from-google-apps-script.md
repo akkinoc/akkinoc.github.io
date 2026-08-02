@@ -46,7 +46,7 @@ GAS から AWS API を呼び出すための IAM ユーザを作成し、アク�
 
 発行したアクセスキーで `AWS.init` して、次のように `AWS.request` すれば OK。
 
-```javascript
+```js
 function DynamoDBPutItem() {
   const res = AWS.request(
     'batch',

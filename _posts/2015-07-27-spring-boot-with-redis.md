@@ -54,7 +54,7 @@ Redis サーバへ接続するための設定です。
 ここでは `application.yml` に書きました。
 `.properties` にするとか、 Java 実行パラメータ (`-D`) で渡すとかはお好みで。
 
-```yaml
+```yml
 spring.redis:
   host: localhost
   port: 6379
@@ -101,9 +101,9 @@ Redis アクセスには `StringRedisTemplate` を使います。
 ```java
 @Data
 public class Hoge {
-  private String string;
-  private List<String> list;
-  private Map<String, String> map;
+    private String string;
+    private List<String> list;
+    private Map<String, String> map;
 }
 ```
 
@@ -111,35 +111,35 @@ public class Hoge {
 @RestController @RequestMapping(value = "/hoge-string")
 public class HogeStringController {
 
-  @Autowired
-  private StringRedisTemplate redisTemplate;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
-  @RequestMapping(method = RequestMethod.PUT)
-  public void put(@RequestBody Hoge value) throws Exception {
-    redisTemplate.opsForValue()
-      .set("hoge-string:string", value.getString());
-    redisTemplate.delete("hoge-string:list");
-    redisTemplate.opsForList()
-      .rightPushAll("hoge-string:list", value.getList().toArray(new String[0]));
-    redisTemplate.delete("hoge-string:map");
-    redisTemplate.opsForHash()
-      .putAll("hoge-string:map", value.getMap());
-  }
+    @RequestMapping(method = RequestMethod.PUT)
+    public void put(@RequestBody Hoge value) throws Exception {
+        redisTemplate.opsForValue()
+            .set("hoge-string:string", value.getString());
+        redisTemplate.delete("hoge-string:list");
+        redisTemplate.opsForList()
+            .rightPushAll("hoge-string:list", value.getList().toArray(new String[0]));
+        redisTemplate.delete("hoge-string:map");
+        redisTemplate.opsForHash()
+            .putAll("hoge-string:map", value.getMap());
+    }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public Hoge get() throws Exception {
-    Hoge hoge = new Hoge();
-    hoge.setString(
-      redisTemplate.opsForValue().get("hoge-string:string")
-    );
-    hoge.setList(
-      redisTemplate.opsForList().range("hoge-string:list", 0, -1)
-    );
-    hoge.setMap(
-      redisTemplate.<String, String>opsForHash().entries("hoge-string:map")
-    );
-    return hoge;
-  }
+    @RequestMapping(method = RequestMethod.GET)
+    public Hoge get() throws Exception {
+        Hoge hoge = new Hoge();
+        hoge.setString(
+            redisTemplate.opsForValue().get("hoge-string:string")
+        );
+        hoge.setList(
+            redisTemplate.opsForList().range("hoge-string:list", 0, -1)
+        );
+        hoge.setMap(
+            redisTemplate.<String, String>opsForHash().entries("hoge-string:map")
+        );
+        return hoge;
+    }
 
 }
 ```
@@ -199,16 +199,16 @@ $ redis-cli
 ```java
 @Configuration
 public class RedisConfiguration {
-  @Bean
-  public RedisTemplate<String, Hoge> serialRedisTemplate(RedisConnectionFactory connectionFactory) {
-    RedisTemplate<String, Hoge> redisTemplate = new RedisTemplate<>();
-    redisTemplate.setConnectionFactory(connectionFactory);
-    redisTemplate.setKeySerializer(new StringRedisSerializer());
-    redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-    redisTemplate.setHashKeySerializer(redisTemplate.getKeySerializer());
-    redisTemplate.setHashValueSerializer(redisTemplate.getValueSerializer());
-    return redisTemplate;
-  }
+    @Bean
+    public RedisTemplate<String, Hoge> serialRedisTemplate(RedisConnectionFactory connectionFactory) {
+        RedisTemplate<String, Hoge> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(connectionFactory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+        redisTemplate.setHashKeySerializer(redisTemplate.getKeySerializer());
+        redisTemplate.setHashValueSerializer(redisTemplate.getValueSerializer());
+        return redisTemplate;
+    }
 }
 ```
 
@@ -218,7 +218,7 @@ public class RedisConfiguration {
 import java.io.Serializable;
 
 public class Hoge implements Serializable {
-  // ...
+    // ...
 }
 ```
 
@@ -230,18 +230,18 @@ public class Hoge implements Serializable {
 @RestController @RequestMapping(value = "/hoge-serial")
 public class HogeSerialController {
 
-  @Autowired @Qualifier("serialRedisTemplate")
-  private RedisTemplate<String, Hoge> redisTemplate;
+    @Autowired @Qualifier("serialRedisTemplate")
+    private RedisTemplate<String, Hoge> redisTemplate;
 
-  @RequestMapping(method = RequestMethod.PUT)
-  public void put(@RequestBody Hoge value) throws Exception {
-    redisTemplate.opsForValue().set("hoge-serial", value);
-  }
+    @RequestMapping(method = RequestMethod.PUT)
+    public void put(@RequestBody Hoge value) throws Exception {
+        redisTemplate.opsForValue().set("hoge-serial", value);
+    }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public Hoge get() throws Exception {
-    return redisTemplate.opsForValue().get("hoge-serial");
-  }
+    @RequestMapping(method = RequestMethod.GET)
+    public Hoge get() throws Exception {
+        return redisTemplate.opsForValue().get("hoge-serial");
+    }
 
 }
 ```
@@ -289,18 +289,18 @@ $ redis-cli
 @Configuration
 public class RedisConfiguration {
 
-  // ...
+    // ...
 
-  @Bean
-  public RedisTemplate<String, Hoge> jsonRedisTemplate(RedisConnectionFactory connectionFactory) {
-    RedisTemplate<String, Hoge> redisTemplate = new RedisTemplate<>();
-    redisTemplate.setConnectionFactory(connectionFactory);
-    redisTemplate.setKeySerializer(new StringRedisSerializer());
-    redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Hoge.class));
-    redisTemplate.setHashKeySerializer(redisTemplate.getKeySerializer());
-    redisTemplate.setHashValueSerializer(redisTemplate.getValueSerializer());
-    return redisTemplate;
-  }
+    @Bean
+    public RedisTemplate<String, Hoge> jsonRedisTemplate(RedisConnectionFactory connectionFactory) {
+        RedisTemplate<String, Hoge> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(connectionFactory);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Hoge.class));
+        redisTemplate.setHashKeySerializer(redisTemplate.getKeySerializer());
+        redisTemplate.setHashValueSerializer(redisTemplate.getValueSerializer());
+        return redisTemplate;
+    }
 
 }
 ```
@@ -311,18 +311,18 @@ public class RedisConfiguration {
 @RestController @RequestMapping(value = "/hoge-json")
 public class HogeJsonController {
 
-  @Autowired @Qualifier("jsonRedisTemplate")
-  private RedisTemplate<String, Hoge> redisTemplate;
+    @Autowired @Qualifier("jsonRedisTemplate")
+    private RedisTemplate<String, Hoge> redisTemplate;
 
-  @RequestMapping(method = RequestMethod.PUT)
-  public void put(@RequestBody Hoge value) throws Exception {
-    redisTemplate.opsForValue().set("hoge-json", value);
-  }
+    @RequestMapping(method = RequestMethod.PUT)
+    public void put(@RequestBody Hoge value) throws Exception {
+        redisTemplate.opsForValue().set("hoge-json", value);
+    }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public Hoge get() throws Exception {
-    return redisTemplate.opsForValue().get("hoge-json");
-  }
+    @RequestMapping(method = RequestMethod.GET)
+    public Hoge get() throws Exception {
+        return redisTemplate.opsForValue().get("hoge-json");
+    }
 
 }
 ```

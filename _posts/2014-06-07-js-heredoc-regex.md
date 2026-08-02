@@ -20,7 +20,7 @@ JavaScript でヒアドキュメントするページで見つけた、
 - [Multi-line strings in JavaScript and Node.js - Tomek on Software](http://tomasz.janczuk.org/2013/05/multi-line-strings-in-javascript-and.html)
 - [Javascript でヒアドキュメント - Qiita](http://qiita.com/_shimizu/items/837b529de9f3302e315c)
 
-```javascript
+```js
 (function () {/*
 <div class="title">
   <h1>
@@ -43,7 +43,7 @@ JavaScript でヒアドキュメントするページで見つけた、
 ドット `.` は改行を除く一文字。
 `[^]` では改行は除かれないようだ。
 
-```javascript
+```js
 // Chrome で確認
 /./.test("\n");    // => false
 /./.test("\r");    // => false
@@ -57,7 +57,7 @@ JavaScript でヒアドキュメントするページで見つけた、
 
 [JavaScript で改行にもマッチする正規表現](https://os0x.g.hatena.ne.jp/os0x/20080213/1202900650)
 
-```javascript
+```js
 // Chrome で確認
 /[\s\S]/.test("\n");  // => true
 /[\s\S]/.test("\r");  // => true

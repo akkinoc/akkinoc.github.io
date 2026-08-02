@@ -136,7 +136,7 @@ GAS から AWS API を直接呼び出す方法は前回の記事に書いた。
 コードはこんな感じ (`AWS.init` は済んでる前提)。
 ついでに DetectEntities (エンティティ検出) も書いておく。
 
-```javascript
+```js
 function detectKeyPhrases(lang, text) {
   var req = {
     service: "comprehend",

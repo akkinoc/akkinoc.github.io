@@ -32,7 +32,7 @@ Java 8 対応のバージョンになるのも時間の問題だろうけど、
 
 ```java
 private void hoge() {
-  Runnable run = () -> System.out.println("");
+    Runnable run = () -> System.out.println("");
 }
 ```
 

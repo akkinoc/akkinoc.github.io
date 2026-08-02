@@ -18,7 +18,7 @@ Markdown で表を組むとき、
 こんなやつ。
 1セルだけ文字数が長くなったりすると、列幅を全部揃えたりするのが面倒。
 
-```markdown
+```md
 |   col1   |   col2   |   col3   |
 |----------|----------|----------|
 | cell 1-1 | cell 1-2 | cell 1-3 |
@@ -49,7 +49,7 @@ Markdown で表を組むとき、
 
 こんな中途半端で整ってない表でも、
 
-```markdown
+```md
 |col1|col2|col3
 |--
 |cell 1-1 |
@@ -60,7 +60,7 @@ Markdown で表を組むとき、
 表内で Tab キー押すだけで綺麗に揃えてくれる。嬉しい。
 全角文字も基本2文字カウントである程度は大丈夫だった。
 
-```markdown
+```md
 |          col1         |   col2   |   col3   |
 |-----------------------|----------|----------|
 | cell 1-1              |          |          |
@@ -74,7 +74,7 @@ CSV を表に一発変換してくれるのも地味に嬉しかった。
 
 CSV を選択して、
 
-```markdown
+```md
 cell 1-1,,
 せる2-1,"cell 2-2",
 "ceeeeeeeeeeeeeeel 3-1",cell 3-2,cell 3-3
@@ -82,7 +82,7 @@ cell 1-1,,
 
 Ctrl+K -> '\|' (Shift+\\) でさくっと変換。
 
-```markdown
+```md
 | cell 1-1              |          |          |
 | せる2-1               | cell 2-2 |          |
 | ceeeeeeeeeeeeeeel 3-1 | cell 3-2 | cell 3-3 |

@@ -17,7 +17,7 @@ header:
 こんなファンクションを作る。
 リトライ回数を変えたい場合は `{1..3}` を調整する。
 
-```shell
+```sh
 function retryable() {
   for i in {1..3}; do
     "$@" && break

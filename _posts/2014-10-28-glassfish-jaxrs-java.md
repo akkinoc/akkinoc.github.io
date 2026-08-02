@@ -187,28 +187,28 @@ import javax.ws.rs.core.UriInfo;
 @Path("/hoges")
 public class HogeResource {
 
-  private static List<HogeData> store = new ArrayList<HogeData>();
+    private static List<HogeData> store = new ArrayList<HogeData>();
 
-  @Context
-  private UriInfo uriInfo;
+    @Context
+    private UriInfo uriInfo;
 
-  @POST
-  public Response post(@BeanParam HogeData data) {
-    store.add(data);
-    URI uri = uriInfo.getAbsolutePathBuilder().path("{id}").build(store.size());
-    return Response.created(uri).entity(data).build();
-  }
+    @POST
+    public Response post(@BeanParam HogeData data) {
+        store.add(data);
+        URI uri = uriInfo.getAbsolutePathBuilder().path("{id}").build(store.size());
+        return Response.created(uri).entity(data).build();
+    }
 
-  @GET
-  public List<HogeData> get() {
-    return store;
-  }
+    @GET
+    public List<HogeData> get() {
+        return store;
+    }
 
-  @GET
-  @Path("/{id}")
-  public HogeData get(@PathParam("id") int id) {
-    return store.get(id - 1);
-  }
+    @GET
+    @Path("/{id}")
+    public HogeData get(@PathParam("id") int id) {
+        return store.get(id - 1);
+    }
 
 }
 ```
@@ -236,14 +236,14 @@ import lombok.Data;
 @XmlRootElement
 public class HogeData {
 
-  @FormParam("integer")
-  private Integer integer;
+    @FormParam("integer")
+    private Integer integer;
 
-  @FormParam("string")
-  private String string;
+    @FormParam("string")
+    private String string;
 
-  @FormParam("strings")
-  private List<String> strings;
+    @FormParam("strings")
+    private List<String> strings;
 
 }
 ```

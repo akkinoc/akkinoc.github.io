@@ -18,7 +18,7 @@ jQuery の delegate/live というものを今更ながら知った。
 
 ごちゃごちゃ。
 
-```javascript
+```js
 $(window).click(function(event) {
   var target = $(event.target);
   if (!target.is("a")) {
@@ -34,7 +34,7 @@ $(window).click(function(event) {
 
 すっきり :)
 
-```javascript
+```js
 $(document).on("click",
   "a[href^=http]:not([target]):not([href*='" + location.hostname + "'])",
   function(event) { $(event.currentTarget).attr("target", "_blank") }
