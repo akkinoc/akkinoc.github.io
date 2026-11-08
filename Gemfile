@@ -6,7 +6,7 @@ gem "numo-linalg", "~> 0.1"
 gem "numo-narray", "~> 0.9"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
-  gem "jekyll-include-cache", "~> 0.2"
+  gem "jekyll-include-cache", "~> 0.3"
   gem "jekyll-last-modified-at", "~> 1.3"
   gem "jekyll-minifier", "~> 0.2"
   gem "jekyll-paginate", "~> 1.1"
